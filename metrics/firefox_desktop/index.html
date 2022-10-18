@@ -1,0 +1,6312 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Metric Definitions">
+      
+      
+        <meta name="author" content="Mozilla Data Platform Team">
+      
+      
+      <link rel="icon" href="../../favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.8">
+    
+    
+      
+        <title>Firefox desktop - Metric Hub</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.644de097.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#009485">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="teal" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#metric-hub" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Metric Hub" class="md-header__button md-logo" aria-label="Metric Hub" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Metric Hub
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Firefox desktop
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mozilla/metric-hub/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    mozilla/metric-hub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../outcomes/fenix/default-browser/" class="md-tabs__link">
+        Outcomes
+      </a>
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../fenix/" class="md-tabs__link md-tabs__link--active">
+        Metrics
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../data_sources/fenix/" class="md-tabs__link">
+        Data Sources
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../segments/firefox_desktop/" class="md-tabs__link">
+        Segments
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../segment_data_sources/firefox_desktop/" class="md-tabs__link">
+        Segment Data Sources
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../dimensions/firefox_desktop/" class="md-tabs__link">
+        Dimensions
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../default_configs/cfr_metrics/" class="md-tabs__link">
+        Default Configs
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../functions/" class="md-tabs__link">
+        Functions
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Metric Hub" class="md-nav__button md-logo" aria-label="Metric Hub" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Metric Hub
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mozilla/metric-hub/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    mozilla/metric-hub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Outcomes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Outcomes" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Outcomes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          Outcomes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Outcomes" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Outcomes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1_1" type="checkbox" id="__nav_2_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_1">
+          Fenix
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Fenix" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Fenix
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../outcomes/fenix/default-browser/" class="md-nav__link">
+        Default browser
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../outcomes/fenix/mr_2022/" class="md-nav__link">
+        Mr 2022
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../outcomes/fenix/pocket/" class="md-nav__link">
+        Pocket
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../outcomes/fenix/sponsored_tiles/" class="md-nav__link">
+        Sponsored tiles
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1_2" type="checkbox" id="__nav_2_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_2">
+          Firefox desktop
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Firefox desktop" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Firefox desktop
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../outcomes/firefox_desktop/firefox_suggest/" class="md-nav__link">
+        Firefox suggest
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../outcomes/firefox_desktop/newtab_visibility/" class="md-nav__link">
+        Newtab visibility
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../outcomes/firefox_desktop/page_load_performance/" class="md-nav__link">
+        Page load performance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../outcomes/firefox_desktop/picture_in_picture/" class="md-nav__link">
+        Picture in picture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../outcomes/firefox_desktop/pocket_newtab/" class="md-nav__link">
+        Pocket newtab
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../outcomes/firefox_desktop/reader_mode/" class="md-nav__link">
+        Reader mode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../outcomes/firefox_desktop/spotlight_engagement/" class="md-nav__link">
+        Spotlight engagement
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1_3" type="checkbox" id="__nav_2_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_3">
+          Firefox ios
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Firefox ios" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Firefox ios
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../outcomes/firefox_ios/default_browser/" class="md-nav__link">
+        Default browser
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../outcomes/firefox_ios/mr_2022/" class="md-nav__link">
+        Mr 2022
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../outcomes/firefox_ios/pocket/" class="md-nav__link">
+        Pocket
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../outcomes/firefox_ios/sponsored_tiles/" class="md-nav__link">
+        Sponsored tiles
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Metrics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Metrics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Metrics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          Metrics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Metrics" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Metrics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fenix/" class="md-nav__link">
+        Fenix
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Firefox desktop
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Firefox desktop
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metric-hub" class="md-nav__link">
+    metric-hub
+  </a>
+  
+    <nav class="md-nav" aria-label="metric-hub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#active_hours" class="md-nav__link">
+    active_hours
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uri_count" class="md-nav__link">
+    uri_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search_count" class="md-nav__link">
+    search_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tagged_search_count" class="md-nav__link">
+    tagged_search_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tagged_follow_on_search_count" class="md-nav__link">
+    tagged_follow_on_search_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ad_clicks" class="md-nav__link">
+    ad_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#searches_with_ads" class="md-nav__link">
+    searches_with_ads
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organic_search_count" class="md-nav__link">
+    organic_search_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unenroll" class="md-nav__link">
+    unenroll
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view_about_logins" class="md-nav__link">
+    view_about_logins
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view_about_protections" class="md-nav__link">
+    view_about_protections
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect_fxa" class="md-nav__link">
+    connect_fxa
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pocket_rec_clicks" class="md-nav__link">
+    pocket_rec_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pocket_spoc_clicks" class="md-nav__link">
+    pocket_spoc_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#days_of_use" class="md-nav__link">
+    days_of_use
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qualified_cumulative_days_of_use" class="md-nav__link">
+    qualified_cumulative_days_of_use
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable_pocket_clicks" class="md-nav__link">
+    disable_pocket_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable_pocket_spocs_clicks" class="md-nav__link">
+    disable_pocket_spocs_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content_shutdown_crashes" class="md-nav__link">
+    content_shutdown_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content_crashes" class="md-nav__link">
+    content_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shutdown_hangs" class="md-nav__link">
+    shutdown_hangs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oom_crashes" class="md-nav__link">
+    oom_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main_crashes" class="md-nav__link">
+    main_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startup_crashes" class="md-nav__link">
+    startup_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gmplugin_crashes" class="md-nav__link">
+    gmplugin_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpu_crashes" class="md-nav__link">
+    gpu_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugin_crashes" class="md-nav__link">
+    plugin_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#child_process_launch_ms" class="md-nav__link">
+    child_process_launch_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content_process_count" class="md-nav__link">
+    content_process_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content_process_max" class="md-nav__link">
+    content_process_max
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checkerboard_severity" class="md-nav__link">
+    checkerboard_severity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content_frame_time_vsync" class="md-nav__link">
+    content_frame_time_vsync
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fx_new_window_ms" class="md-nav__link">
+    fx_new_window_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fx_tab_switch_composite_e10s_ms" class="md-nav__link">
+    fx_tab_switch_composite_e10s_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keypress_present_latency_ms" class="md-nav__link">
+    keypress_present_latency_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory_total" class="md-nav__link">
+    memory_total
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cycle_collector_max_pause" class="md-nav__link">
+    cycle_collector_max_pause
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cycle_collector_max_pause_content" class="md-nav__link">
+    cycle_collector_max_pause_content
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_max_pause_2" class="md-nav__link">
+    gc_max_pause_2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_max_pause_2_content" class="md-nav__link">
+    gc_max_pause_2_content
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_ms" class="md-nav__link">
+    gc_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_ms_content" class="md-nav__link">
+    gc_ms_content
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_slice_during_idle" class="md-nav__link">
+    gc_slice_during_idle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_slice_during_idle_content" class="md-nav__link">
+    gc_slice_during_idle_content
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_non_incremental" class="md-nav__link">
+    gc_non_incremental
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_reason_2" class="md-nav__link">
+    gc_reason_2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_mark_rate_2" class="md-nav__link">
+    gc_mark_rate_2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_budget_overrun" class="md-nav__link">
+    gc_budget_overrun
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory_unique_content_startup" class="md-nav__link">
+    memory_unique_content_startup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perf_first_contentful_paint_ms" class="md-nav__link">
+    perf_first_contentful_paint_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time_to_first_interaction_ms" class="md-nav__link">
+    time_to_first_interaction_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perf_page_load_time_ms" class="md-nav__link">
+    perf_page_load_time_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loaded_tab_count" class="md-nav__link">
+    loaded_tab_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#active_ticks" class="md-nav__link">
+    active_ticks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subsession_length" class="md-nav__link">
+    subsession_length
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tab_pinned_event_count" class="md-nav__link">
+    tab_pinned_event_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tab_open_event_count" class="md-nav__link">
+    tab_open_event_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tab_unload_to_reload" class="md-nav__link">
+    tab_unload_to_reload
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tab_reload_count" class="md-nav__link">
+    tab_reload_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tab_unload_count" class="md-nav__link">
+    tab_unload_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concurrent_pinned_tab_count" class="md-nav__link">
+    concurrent_pinned_tab_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concurrent_opened_tab_count" class="md-nav__link">
+    concurrent_opened_tab_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opened_tab_count" class="md-nav__link">
+    opened_tab_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_pageload_xdr_encoding_ms" class="md-nav__link">
+    js_pageload_xdr_encoding_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_pageload_protect_ms" class="md-nav__link">
+    js_pageload_protect_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_pageload_parse_ms" class="md-nav__link">
+    js_pageload_parse_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_pageload_execution_ms" class="md-nav__link">
+    js_pageload_execution_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_pageload_delazification_ms" class="md-nav__link">
+    js_pageload_delazification_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_pageload_baseline_compile_ms" class="md-nav__link">
+    js_pageload_baseline_compile_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input_event_response_ms" class="md-nav__link">
+    input_event_response_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory_pressure_count" class="md-nav__link">
+    memory_pressure_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search_with_ads" class="md-nav__link">
+    search_with_ads
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ad_click" class="md-nav__link">
+    ad_click
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sap" class="md-nav__link">
+    sap
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ad_click_organic" class="md-nav__link">
+    ad_click_organic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search_with_ads_organic" class="md-nav__link">
+    search_with_ads_organic
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overrides-from-opmon-config" class="md-nav__link">
+    Overrides from opmon-config
+  </a>
+  
+    <nav class="md-nav" aria-label="Overrides from opmon-config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#content_shutdown_crashes_1" class="md-nav__link">
+    content_shutdown_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content_crashes_1" class="md-nav__link">
+    content_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shutdown_hangs_1" class="md-nav__link">
+    shutdown_hangs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oom_crashes_1" class="md-nav__link">
+    oom_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main_crashes_1" class="md-nav__link">
+    main_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startup_crashes_1" class="md-nav__link">
+    startup_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gmplugin_crashes_1" class="md-nav__link">
+    gmplugin_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpu_crashes_1" class="md-nav__link">
+    gpu_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugin_crashes_1" class="md-nav__link">
+    plugin_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#child_process_launch_ms_1" class="md-nav__link">
+    child_process_launch_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content_process_count_1" class="md-nav__link">
+    content_process_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content_process_max_1" class="md-nav__link">
+    content_process_max
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checkerboard_severity_1" class="md-nav__link">
+    checkerboard_severity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content_frame_time_vsync_1" class="md-nav__link">
+    content_frame_time_vsync
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fx_new_window_ms_1" class="md-nav__link">
+    fx_new_window_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fx_tab_switch_composite_e10s_ms_1" class="md-nav__link">
+    fx_tab_switch_composite_e10s_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keypress_present_latency_ms_1" class="md-nav__link">
+    keypress_present_latency_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory_total_1" class="md-nav__link">
+    memory_total
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cycle_collector_max_pause_1" class="md-nav__link">
+    cycle_collector_max_pause
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cycle_collector_max_pause_content_1" class="md-nav__link">
+    cycle_collector_max_pause_content
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_max_pause_3" class="md-nav__link">
+    gc_max_pause_2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_max_pause_2_content_1" class="md-nav__link">
+    gc_max_pause_2_content
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_ms_1" class="md-nav__link">
+    gc_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_ms_content_1" class="md-nav__link">
+    gc_ms_content
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_slice_during_idle_1" class="md-nav__link">
+    gc_slice_during_idle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_slice_during_idle_content_1" class="md-nav__link">
+    gc_slice_during_idle_content
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_non_incremental_1" class="md-nav__link">
+    gc_non_incremental
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_reason_3" class="md-nav__link">
+    gc_reason_2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_mark_rate_3" class="md-nav__link">
+    gc_mark_rate_2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_budget_overrun_1" class="md-nav__link">
+    gc_budget_overrun
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory_unique_content_startup_1" class="md-nav__link">
+    memory_unique_content_startup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perf_first_contentful_paint_ms_1" class="md-nav__link">
+    perf_first_contentful_paint_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time_to_first_interaction_ms_1" class="md-nav__link">
+    time_to_first_interaction_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perf_page_load_time_ms_1" class="md-nav__link">
+    perf_page_load_time_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loaded_tab_count_1" class="md-nav__link">
+    loaded_tab_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#active_ticks_1" class="md-nav__link">
+    active_ticks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subsession_length_1" class="md-nav__link">
+    subsession_length
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uri_count_1" class="md-nav__link">
+    uri_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tab_pinned_event_count_1" class="md-nav__link">
+    tab_pinned_event_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tab_open_event_count_1" class="md-nav__link">
+    tab_open_event_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tab_unload_to_reload_1" class="md-nav__link">
+    tab_unload_to_reload
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tab_reload_count_1" class="md-nav__link">
+    tab_reload_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tab_unload_count_1" class="md-nav__link">
+    tab_unload_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concurrent_pinned_tab_count_1" class="md-nav__link">
+    concurrent_pinned_tab_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concurrent_opened_tab_count_1" class="md-nav__link">
+    concurrent_opened_tab_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opened_tab_count_1" class="md-nav__link">
+    opened_tab_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_pageload_xdr_encoding_ms_1" class="md-nav__link">
+    js_pageload_xdr_encoding_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_pageload_protect_ms_1" class="md-nav__link">
+    js_pageload_protect_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_pageload_parse_ms_1" class="md-nav__link">
+    js_pageload_parse_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_pageload_execution_ms_1" class="md-nav__link">
+    js_pageload_execution_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_pageload_delazification_ms_1" class="md-nav__link">
+    js_pageload_delazification_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_pageload_baseline_compile_ms_1" class="md-nav__link">
+    js_pageload_baseline_compile_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input_event_response_ms_1" class="md-nav__link">
+    input_event_response_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory_pressure_count_1" class="md-nav__link">
+    memory_pressure_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tagged_search_count_1" class="md-nav__link">
+    tagged_search_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tagged_follow_on_search_count_1" class="md-nav__link">
+    tagged_follow_on_search_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search_with_ads_1" class="md-nav__link">
+    search_with_ads
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ad_click_1" class="md-nav__link">
+    ad_click
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organic_search_count_1" class="md-nav__link">
+    organic_search_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sap_1" class="md-nav__link">
+    sap
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ad_click_organic_1" class="md-nav__link">
+    ad_click_organic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search_with_ads_organic_1" class="md-nav__link">
+    search_with_ads_organic
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overrides-from-jetstream-config" class="md-nav__link">
+    Overrides from jetstream-config
+  </a>
+  
+    <nav class="md-nav" aria-label="Overrides from jetstream-config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#active_hours_1" class="md-nav__link">
+    active_hours
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uri_count_2" class="md-nav__link">
+    uri_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search_count_1" class="md-nav__link">
+    search_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tagged_search_count_2" class="md-nav__link">
+    tagged_search_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tagged_follow_on_search_count_2" class="md-nav__link">
+    tagged_follow_on_search_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ad_clicks_1" class="md-nav__link">
+    ad_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#searches_with_ads_1" class="md-nav__link">
+    searches_with_ads
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organic_search_count_2" class="md-nav__link">
+    organic_search_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unenroll_1" class="md-nav__link">
+    unenroll
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view_about_logins_1" class="md-nav__link">
+    view_about_logins
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view_about_protections_1" class="md-nav__link">
+    view_about_protections
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect_fxa_1" class="md-nav__link">
+    connect_fxa
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pocket_rec_clicks_1" class="md-nav__link">
+    pocket_rec_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pocket_spoc_clicks_1" class="md-nav__link">
+    pocket_spoc_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#days_of_use_1" class="md-nav__link">
+    days_of_use
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qualified_cumulative_days_of_use_1" class="md-nav__link">
+    qualified_cumulative_days_of_use
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable_pocket_clicks_1" class="md-nav__link">
+    disable_pocket_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable_pocket_spocs_clicks_1" class="md-nav__link">
+    disable_pocket_spocs_clicks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../firefox_ios/" class="md-nav__link">
+        Firefox ios
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../focus_android/" class="md-nav__link">
+        Focus android
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../focus_ios/" class="md-nav__link">
+        Focus ios
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functions/" class="md-nav__link">
+        Functions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../klar_android/" class="md-nav__link">
+        Klar android
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../klar_ios/" class="md-nav__link">
+        Klar ios
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Data Sources
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Data Sources" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Data Sources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_1">
+          Data sources
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Data sources" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Data sources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_sources/fenix/" class="md-nav__link">
+        Fenix
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_sources/firefox_desktop/" class="md-nav__link">
+        Firefox desktop
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_sources/firefox_ios/" class="md-nav__link">
+        Firefox ios
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_sources/focus_android/" class="md-nav__link">
+        Focus android
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_sources/focus_ios/" class="md-nav__link">
+        Focus ios
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_sources/functions/" class="md-nav__link">
+        Functions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_sources/klar_android/" class="md-nav__link">
+        Klar android
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_sources/klar_ios/" class="md-nav__link">
+        Klar ios
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Segments
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Segments" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Segments
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1">
+          Segments
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Segments" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Segments
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../segments/firefox_desktop/" class="md-nav__link">
+        Firefox desktop
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Segment Data Sources
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Segment Data Sources" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Segment Data Sources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1" type="checkbox" id="__nav_6_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_1">
+          Segment data sources
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Segment data sources" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          Segment data sources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../segment_data_sources/firefox_desktop/" class="md-nav__link">
+        Firefox desktop
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Dimensions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Dimensions" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Dimensions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_1" type="checkbox" id="__nav_7_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_1">
+          Dimensions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Dimensions" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_1">
+          <span class="md-nav__icon md-icon"></span>
+          Dimensions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dimensions/firefox_desktop/" class="md-nav__link">
+        Firefox desktop
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Default Configs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Default Configs" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Default Configs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1" type="checkbox" id="__nav_8_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1">
+          Default configs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Default configs" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_1">
+          <span class="md-nav__icon md-icon"></span>
+          Default configs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../default_configs/cfr_metrics/" class="md-nav__link">
+        Cfr metrics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../default_configs/fenix/" class="md-nav__link">
+        Fenix
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../default_configs/firefox_desktop/" class="md-nav__link">
+        Firefox desktop
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../default_configs/firefox_ios/" class="md-nav__link">
+        Firefox ios
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../default_configs/focus_android/" class="md-nav__link">
+        Focus android
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../default_configs/focus_ios/" class="md-nav__link">
+        Focus ios
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../default_configs/klar_android/" class="md-nav__link">
+        Klar android
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../default_configs/klar_ios/" class="md-nav__link">
+        Klar ios
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../default_configs/messaging/" class="md-nav__link">
+        Messaging
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../default_configs/rollout/" class="md-nav__link">
+        Rollout
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Functions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Functions" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Functions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../functions/" class="md-nav__link">
+        Functions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metric-hub" class="md-nav__link">
+    metric-hub
+  </a>
+  
+    <nav class="md-nav" aria-label="metric-hub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#active_hours" class="md-nav__link">
+    active_hours
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uri_count" class="md-nav__link">
+    uri_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search_count" class="md-nav__link">
+    search_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tagged_search_count" class="md-nav__link">
+    tagged_search_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tagged_follow_on_search_count" class="md-nav__link">
+    tagged_follow_on_search_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ad_clicks" class="md-nav__link">
+    ad_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#searches_with_ads" class="md-nav__link">
+    searches_with_ads
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organic_search_count" class="md-nav__link">
+    organic_search_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unenroll" class="md-nav__link">
+    unenroll
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view_about_logins" class="md-nav__link">
+    view_about_logins
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view_about_protections" class="md-nav__link">
+    view_about_protections
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect_fxa" class="md-nav__link">
+    connect_fxa
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pocket_rec_clicks" class="md-nav__link">
+    pocket_rec_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pocket_spoc_clicks" class="md-nav__link">
+    pocket_spoc_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#days_of_use" class="md-nav__link">
+    days_of_use
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qualified_cumulative_days_of_use" class="md-nav__link">
+    qualified_cumulative_days_of_use
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable_pocket_clicks" class="md-nav__link">
+    disable_pocket_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable_pocket_spocs_clicks" class="md-nav__link">
+    disable_pocket_spocs_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content_shutdown_crashes" class="md-nav__link">
+    content_shutdown_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content_crashes" class="md-nav__link">
+    content_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shutdown_hangs" class="md-nav__link">
+    shutdown_hangs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oom_crashes" class="md-nav__link">
+    oom_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main_crashes" class="md-nav__link">
+    main_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startup_crashes" class="md-nav__link">
+    startup_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gmplugin_crashes" class="md-nav__link">
+    gmplugin_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpu_crashes" class="md-nav__link">
+    gpu_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugin_crashes" class="md-nav__link">
+    plugin_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#child_process_launch_ms" class="md-nav__link">
+    child_process_launch_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content_process_count" class="md-nav__link">
+    content_process_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content_process_max" class="md-nav__link">
+    content_process_max
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checkerboard_severity" class="md-nav__link">
+    checkerboard_severity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content_frame_time_vsync" class="md-nav__link">
+    content_frame_time_vsync
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fx_new_window_ms" class="md-nav__link">
+    fx_new_window_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fx_tab_switch_composite_e10s_ms" class="md-nav__link">
+    fx_tab_switch_composite_e10s_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keypress_present_latency_ms" class="md-nav__link">
+    keypress_present_latency_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory_total" class="md-nav__link">
+    memory_total
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cycle_collector_max_pause" class="md-nav__link">
+    cycle_collector_max_pause
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cycle_collector_max_pause_content" class="md-nav__link">
+    cycle_collector_max_pause_content
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_max_pause_2" class="md-nav__link">
+    gc_max_pause_2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_max_pause_2_content" class="md-nav__link">
+    gc_max_pause_2_content
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_ms" class="md-nav__link">
+    gc_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_ms_content" class="md-nav__link">
+    gc_ms_content
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_slice_during_idle" class="md-nav__link">
+    gc_slice_during_idle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_slice_during_idle_content" class="md-nav__link">
+    gc_slice_during_idle_content
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_non_incremental" class="md-nav__link">
+    gc_non_incremental
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_reason_2" class="md-nav__link">
+    gc_reason_2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_mark_rate_2" class="md-nav__link">
+    gc_mark_rate_2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_budget_overrun" class="md-nav__link">
+    gc_budget_overrun
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory_unique_content_startup" class="md-nav__link">
+    memory_unique_content_startup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perf_first_contentful_paint_ms" class="md-nav__link">
+    perf_first_contentful_paint_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time_to_first_interaction_ms" class="md-nav__link">
+    time_to_first_interaction_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perf_page_load_time_ms" class="md-nav__link">
+    perf_page_load_time_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loaded_tab_count" class="md-nav__link">
+    loaded_tab_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#active_ticks" class="md-nav__link">
+    active_ticks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subsession_length" class="md-nav__link">
+    subsession_length
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tab_pinned_event_count" class="md-nav__link">
+    tab_pinned_event_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tab_open_event_count" class="md-nav__link">
+    tab_open_event_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tab_unload_to_reload" class="md-nav__link">
+    tab_unload_to_reload
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tab_reload_count" class="md-nav__link">
+    tab_reload_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tab_unload_count" class="md-nav__link">
+    tab_unload_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concurrent_pinned_tab_count" class="md-nav__link">
+    concurrent_pinned_tab_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concurrent_opened_tab_count" class="md-nav__link">
+    concurrent_opened_tab_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opened_tab_count" class="md-nav__link">
+    opened_tab_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_pageload_xdr_encoding_ms" class="md-nav__link">
+    js_pageload_xdr_encoding_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_pageload_protect_ms" class="md-nav__link">
+    js_pageload_protect_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_pageload_parse_ms" class="md-nav__link">
+    js_pageload_parse_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_pageload_execution_ms" class="md-nav__link">
+    js_pageload_execution_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_pageload_delazification_ms" class="md-nav__link">
+    js_pageload_delazification_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_pageload_baseline_compile_ms" class="md-nav__link">
+    js_pageload_baseline_compile_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input_event_response_ms" class="md-nav__link">
+    input_event_response_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory_pressure_count" class="md-nav__link">
+    memory_pressure_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search_with_ads" class="md-nav__link">
+    search_with_ads
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ad_click" class="md-nav__link">
+    ad_click
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sap" class="md-nav__link">
+    sap
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ad_click_organic" class="md-nav__link">
+    ad_click_organic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search_with_ads_organic" class="md-nav__link">
+    search_with_ads_organic
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overrides-from-opmon-config" class="md-nav__link">
+    Overrides from opmon-config
+  </a>
+  
+    <nav class="md-nav" aria-label="Overrides from opmon-config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#content_shutdown_crashes_1" class="md-nav__link">
+    content_shutdown_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content_crashes_1" class="md-nav__link">
+    content_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shutdown_hangs_1" class="md-nav__link">
+    shutdown_hangs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oom_crashes_1" class="md-nav__link">
+    oom_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main_crashes_1" class="md-nav__link">
+    main_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startup_crashes_1" class="md-nav__link">
+    startup_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gmplugin_crashes_1" class="md-nav__link">
+    gmplugin_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpu_crashes_1" class="md-nav__link">
+    gpu_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugin_crashes_1" class="md-nav__link">
+    plugin_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#child_process_launch_ms_1" class="md-nav__link">
+    child_process_launch_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content_process_count_1" class="md-nav__link">
+    content_process_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content_process_max_1" class="md-nav__link">
+    content_process_max
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checkerboard_severity_1" class="md-nav__link">
+    checkerboard_severity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content_frame_time_vsync_1" class="md-nav__link">
+    content_frame_time_vsync
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fx_new_window_ms_1" class="md-nav__link">
+    fx_new_window_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fx_tab_switch_composite_e10s_ms_1" class="md-nav__link">
+    fx_tab_switch_composite_e10s_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keypress_present_latency_ms_1" class="md-nav__link">
+    keypress_present_latency_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory_total_1" class="md-nav__link">
+    memory_total
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cycle_collector_max_pause_1" class="md-nav__link">
+    cycle_collector_max_pause
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cycle_collector_max_pause_content_1" class="md-nav__link">
+    cycle_collector_max_pause_content
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_max_pause_3" class="md-nav__link">
+    gc_max_pause_2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_max_pause_2_content_1" class="md-nav__link">
+    gc_max_pause_2_content
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_ms_1" class="md-nav__link">
+    gc_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_ms_content_1" class="md-nav__link">
+    gc_ms_content
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_slice_during_idle_1" class="md-nav__link">
+    gc_slice_during_idle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_slice_during_idle_content_1" class="md-nav__link">
+    gc_slice_during_idle_content
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_non_incremental_1" class="md-nav__link">
+    gc_non_incremental
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_reason_3" class="md-nav__link">
+    gc_reason_2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_mark_rate_3" class="md-nav__link">
+    gc_mark_rate_2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_budget_overrun_1" class="md-nav__link">
+    gc_budget_overrun
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory_unique_content_startup_1" class="md-nav__link">
+    memory_unique_content_startup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perf_first_contentful_paint_ms_1" class="md-nav__link">
+    perf_first_contentful_paint_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time_to_first_interaction_ms_1" class="md-nav__link">
+    time_to_first_interaction_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perf_page_load_time_ms_1" class="md-nav__link">
+    perf_page_load_time_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loaded_tab_count_1" class="md-nav__link">
+    loaded_tab_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#active_ticks_1" class="md-nav__link">
+    active_ticks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subsession_length_1" class="md-nav__link">
+    subsession_length
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uri_count_1" class="md-nav__link">
+    uri_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tab_pinned_event_count_1" class="md-nav__link">
+    tab_pinned_event_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tab_open_event_count_1" class="md-nav__link">
+    tab_open_event_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tab_unload_to_reload_1" class="md-nav__link">
+    tab_unload_to_reload
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tab_reload_count_1" class="md-nav__link">
+    tab_reload_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tab_unload_count_1" class="md-nav__link">
+    tab_unload_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concurrent_pinned_tab_count_1" class="md-nav__link">
+    concurrent_pinned_tab_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concurrent_opened_tab_count_1" class="md-nav__link">
+    concurrent_opened_tab_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opened_tab_count_1" class="md-nav__link">
+    opened_tab_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_pageload_xdr_encoding_ms_1" class="md-nav__link">
+    js_pageload_xdr_encoding_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_pageload_protect_ms_1" class="md-nav__link">
+    js_pageload_protect_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_pageload_parse_ms_1" class="md-nav__link">
+    js_pageload_parse_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_pageload_execution_ms_1" class="md-nav__link">
+    js_pageload_execution_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_pageload_delazification_ms_1" class="md-nav__link">
+    js_pageload_delazification_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_pageload_baseline_compile_ms_1" class="md-nav__link">
+    js_pageload_baseline_compile_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input_event_response_ms_1" class="md-nav__link">
+    input_event_response_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory_pressure_count_1" class="md-nav__link">
+    memory_pressure_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tagged_search_count_1" class="md-nav__link">
+    tagged_search_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tagged_follow_on_search_count_1" class="md-nav__link">
+    tagged_follow_on_search_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search_with_ads_1" class="md-nav__link">
+    search_with_ads
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ad_click_1" class="md-nav__link">
+    ad_click
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organic_search_count_1" class="md-nav__link">
+    organic_search_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sap_1" class="md-nav__link">
+    sap
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ad_click_organic_1" class="md-nav__link">
+    ad_click_organic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search_with_ads_organic_1" class="md-nav__link">
+    search_with_ads_organic
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overrides-from-jetstream-config" class="md-nav__link">
+    Overrides from jetstream-config
+  </a>
+  
+    <nav class="md-nav" aria-label="Overrides from jetstream-config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#active_hours_1" class="md-nav__link">
+    active_hours
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uri_count_2" class="md-nav__link">
+    uri_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search_count_1" class="md-nav__link">
+    search_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tagged_search_count_2" class="md-nav__link">
+    tagged_search_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tagged_follow_on_search_count_2" class="md-nav__link">
+    tagged_follow_on_search_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ad_clicks_1" class="md-nav__link">
+    ad_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#searches_with_ads_1" class="md-nav__link">
+    searches_with_ads
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organic_search_count_2" class="md-nav__link">
+    organic_search_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unenroll_1" class="md-nav__link">
+    unenroll
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view_about_logins_1" class="md-nav__link">
+    view_about_logins
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view_about_protections_1" class="md-nav__link">
+    view_about_protections
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect_fxa_1" class="md-nav__link">
+    connect_fxa
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pocket_rec_clicks_1" class="md-nav__link">
+    pocket_rec_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pocket_spoc_clicks_1" class="md-nav__link">
+    pocket_spoc_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#days_of_use_1" class="md-nav__link">
+    days_of_use
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qualified_cumulative_days_of_use_1" class="md-nav__link">
+    qualified_cumulative_days_of_use
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable_pocket_clicks_1" class="md-nav__link">
+    disable_pocket_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable_pocket_spocs_clicks_1" class="md-nav__link">
+    disable_pocket_spocs_clicks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+  <h1>Firefox desktop</h1>
+
+<h2 id="metric-hub">metric-hub</h2>
+<p>Pre-defined metrics for <code>firefox_desktop</code>. These metrics are defined in <a href="https://github.com/mozilla/metric-hub/blob/main/definitions/firefox_desktop.toml">metric-hub</a></p>
+<h3 id="active_hours">active_hours</h3>
+<p><strong>Active hours</strong></p>
+<p>Measures the amount of time (in 5-second increments) during which
+    Firefox received user input from a keyboard or mouse. The Firefox
+    window does not need to be focused.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#clients_daily"><code>clients_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_sum(&quot;active_hours_sum&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="uri_count">uri_count</h3>
+<p><strong>URIs visited</strong></p>
+<p>Counts the total number of URIs visited.
+    Includes within-page navigation events (e.g. to anchors).</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#clients_daily"><code>clients_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_sum(&quot;scalar_parent_browser_engagement_total_uri_count_sum&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="search_count">search_count</h3>
+<p><strong>SAP searches</strong></p>
+<p>Counts the number of searches a user performed through Firefox's
+    Search Access Points.
+    Learn more in the
+    <a href="https://docs.telemetry.mozilla.org/datasets/search.html">search data documentation</a>.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_sum(&quot;sap&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="tagged_search_count">tagged_search_count</h3>
+<p><strong>Tagged SAP searches</strong></p>
+<p>Counts the number of searches a user performed through Firefox's
+    Search Access Points that were submitted with a partner code
+    and were potentially revenue-generating.
+    Learn more in the
+    <a href="https://docs.telemetry.mozilla.org/datasets/search.html">search data documentation</a>.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_sum(&quot;tagged_sap&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="tagged_follow_on_search_count">tagged_follow_on_search_count</h3>
+<p><strong>Tagged follow-on searches</strong></p>
+<p>Counts the number of follow-on searches with a Mozilla partner tag.
+    These are additional searches that users performed from a search engine
+    results page after executing a tagged search through a SAP.
+    Learn more in the
+    <a href="https://docs.telemetry.mozilla.org/datasets/search.html">search data documentation</a>.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_sum(&quot;tagged_follow_on&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="ad_clicks">ad_clicks</h3>
+<p><strong>Ad clicks</strong></p>
+<p>Counts clicks on ads on search engine result pages with a Mozilla
+    partner tag.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_sum(&quot;ad_click&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="searches_with_ads">searches_with_ads</h3>
+<p><strong>Search result pages with ads</strong></p>
+<p>Counts search result pages served with advertising.
+    Users may not actually see these ads thanks to e.g. ad-blockers.
+    Learn more in the
+    <a href="https://mozilla-private.report/search-analysis-docs/book/in_content_searches.html">search analysis documentation</a>.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_sum(&quot;search_with_ads&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="organic_search_count">organic_search_count</h3>
+<p><strong>Organic searches</strong></p>
+<p>Counts organic searches, which are searches that are <em>not</em> performed
+    through a Firefox SAP and which are not monetizable.
+    Learn more in the
+    <a href="https://docs.telemetry.mozilla.org/datasets/search.html">search data documentation</a>.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_sum(&quot;organic&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="unenroll">unenroll</h3>
+<p><strong>Unenrollments</strong></p>
+<p>Counts the number of clients with an experiment unenrollment event.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#normandy_events"><code>normandy_events</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_any(
+     &quot;&quot;&quot;        event_category = 'normandy'
+        AND event_method = 'unenroll'
+        AND event_string_value = '{experiment_slug}'
+     &quot;&quot;&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="view_about_logins">view_about_logins</h3>
+<p><strong>about:logins viewers</strong></p>
+<p>Counts the number of clients that viewed about:logins.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#events"><code>events</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_any(
+     &quot;&quot;&quot;            event_method = 'open_management'
+            AND event_category = 'pwmgr'
+         &quot;&quot;&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="view_about_protections">view_about_protections</h3>
+<p><strong>about:protections viewers</strong></p>
+<p>Counts the number of clients that viewed about:protections.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#events"><code>events</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_any(
+     &quot;&quot;&quot;            event_method = 'show'
+            AND event_object = 'protection_report'
+         &quot;&quot;&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="connect_fxa">connect_fxa</h3>
+<p><strong>Connected FxA</strong></p>
+<p>Counts the number of clients that took action to connect to FxA.
+    This does not include clients that were already connected to FxA at
+    the start of the experiment and remained connected.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#events"><code>events</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_any(
+     &quot;&quot;&quot;            event_method = 'connect'
+            AND event_object = 'account'
+         &quot;&quot;&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="pocket_rec_clicks">pocket_rec_clicks</h3>
+<p><strong>Clicked Pocket organic recs in New Tab</strong></p>
+<p>Counts the number of Pocket rec clicks made by each client.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#activity_stream_events"><code>activity_stream_events</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COUNTIF(
+    event = 'CLICK'
+    AND source = 'CARDGRID'
+    AND JSON_EXTRACT_SCALAR(value, '$.card_type') = 'organic'
+)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="pocket_spoc_clicks">pocket_spoc_clicks</h3>
+<p><strong>Clicked Pocket sponsored content in New Tab</strong></p>
+<p>Counts the number of Pocket sponsored content clicks made by each client.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#activity_stream_events"><code>activity_stream_events</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COUNTIF(
+    event = 'CLICK'
+    AND source = 'CARDGRID'
+    AND JSON_EXTRACT_SCALAR(value, '$.card_type') = 'spoc'
+)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="days_of_use">days_of_use</h3>
+<p><strong>Days of use</strong></p>
+<p>The number of days in the interval that each client sent a main ping.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#clients_daily"><code>clients_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COUNT(submission_date)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="qualified_cumulative_days_of_use">qualified_cumulative_days_of_use</h3>
+<p><strong>QCDOU</strong></p>
+<p>The number of days in the interval that each client sent a main ping,
+    given that the client had &gt;0 active hours and &gt;0 URIs loaded.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#clients_daily"><code>clients_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COUNTIF(
+    active_hours_sum &gt; 0 AND
+    scalar_parent_browser_engagement_total_uri_count_normal_and_private_mode_sum &gt; 0
+)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="disable_pocket_clicks">disable_pocket_clicks</h3>
+<p><strong>Disabled Pocket in New Tab</strong></p>
+<p>Counts the number of clicks to disable Pocket in New Tab made by each client.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#activity_stream_events"><code>activity_stream_events</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COUNTIF(
+    event = 'PREF_CHANGED'
+    AND source = 'TOP_STORIES'
+    AND JSON_EXTRACT_SCALAR(value, '$.status') = 'false'
+)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="disable_pocket_spocs_clicks">disable_pocket_spocs_clicks</h3>
+<p><strong>Disabled Pocket sponsored content in New Tab</strong></p>
+<p>Counts the number of clicks to disable Pocket sponsored content
+    in New Tab made by each client.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#activity_stream_events"><code>activity_stream_events</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COUNTIF(
+    event = 'PREF_CHANGED'
+    AND source = 'POCKET_SPOCS'
+    AND JSON_EXTRACT_SCALAR(value, '$.status') = 'false'
+)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="content_shutdown_crashes">content_shutdown_crashes</h3>
+<p><strong>Content Shutdown Crashes</strong></p>
+<p>Number of Content Shutdown Crashes</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#crash"><code>crash</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(IF(REGEXP_CONTAINS(payload.process_type, 'content') AND REGEXP_CONTAINS(payload.metadata.ipc_channel_error, 'ShutDownKill'), 1, 0))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="content_crashes">content_crashes</h3>
+<p><strong>Content Crashes</strong></p>
+<p>Number of Content Crashes</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#crash"><code>crash</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(IF(REGEXP_CONTAINS(payload.process_type, 'content') AND NOT REGEXP_CONTAINS(COALESCE(payload.metadata.ipc_channel_error, ''), 'ShutDownKill'), 1, 0))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="shutdown_hangs">shutdown_hangs</h3>
+<p><strong>Shutdown Hangs</strong></p>
+<p>Number of Shutdown Hangs</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#crash"><code>crash</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(IF(payload.metadata.moz_crash_reason LIKE 'MOZ_CRASH%', 1, 0))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="oom_crashes">oom_crashes</h3>
+<p><strong>OOM Crashes</strong></p>
+<p>Number of Out of Memory Crashes</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#crash"><code>crash</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(IF(payload.metadata.oom_allocation_size IS NOT NULL, 1, 0))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="main_crashes">main_crashes</h3>
+<p><strong>Main Crashes</strong></p>
+<p>Number of Main Crashes</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#crash"><code>crash</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(IF(payload.process_type = 'main' OR payload.process_type IS NULL, 1, 0))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="startup_crashes">startup_crashes</h3>
+<p><strong>Startup Crashes</strong></p>
+<p>Number of Startup Crashes</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#crash"><code>crash</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(IF(payload.metadata.startup_crash = '1', 1, 0))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="gmplugin_crashes">gmplugin_crashes</h3>
+<p><strong>Gmplugin Crashes</strong></p>
+<p>Number of GMPlugin (for loading DRM media in a highly sandboxed process) Crashes</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(COALESCE(`moz-fx-data-shared-prod`.udf.keyed_histogram_get_sum(payload.keyed_histograms.subprocess_crashes_with_dump,'gmplugin'), 0))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="gpu_crashes">gpu_crashes</h3>
+<p><strong>Gpu Crashes</strong></p>
+<p>Number of GPU Crashes</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(COALESCE(`moz-fx-data-shared-prod`.udf.keyed_histogram_get_sum(payload.keyed_histograms.subprocess_crashes_with_dump, 'gpu'), 0))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="plugin_crashes">plugin_crashes</h3>
+<p><strong>Plugin Crashes</strong></p>
+<p>Number of Plugin Crashes</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(COALESCE(`moz-fx-data-shared-prod`.udf.keyed_histogram_get_sum(payload.keyed_histograms.subprocess_crashes_with_dump, 'plugin'), 0))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="child_process_launch_ms">child_process_launch_ms</h3>
+<p><strong>Child Process Launch Ms</strong></p>
+<p>Time spent in the generic child process launching code, which is run off-main-thread and used by all child process types</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.child_process_launch_ms) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="content_process_count">content_process_count</h3>
+<p><strong>Content Process Count</strong></p>
+<p>A count of the number of content processes, collected every five minutes.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.content_process_count) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="content_process_max">content_process_max</h3>
+<p><strong>Content Process Max</strong></p>
+<p>The maximum number of content processes, submitted when a new maximum is reached.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.content_process_max) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="checkerboard_severity">checkerboard_severity</h3>
+<p><strong>Checkerboard Severity</strong></p>
+<p>Opaque measure of the severity of a checkerboard event</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.checkerboard_severity) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="content_frame_time_vsync">content_frame_time_vsync</h3>
+<p><strong>Content Frame Time Vsync</strong></p>
+<p>The time, in percentage of a vsync interval, spent from the vsync that started a paint in the content process until that frame is presented in the compositor.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.content_frame_time_vsync) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="fx_new_window_ms">fx_new_window_ms</h3>
+<p><strong>Fx New Window Ms</strong></p>
+<p>Firefox: Time taken to open a new browser window (ms)</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.fx_new_window_ms) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="fx_tab_switch_composite_e10s_ms">fx_tab_switch_composite_e10s_ms</h3>
+<p><strong>Fx Tab Switch Composite E10S Ms</strong></p>
+<p>Firefox: Time in ms between tab selection and first composite of the tab content in e10s windows</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.fx_tab_switch_composite_e10s_ms) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="keypress_present_latency_ms">keypress_present_latency_ms</h3>
+<p><strong>Keypress Present Latency Ms</strong></p>
+<p>Time between receiving a keypress event on the event loop and compositing its result onto the screen (ms)</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.gpu.histograms.keypress_present_latency) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="memory_total">memory_total</h3>
+<p><strong>Memory Total</strong></p>
+<p>Total Memory Across All Processes (KB)</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.memory_total) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="cycle_collector_max_pause">cycle_collector_max_pause</h3>
+<p><strong>Cycle Collector Max Pause</strong></p>
+<p>Longest pause for an individual slice of one cycle collection, including preparation (ms)</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.cycle_collector_max_pause) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="cycle_collector_max_pause_content">cycle_collector_max_pause_content</h3>
+<p><strong>Cycle Collector Max Pause Content</strong></p>
+<p>Longest pause for an individual slice of one cycle collection, including preparation (ms)</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.cycle_collector_max_pause) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="gc_max_pause_2">gc_max_pause_2</h3>
+<p><strong>Gc Max Pause 2</strong></p>
+<p>Longest GC slice in a GC (ms)</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.gc_max_pause_ms_2) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="gc_max_pause_2_content">gc_max_pause_2_content</h3>
+<p><strong>Gc Max Pause 2 Content</strong></p>
+<p>Longest GC slice in a GC (ms)</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.gc_max_pause_ms_2) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="gc_ms">gc_ms</h3>
+<p><strong>Gc Ms</strong></p>
+<p>Time spent running JS GC (ms)</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.gc_ms) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="gc_ms_content">gc_ms_content</h3>
+<p><strong>Gc Ms Content</strong></p>
+<p>Time spent running JS GC (ms) in the content process</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.gc_ms) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="gc_slice_during_idle">gc_slice_during_idle</h3>
+<p><strong>Gc Slice During Idle</strong></p>
+<p>Percent of GC slice done during idle time</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.gc_slice_during_idle) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="gc_slice_during_idle_content">gc_slice_during_idle_content</h3>
+<p><strong>Gc Slice During Idle Content</strong></p>
+<p>Percent of GC slice done during idle time in the content process</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.gc_slice_during_idle) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="gc_non_incremental">gc_non_incremental</h3>
+<p><strong>Gc Non Incremental</strong></p>
+<p>Was the GC non-incremental?</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.gc_non_incremental) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="gc_reason_2">gc_reason_2</h3>
+<p><strong>Gc Reason 2</strong></p>
+<p>Reason (enum value) for initiating a GC</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.gc_reason_2) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="gc_mark_rate_2">gc_mark_rate_2</h3>
+<p><strong>Gc Mark Rate 2</strong></p>
+<p>The number of objects marked per ms during GC.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.gc_mark_rate_2) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="gc_budget_overrun">gc_budget_overrun</h3>
+<p><strong>Gc Budget Overrun</strong></p>
+<p>How long a GC slice ran over its budget in microseconds</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.gc_budget_overrun) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="memory_unique_content_startup">memory_unique_content_startup</h3>
+<p><strong>Memory Unique Content Startup</strong></p>
+<p>Unique Set Size of Content Process at Startup (KB)</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.memory_unique_content_startup) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="perf_first_contentful_paint_ms">perf_first_contentful_paint_ms</h3>
+<p><strong>Perf First Contentful Paint Ms</strong></p>
+<p>The time between navigationStart and the first contentful paint of a foreground http or https root content document, in milliseconds. The contentful paint timestamp is taken during display list building and does not include rasterization or compositing of that paint.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.perf_first_contentful_paint_ms) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="time_to_first_interaction_ms">time_to_first_interaction_ms</h3>
+<p><strong>Time To First Interaction Ms</strong></p>
+<p>Time in milliseconds from the first non-blank paint to the creation time of the next click, key, mouse or scroll event per top-level content browsing context.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.time_to_first_interaction_ms) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="perf_page_load_time_ms">perf_page_load_time_ms</h3>
+<p><strong>Perf Page Load Time Ms</strong></p>
+<p>Time in milliseconds from navigationStart to loadEventStart for the foreground http or https root content document</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.perf_page_load_time_ms) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="loaded_tab_count">loaded_tab_count</h3>
+<p><strong>Loaded Tab Count</strong></p>
+<p>Number of fully loaded (i.e., not pending from session restore) tabs opened across all windows, collected at most every 5 minutes whenever the user interacts with the browser in the following ways: open tab/window, page load, restoring a pending tab.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.loaded_tab_count) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="active_ticks">active_ticks</h3>
+<p><strong>Browser Engagement Active Ticks</strong></p>
+<p>The count of the number of five-second intervals ('ticks') the user was considered 'active' in a subsession. Session activity involves keyboard or mouse interaction with the application. It does not take into account whether or not the window has focus or is in the foreground, only if it is receiving these interaction events.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(payload.processes.parent.scalars.browser_engagement_active_ticks)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="subsession_length">subsession_length</h3>
+<p><strong>Subsession Length</strong></p>
+<p>The subsession length until now in seconds, monotonic</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(payload.info.subsession_length)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="tab_pinned_event_count">tab_pinned_event_count</h3>
+<p><strong>Browser Engagement Tab Pinned Event Count</strong></p>
+<p>The count of tab pinned events per subsession, across all windows, after the session has been restored. This includes tab pinned events from private windows.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(payload.processes.parent.scalars.browser_engagement_tab_pinned_event_count)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="tab_open_event_count">tab_open_event_count</h3>
+<p><strong>Browser Engagement Tab Open Event Count</strong></p>
+<p>The count of tab open events per subsession, across all windows, after the session has been restored. This includes tab open events from private windows and from manual session restorations (i.e. after crashes and from about:home).</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(payload.processes.parent.scalars.browser_engagement_tab_open_event_count)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="tab_unload_to_reload">tab_unload_to_reload</h3>
+<p><strong>Tab Unload To Reload</strong></p>
+<p>How long (sec) a tab had been unloaded until it was reloaded.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.tab_unload_to_reload) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="tab_reload_count">tab_reload_count</h3>
+<p><strong>Browser Engagement Tab Reload Count</strong></p>
+<p>The count of tab reload events by the user after unloaded.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(payload.processes.parent.scalars.browser_engagement_tab_reload_count)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="tab_unload_count">tab_unload_count</h3>
+<p><strong>Browser Engagement Tab Unload Count</strong></p>
+<p>The count of tab unload events by TabUnloader due to a low-memory situation.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(payload.processes.parent.scalars.browser_engagement_tab_unload_count)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="concurrent_pinned_tab_count">concurrent_pinned_tab_count</h3>
+<p><strong>Browser Engagement Concurrent Pinned Tab Count</strong></p>
+<p>The count of maximum number of pinned tabs open during a subsession. This includes private windows and the ones opened when starting the browser. Starting Firefox 85 this includes number of restored pinned tabs at startup.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(payload.processes.parent.scalars.browser_engagement_max_concurrent_tab_pinned_count)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="concurrent_opened_tab_count">concurrent_opened_tab_count</h3>
+<p><strong>Browser Engagement Concurrent Opened Tab Count</strong></p>
+<p>The count of maximum number of tabs open during a subsession, across all windows, including tabs in private windows and restored at startup.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(payload.processes.parent.scalars.browser_engagement_max_concurrent_tab_count)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="opened_tab_count">opened_tab_count</h3>
+<p><strong>Opened Tab Count</strong></p>
+<p>Number of tabs opened across all windows, collected at most every 5 minutes whenever the user interacts with the browser in the following ways: open tab/window, page load.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.tab_count) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="js_pageload_xdr_encoding_ms">js_pageload_xdr_encoding_ms</h3>
+<p><strong>Js Pageload Xdr Encoding Ms</strong></p>
+<p>Time spent during page load XDR encoding Javascript in ms.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.js_pageload_xdr_encoding_ms) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="js_pageload_protect_ms">js_pageload_protect_ms</h3>
+<p><strong>Js Pageload Protect Ms</strong></p>
+<p>Time spent during page load protecting JIT executable memory.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.js_pageload_protect_ms) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="js_pageload_parse_ms">js_pageload_parse_ms</h3>
+<p><strong>Js Pageload Parse Ms</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.js_pageload_parse_ms) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="js_pageload_execution_ms">js_pageload_execution_ms</h3>
+<p><strong>Js Pageload Execution Ms</strong></p>
+<p>Time spent during page load syntax parsing JS scripts on the main thread in ms.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.js_pageload_execution_ms) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="js_pageload_delazification_ms">js_pageload_delazification_ms</h3>
+<p><strong>Js Pageload Delazification Ms</strong></p>
+<p>Time spent during page load delazifying Javascript in ms.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.js_pageload_delazification_ms) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="js_pageload_baseline_compile_ms">js_pageload_baseline_compile_ms</h3>
+<p><strong>Js Pageload Baseline Compile Ms</strong></p>
+<p>Time spent during page load baseline compiling Javascript in ms.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.js_pageload_baseline_compile_ms) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="input_event_response_ms">input_event_response_ms</h3>
+<p><strong>Input Event Response Ms</strong></p>
+<p>Time (ms) from the Input event being created to the end of it being handled for events handling during page load only</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.input_event_response_ms) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="memory_pressure_count">memory_pressure_count</h3>
+<p><strong>Memory Pressure Count</strong></p>
+<p>Event memory pressure count</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#events_memory"><code>events_memory</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(SAFE_CAST(SPLIT(event_string_value, ',')[OFFSET(1)] AS NUMERIC))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="search_with_ads">search_with_ads</h3>
+<p><strong>Search with Ads</strong></p>
+<p>Total number of Searches with Ads</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(search_with_ads)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="ad_click">ad_click</h3>
+<p><strong>Ad Clicks</strong></p>
+<p>Total number of Ad Clicks</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(ad_click)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="sap">sap</h3>
+<p><strong>SAP Search Count</strong></p>
+<p>Total number of SAP search counts</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(sap)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="ad_click_organic">ad_click_organic</h3>
+<p><strong>Organic Ad Click Count</strong></p>
+<p>Total number of Organic Ad Click Counts</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(ad_click_organic)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="search_with_ads_organic">search_with_ads_organic</h3>
+<p><strong>Organic Searches with Ads</strong></p>
+<p>Total number of Organic Searches with Ads</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(search_with_ads_organic)
+</code></pre>
+
+</details>
+
+<hr />
+<h2 id="overrides-from-opmon-config">Overrides from opmon-config</h2>
+<p>Tool-specific configurations that override the defaults.
+These metrics are defined in <a href="https://github.com/mozilla/opmon-config/blob/main/definitions/firefox_desktop.toml">opmon-config</a></p>
+<h3 id="content_shutdown_crashes_1">content_shutdown_crashes</h3>
+<p><strong>Content Shutdown Crashes</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#crash"><code>crash</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(IF(REGEXP_CONTAINS(payload.process_type, 'content') AND REGEXP_CONTAINS(payload.metadata.ipc_channel_error, 'ShutDownKill'), 1, 0))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="content_crashes_1">content_crashes</h3>
+<p><strong>Content Crashes</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#crash"><code>crash</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(IF(REGEXP_CONTAINS(payload.process_type, 'content') AND NOT REGEXP_CONTAINS(COALESCE(payload.metadata.ipc_channel_error, ''), 'ShutDownKill'), 1, 0))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="shutdown_hangs_1">shutdown_hangs</h3>
+<p><strong>Shutdown Hangs</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#crash"><code>crash</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(IF(payload.metadata.moz_crash_reason LIKE 'MOZ_CRASH%', 1, 0))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="oom_crashes_1">oom_crashes</h3>
+<p><strong>Oom Crashes</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#crash"><code>crash</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(IF(payload.metadata.oom_allocation_size IS NOT NULL, 1, 0))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="main_crashes_1">main_crashes</h3>
+<p><strong>Main Crashes</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#crash"><code>crash</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(IF(payload.process_type = 'main' OR payload.process_type IS NULL, 1, 0))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="startup_crashes_1">startup_crashes</h3>
+<p><strong>Startup Crashes</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#crash"><code>crash</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(IF(payload.metadata.startup_crash = '1', 1, 0))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="gmplugin_crashes_1">gmplugin_crashes</h3>
+<p><strong>Gmplugin Crashes</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(COALESCE(`moz-fx-data-shared-prod`.udf.keyed_histogram_get_sum(payload.keyed_histograms.subprocess_crashes_with_dump,'gmplugin'), 0))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="gpu_crashes_1">gpu_crashes</h3>
+<p><strong>Gpu Crashes</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(COALESCE(`moz-fx-data-shared-prod`.udf.keyed_histogram_get_sum(payload.keyed_histograms.subprocess_crashes_with_dump, 'gpu'), 0))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="plugin_crashes_1">plugin_crashes</h3>
+<p><strong>Plugin Crashes</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(COALESCE(`moz-fx-data-shared-prod`.udf.keyed_histogram_get_sum(payload.keyed_histograms.subprocess_crashes_with_dump, 'plugin'), 0))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="child_process_launch_ms_1">child_process_launch_ms</h3>
+<p><strong>Child Process Launch Ms</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.child_process_launch_ms) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="content_process_count_1">content_process_count</h3>
+<p><strong>Content Process Count</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.content_process_count) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="content_process_max_1">content_process_max</h3>
+<p><strong>Content Process Max</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.content_process_max) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="checkerboard_severity_1">checkerboard_severity</h3>
+<p><strong>Checkerboard Severity</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.checkerboard_severity) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="content_frame_time_vsync_1">content_frame_time_vsync</h3>
+<p><strong>Content Frame Time Vsync</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.content_frame_time_vsync) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="fx_new_window_ms_1">fx_new_window_ms</h3>
+<p><strong>Fx New Window Ms</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.fx_new_window_ms) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="fx_tab_switch_composite_e10s_ms_1">fx_tab_switch_composite_e10s_ms</h3>
+<p><strong>Fx Tab Switch Composite E10S Ms</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.fx_tab_switch_composite_e10s_ms) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="keypress_present_latency_ms_1">keypress_present_latency_ms</h3>
+<p><strong>Keypress Present Latency Ms</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.gpu.histograms.keypress_present_latency) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="memory_total_1">memory_total</h3>
+<p><strong>Memory Total</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.memory_total) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="cycle_collector_max_pause_1">cycle_collector_max_pause</h3>
+<p><strong>Cycle Collector Max Pause</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.cycle_collector_max_pause) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="cycle_collector_max_pause_content_1">cycle_collector_max_pause_content</h3>
+<p><strong>Cycle Collector Max Pause Content</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.cycle_collector_max_pause) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="gc_max_pause_3">gc_max_pause_2</h3>
+<p><strong>Gc Max Pause 2</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.gc_max_pause_ms_2) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="gc_max_pause_2_content_1">gc_max_pause_2_content</h3>
+<p><strong>Gc Max Pause 2 Content</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.gc_max_pause_ms_2) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="gc_ms_1">gc_ms</h3>
+<p><strong>Gc Ms</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.gc_ms) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="gc_ms_content_1">gc_ms_content</h3>
+<p><strong>Gc Ms Content</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.gc_ms) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="gc_slice_during_idle_1">gc_slice_during_idle</h3>
+<p><strong>Gc Slice During Idle</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.gc_slice_during_idle) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="gc_slice_during_idle_content_1">gc_slice_during_idle_content</h3>
+<p><strong>Gc Slice During Idle Content</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.gc_slice_during_idle) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="gc_non_incremental_1">gc_non_incremental</h3>
+<p><strong>Gc Non Incremental</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.gc_non_incremental) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="gc_reason_3">gc_reason_2</h3>
+<p><strong>Gc Reason 2</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.gc_reason_2) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="gc_mark_rate_3">gc_mark_rate_2</h3>
+<p><strong>Gc Mark Rate 2</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.gc_mark_rate_2) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="gc_budget_overrun_1">gc_budget_overrun</h3>
+<p><strong>Gc Budget Overrun</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.gc_budget_overrun) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="memory_unique_content_startup_1">memory_unique_content_startup</h3>
+<p><strong>Memory Unique Content Startup</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.memory_unique_content_startup) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="perf_first_contentful_paint_ms_1">perf_first_contentful_paint_ms</h3>
+<p><strong>Perf First Contentful Paint Ms</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.perf_first_contentful_paint_ms) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="time_to_first_interaction_ms_1">time_to_first_interaction_ms</h3>
+<p><strong>Time To First Interaction Ms</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.time_to_first_interaction_ms) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="perf_page_load_time_ms_1">perf_page_load_time_ms</h3>
+<p><strong>Perf Page Load Time Ms</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.perf_page_load_time_ms) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="loaded_tab_count_1">loaded_tab_count</h3>
+<p><strong>Loaded Tab Count</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.loaded_tab_count) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="active_ticks_1">active_ticks</h3>
+<p><strong>Active Ticks</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(payload.processes.parent.scalars.browser_engagement_active_ticks)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="subsession_length_1">subsession_length</h3>
+<p><strong>Subsession Length</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">MAX(payload.info.subsession_length)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="uri_count_1">uri_count</h3>
+<p><strong>Uri Count</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(payload.processes.parent.scalars.browser_engagement_total_uri_count)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="tab_pinned_event_count_1">tab_pinned_event_count</h3>
+<p><strong>Tab Pinned Event Count</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(payload.processes.parent.scalars.browser_engagement_tab_pinned_event_count)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="tab_open_event_count_1">tab_open_event_count</h3>
+<p><strong>Tab Open Event Count</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(payload.processes.parent.scalars.browser_engagement_tab_open_event_count)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="tab_unload_to_reload_1">tab_unload_to_reload</h3>
+<p><strong>Tab Unload To Reload</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.tab_unload_to_reload) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="tab_reload_count_1">tab_reload_count</h3>
+<p><strong>Tab Reload Count</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(payload.processes.parent.scalars.browser_engagement_tab_reload_count)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="tab_unload_count_1">tab_unload_count</h3>
+<p><strong>Tab Unload Count</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(payload.processes.parent.scalars.browser_engagement_tab_unload_count)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="concurrent_pinned_tab_count_1">concurrent_pinned_tab_count</h3>
+<p><strong>Concurrent Pinned Tab Count</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(payload.processes.parent.scalars.browser_engagement_max_concurrent_tab_pinned_count)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="concurrent_opened_tab_count_1">concurrent_opened_tab_count</h3>
+<p><strong>Concurrent Opened Tab Count</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(payload.processes.parent.scalars.browser_engagement_max_concurrent_tab_count)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="opened_tab_count_1">opened_tab_count</h3>
+<p><strong>Opened Tab Count</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.tab_count) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="js_pageload_xdr_encoding_ms_1">js_pageload_xdr_encoding_ms</h3>
+<p><strong>Js Pageload Xdr Encoding Ms</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.js_pageload_xdr_encoding_ms) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="js_pageload_protect_ms_1">js_pageload_protect_ms</h3>
+<p><strong>Js Pageload Protect Ms</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.js_pageload_protect_ms) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="js_pageload_parse_ms_1">js_pageload_parse_ms</h3>
+<p><strong>Js Pageload Parse Ms</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.js_pageload_parse_ms) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="js_pageload_execution_ms_1">js_pageload_execution_ms</h3>
+<p><strong>Js Pageload Execution Ms</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.js_pageload_execution_ms) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="js_pageload_delazification_ms_1">js_pageload_delazification_ms</h3>
+<p><strong>Js Pageload Delazification Ms</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.js_pageload_delazification_ms) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="js_pageload_baseline_compile_ms_1">js_pageload_baseline_compile_ms</h3>
+<p><strong>Js Pageload Baseline Compile Ms</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.js_pageload_baseline_compile_ms) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="input_event_response_ms_1">input_event_response_ms</h3>
+<p><strong>Input Event Response Ms</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.input_event_response_ms) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="memory_pressure_count_1">memory_pressure_count</h3>
+<p><strong>Memory Pressure Count</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#events_memory"><code>events_memory</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(SAFE_CAST(SPLIT(event_string_value, ',')[OFFSET(1)] AS NUMERIC))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="tagged_search_count_1">tagged_search_count</h3>
+<p><strong>Tagged Search Count</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(tagged_sap)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="tagged_follow_on_search_count_1">tagged_follow_on_search_count</h3>
+<p><strong>Tagged Follow On Search Count</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(tagged_follow_on)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="search_with_ads_1">search_with_ads</h3>
+<p><strong>Search with Ads</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(search_with_ads)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="ad_click_1">ad_click</h3>
+<p><strong>Ad Clicks</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(ad_click)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="organic_search_count_1">organic_search_count</h3>
+<p><strong>Organic Search Count</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(organic)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="sap_1">sap</h3>
+<p><strong>SAP Search Count</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(sap)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="ad_click_organic_1">ad_click_organic</h3>
+<p><strong>Organic Ad Click Count</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(ad_click_organic)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="search_with_ads_organic_1">search_with_ads_organic</h3>
+<p><strong>Organic Searches with Ads</strong></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(search_with_ads_organic)
+</code></pre>
+
+</details>
+
+<hr />
+<h2 id="overrides-from-jetstream-config">Overrides from jetstream-config</h2>
+<p>Tool-specific configurations that override the defaults.
+These metrics are defined in <a href="https://github.com/mozilla/jetstream-config/blob/main/definitions/firefox_desktop.toml">jetstream-config</a></p>
+<h3 id="active_hours_1">active_hours</h3>
+<p><strong>Active hours</strong></p>
+<p>Measures the amount of time (in 5-second increments) during which
+    Firefox received user input from a keyboard or mouse. The Firefox
+    window does not need to be focused.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#clients_daily"><code>clients_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_sum(&quot;active_hours_sum&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="uri_count_2">uri_count</h3>
+<p><strong>URIs visited</strong></p>
+<p>Counts the total number of URIs visited.
+    Includes within-page navigation events (e.g. to anchors).</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#clients_daily"><code>clients_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_sum(&quot;scalar_parent_browser_engagement_total_uri_count_sum&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="search_count_1">search_count</h3>
+<p><strong>SAP searches</strong></p>
+<p>Counts the number of searches a user performed through Firefox's
+    Search Access Points.
+    Learn more in the
+    <a href="https://docs.telemetry.mozilla.org/datasets/search.html">search data documentation</a>.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_sum(&quot;sap&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="tagged_search_count_2">tagged_search_count</h3>
+<p><strong>Tagged SAP searches</strong></p>
+<p>Counts the number of searches a user performed through Firefox's
+    Search Access Points that were submitted with a partner code
+    and were potentially revenue-generating.
+    Learn more in the
+    <a href="https://docs.telemetry.mozilla.org/datasets/search.html">search data documentation</a>.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_sum(&quot;tagged_sap&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="tagged_follow_on_search_count_2">tagged_follow_on_search_count</h3>
+<p><strong>Tagged follow-on searches</strong></p>
+<p>Counts the number of follow-on searches with a Mozilla partner tag.
+    These are additional searches that users performed from a search engine
+    results page after executing a tagged search through a SAP.
+    Learn more in the
+    <a href="https://docs.telemetry.mozilla.org/datasets/search.html">search data documentation</a>.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_sum(&quot;tagged_follow_on&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="ad_clicks_1">ad_clicks</h3>
+<p><strong>Ad clicks</strong></p>
+<p>Counts clicks on ads on search engine result pages with a Mozilla
+    partner tag.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_sum(&quot;ad_click&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="searches_with_ads_1">searches_with_ads</h3>
+<p><strong>Search result pages with ads</strong></p>
+<p>Counts search result pages served with advertising.
+    Users may not actually see these ads thanks to e.g. ad-blockers.
+    Learn more in the
+    <a href="https://mozilla-private.report/search-analysis-docs/book/in_content_searches.html">search analysis documentation</a>.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_sum(&quot;search_with_ads&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="organic_search_count_2">organic_search_count</h3>
+<p><strong>Organic searches</strong></p>
+<p>Counts organic searches, which are searches that are <em>not</em> performed
+    through a Firefox SAP and which are not monetizable.
+    Learn more in the
+    <a href="https://docs.telemetry.mozilla.org/datasets/search.html">search data documentation</a>.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_sum(&quot;organic&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="unenroll_1">unenroll</h3>
+<p><strong>Unenrollments</strong></p>
+<p>Counts the number of clients with an experiment unenrollment event.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#normandy_events"><code>normandy_events</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_any(
+     &quot;&quot;&quot;        event_category = 'normandy'
+        AND event_method = 'unenroll'
+        AND event_string_value = '{experiment_slug}'
+     &quot;&quot;&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="view_about_logins_1">view_about_logins</h3>
+<p><strong>about:logins viewers</strong></p>
+<p>Counts the number of clients that viewed about:logins.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#events"><code>events</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_any(
+     &quot;&quot;&quot;            event_method = 'open_management'
+            AND event_category = 'pwmgr'
+         &quot;&quot;&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="view_about_protections_1">view_about_protections</h3>
+<p><strong>about:protections viewers</strong></p>
+<p>Counts the number of clients that viewed about:protections.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#events"><code>events</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_any(
+     &quot;&quot;&quot;            event_method = 'show'
+            AND event_object = 'protection_report'
+         &quot;&quot;&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="connect_fxa_1">connect_fxa</h3>
+<p><strong>Connected FxA</strong></p>
+<p>Counts the number of clients that took action to connect to FxA.
+    This does not include clients that were already connected to FxA at
+    the start of the experiment and remained connected.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#events"><code>events</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_any(
+     &quot;&quot;&quot;            event_method = 'connect'
+            AND event_object = 'account'
+         &quot;&quot;&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="pocket_rec_clicks_1">pocket_rec_clicks</h3>
+<p><strong>Clicked Pocket organic recs in New Tab</strong></p>
+<p>Counts the number of Pocket rec clicks made by each client.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#activity_stream_events"><code>activity_stream_events</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COUNTIF(
+    event = 'CLICK'
+    AND source = 'CARDGRID'
+    AND JSON_EXTRACT_SCALAR(value, '$.card_type') = 'organic'
+)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="pocket_spoc_clicks_1">pocket_spoc_clicks</h3>
+<p><strong>Clicked Pocket sponsored content in New Tab</strong></p>
+<p>Counts the number of Pocket sponsored content clicks made by each client.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#activity_stream_events"><code>activity_stream_events</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COUNTIF(
+    event = 'CLICK'
+    AND source = 'CARDGRID'
+    AND JSON_EXTRACT_SCALAR(value, '$.card_type') = 'spoc'
+)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="days_of_use_1">days_of_use</h3>
+<p><strong>Days of use</strong></p>
+<p>The number of days in the interval that each client sent a main ping.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#clients_daily"><code>clients_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COUNT(ds.submission_date)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="qualified_cumulative_days_of_use_1">qualified_cumulative_days_of_use</h3>
+<p><strong>QCDOU</strong></p>
+<p>The number of days in the interval that each client sent a main ping,
+    given that the client had &gt;0 active hours and &gt;0 URIs loaded.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#clients_daily"><code>clients_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COUNTIF(
+    active_hours_sum &gt; 0 AND
+    scalar_parent_browser_engagement_total_uri_count_normal_and_private_mode_sum &gt; 0
+)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="disable_pocket_clicks_1">disable_pocket_clicks</h3>
+<p><strong>Disabled Pocket in New Tab</strong></p>
+<p>Counts the number of clicks to disable Pocket in New Tab made by each client.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#activity_stream_events"><code>activity_stream_events</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COUNTIF(
+    event = 'PREF_CHANGED'
+    AND source = 'TOP_STORIES'
+    AND JSON_EXTRACT_SCALAR(value, '$.status') = 'false'
+)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="disable_pocket_spocs_clicks_1">disable_pocket_spocs_clicks</h3>
+<p><strong>Disabled Pocket sponsored content in New Tab</strong></p>
+<p>Counts the number of clicks to disable Pocket sponsored content
+    in New Tab made by each client.</p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#activity_stream_events"><code>activity_stream_events</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COUNTIF(
+    event = 'PREF_CHANGED'
+    AND source = 'POCKET_SPOCS'
+    AND JSON_EXTRACT_SCALAR(value, '$.status') = 'false'
+)
+</code></pre>
+
+</details>
+
+<hr />
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../fenix/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Fenix" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Fenix
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../firefox_ios/" class="md-footer__link md-footer__link--next" aria-label="Next: Firefox ios" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Firefox ios
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.5e67fbfe.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c44cc438.min.js"></script>
+      
+    
+  </body>
+</html>
