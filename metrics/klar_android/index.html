@@ -1014,11 +1014,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#overrides-from-jetstream-config" class="md-nav__link">
-    Overrides from jetstream-config
+  <a href="#overrides-from-opmon-config" class="md-nav__link">
+    Overrides from opmon-config
   </a>
   
-    <nav class="md-nav" aria-label="Overrides from jetstream-config">
+    <nav class="md-nav" aria-label="Overrides from opmon-config">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1030,6 +1030,33 @@
         
           <li class="md-nav__item">
   <a href="#metric_ping_count_1" class="md-nav__link">
+    metric_ping_count
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overrides-from-jetstream-config" class="md-nav__link">
+    Overrides from jetstream-config
+  </a>
+  
+    <nav class="md-nav" aria-label="Overrides from jetstream-config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#baseline_ping_count_2" class="md-nav__link">
+    baseline_ping_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metric_ping_count_2" class="md-nav__link">
     metric_ping_count
   </a>
   
@@ -1819,11 +1846,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#overrides-from-jetstream-config" class="md-nav__link">
-    Overrides from jetstream-config
+  <a href="#overrides-from-opmon-config" class="md-nav__link">
+    Overrides from opmon-config
   </a>
   
-    <nav class="md-nav" aria-label="Overrides from jetstream-config">
+    <nav class="md-nav" aria-label="Overrides from opmon-config">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1835,6 +1862,33 @@
         
           <li class="md-nav__item">
   <a href="#metric_ping_count_1" class="md-nav__link">
+    metric_ping_count
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overrides-from-jetstream-config" class="md-nav__link">
+    Overrides from jetstream-config
+  </a>
+  
+    <nav class="md-nav" aria-label="Overrides from jetstream-config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#baseline_ping_count_2" class="md-nav__link">
+    baseline_ping_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metric_ping_count_2" class="md-nav__link">
     metric_ping_count
   </a>
   
@@ -1912,10 +1966,37 @@
 </details>
 
 <hr />
+<h2 id="overrides-from-opmon-config">Overrides from opmon-config</h2>
+<p>Tool-specific configurations that override the defaults.
+These metrics are defined in <a href="https://github.com/mozilla/opmon-config/blob/main/definitions/klar_android.toml">opmon-config</a></p>
+<h3 id="baseline_ping_count_1">baseline_ping_count</h3>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/klar_android/#">``</a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">None
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="metric_ping_count_1">metric_ping_count</h3>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/klar_android/#">``</a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">None
+</code></pre>
+
+</details>
+
+<hr />
 <h2 id="overrides-from-jetstream-config">Overrides from jetstream-config</h2>
 <p>Tool-specific configurations that override the defaults.
 These metrics are defined in <a href="https://github.com/mozilla/jetstream-config/blob/main/definitions/klar_android.toml">jetstream-config</a></p>
-<h3 id="baseline_ping_count_1">baseline_ping_count</h3>
+<h3 id="baseline_ping_count_2">baseline_ping_count</h3>
 <p><strong>Baseline pings</strong></p>
 <p>Counts the number of <code>baseline</code> pings received from each client.</p>
 <p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/klar_android/#baseline"><code>baseline</code></a></p>
@@ -1929,7 +2010,7 @@ These metrics are defined in <a href="https://github.com/mozilla/jetstream-confi
 </details>
 
 <hr />
-<h3 id="metric_ping_count_1">metric_ping_count</h3>
+<h3 id="metric_ping_count_2">metric_ping_count</h3>
 <p><strong>Metrics pings</strong></p>
 <p>Counts the number of <code>metrics</code> pings received from each client.</p>
 <p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/klar_android/#metrics"><code>metrics</code></a></p>

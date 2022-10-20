@@ -1193,27 +1193,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#crash_1" class="md-nav__link">
-    crash
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#events_memory_1" class="md-nav__link">
-    events_memory
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#search_clients_engines_sources_daily_1" class="md-nav__link">
-    search_clients_engines_sources_daily
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1235,7 +1214,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#search_clients_engines_sources_daily_2" class="md-nav__link">
+  <a href="#search_clients_engines_sources_daily_1" class="md-nav__link">
     search_clients_engines_sources_daily
   </a>
   
@@ -1277,7 +1256,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#crash_2" class="md-nav__link">
+  <a href="#crash_1" class="md-nav__link">
     crash
   </a>
   
@@ -2035,27 +2014,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#crash_1" class="md-nav__link">
-    crash
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#events_memory_1" class="md-nav__link">
-    events_memory
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#search_clients_engines_sources_daily_1" class="md-nav__link">
-    search_clients_engines_sources_daily
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -2077,7 +2035,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#search_clients_engines_sources_daily_2" class="md-nav__link">
+  <a href="#search_clients_engines_sources_daily_1" class="md-nav__link">
     search_clients_engines_sources_daily
   </a>
   
@@ -2119,7 +2077,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#crash_2" class="md-nav__link">
+  <a href="#crash_1" class="md-nav__link">
     crash
   </a>
   
@@ -2356,53 +2314,6 @@ These data sourves are defined in <a href="https://github.com/mozilla/opmon-conf
 </details>
 
 <hr />
-<h3 id="crash_1"><a href="#crash">crash</a></h3>
-<p>Client ID column: <code>None</code></p>
-<p>Submission Date column: <code>DATE(submission_timestamp)</code></p>
-<details>
-<summary>Definition:</summary>
-
-
-<pre><code class="language-sql">mozdata.telemetry.crash
-</code></pre>
-
-</details>
-
-<hr />
-<h3 id="events_memory_1"><a href="#events_memory">events_memory</a></h3>
-<p>Client ID column: <code>None</code></p>
-<p>Submission Date column: <code>DATE(submission_date)</code></p>
-<details>
-<summary>Definition:</summary>
-
-
-<pre><code class="language-sql">(
-        SELECT
-            *
-        FROM `moz-fx-data-shared-prod.telemetry.events`
-        WHERE 
-            event_category = 'memory_watcher'
-            AND event_method = 'on_high_memory'
-            AND event_object = 'stats'
-    )
-</code></pre>
-
-</details>
-
-<hr />
-<h3 id="search_clients_engines_sources_daily_1"><a href="#search_clients_engines_sources_daily">search_clients_engines_sources_daily</a></h3>
-<p>Client ID column: <code>None</code></p>
-<p>Submission Date column: <code>submission_date</code></p>
-<details>
-<summary>Definition:</summary>
-
-
-<pre><code class="language-sql">mozdata.search.search_clients_engines_sources_daily
-</code></pre>
-
-</details>
-
-<hr />
 <h2 id="overrides-from-jetstream-config">Overrides from jetstream-config</h2>
 <p>Tool-specific configurations that override the defaults.
 These data sourves are defined in <a href="https://github.com/mozilla/jetstream-config/blob/main/definitions/firefox_desktop.toml">jetstream-config</a></p>
@@ -2419,7 +2330,7 @@ These data sourves are defined in <a href="https://github.com/mozilla/jetstream-
 </details>
 
 <hr />
-<h3 id="search_clients_engines_sources_daily_2"><a href="#search_clients_engines_sources_daily">search_clients_engines_sources_daily</a></h3>
+<h3 id="search_clients_engines_sources_daily_1"><a href="#search_clients_engines_sources_daily">search_clients_engines_sources_daily</a></h3>
 <p>Client ID column: <code>None</code></p>
 <p>Submission Date column: <code>None</code></p>
 <details>
@@ -2508,7 +2419,7 @@ These data sourves are defined in <a href="https://github.com/mozilla/jetstream-
 </details>
 
 <hr />
-<h3 id="crash_2"><a href="#crash">crash</a></h3>
+<h3 id="crash_1"><a href="#crash">crash</a></h3>
 <p>Client ID column: <code>None</code></p>
 <p>Submission Date column: <code>None</code></p>
 <details>

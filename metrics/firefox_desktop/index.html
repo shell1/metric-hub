@@ -5120,806 +5120,744 @@
 <p>Tool-specific configurations that override the defaults.
 These metrics are defined in <a href="https://github.com/mozilla/opmon-config/blob/main/definitions/firefox_desktop.toml">opmon-config</a></p>
 <h3 id="content_shutdown_crashes_1">content_shutdown_crashes</h3>
-<p><strong>Content Shutdown Crashes</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#crash"><code>crash</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(IF(REGEXP_CONTAINS(payload.process_type, 'content') AND REGEXP_CONTAINS(payload.metadata.ipc_channel_error, 'ShutDownKill'), 1, 0))
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="content_crashes_1">content_crashes</h3>
-<p><strong>Content Crashes</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#crash"><code>crash</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(IF(REGEXP_CONTAINS(payload.process_type, 'content') AND NOT REGEXP_CONTAINS(COALESCE(payload.metadata.ipc_channel_error, ''), 'ShutDownKill'), 1, 0))
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="shutdown_hangs_1">shutdown_hangs</h3>
-<p><strong>Shutdown Hangs</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#crash"><code>crash</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(IF(payload.metadata.moz_crash_reason LIKE 'MOZ_CRASH%', 1, 0))
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="oom_crashes_1">oom_crashes</h3>
-<p><strong>Oom Crashes</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#crash"><code>crash</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(IF(payload.metadata.oom_allocation_size IS NOT NULL, 1, 0))
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="main_crashes_1">main_crashes</h3>
-<p><strong>Main Crashes</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#crash"><code>crash</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(IF(payload.process_type = 'main' OR payload.process_type IS NULL, 1, 0))
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="startup_crashes_1">startup_crashes</h3>
-<p><strong>Startup Crashes</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#crash"><code>crash</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(IF(payload.metadata.startup_crash = '1', 1, 0))
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="gmplugin_crashes_1">gmplugin_crashes</h3>
-<p><strong>Gmplugin Crashes</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(COALESCE(`moz-fx-data-shared-prod`.udf.keyed_histogram_get_sum(payload.keyed_histograms.subprocess_crashes_with_dump,'gmplugin'), 0))
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="gpu_crashes_1">gpu_crashes</h3>
-<p><strong>Gpu Crashes</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(COALESCE(`moz-fx-data-shared-prod`.udf.keyed_histogram_get_sum(payload.keyed_histograms.subprocess_crashes_with_dump, 'gpu'), 0))
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="plugin_crashes_1">plugin_crashes</h3>
-<p><strong>Plugin Crashes</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(COALESCE(`moz-fx-data-shared-prod`.udf.keyed_histogram_get_sum(payload.keyed_histograms.subprocess_crashes_with_dump, 'plugin'), 0))
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="child_process_launch_ms_1">child_process_launch_ms</h3>
-<p><strong>Child Process Launch Ms</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.child_process_launch_ms) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="content_process_count_1">content_process_count</h3>
-<p><strong>Content Process Count</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.content_process_count) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="content_process_max_1">content_process_max</h3>
-<p><strong>Content Process Max</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.content_process_max) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="checkerboard_severity_1">checkerboard_severity</h3>
-<p><strong>Checkerboard Severity</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.checkerboard_severity) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="content_frame_time_vsync_1">content_frame_time_vsync</h3>
-<p><strong>Content Frame Time Vsync</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.content_frame_time_vsync) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="fx_new_window_ms_1">fx_new_window_ms</h3>
-<p><strong>Fx New Window Ms</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.fx_new_window_ms) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="fx_tab_switch_composite_e10s_ms_1">fx_tab_switch_composite_e10s_ms</h3>
-<p><strong>Fx Tab Switch Composite E10S Ms</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.fx_tab_switch_composite_e10s_ms) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="keypress_present_latency_ms_1">keypress_present_latency_ms</h3>
-<p><strong>Keypress Present Latency Ms</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.gpu.histograms.keypress_present_latency) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="memory_total_1">memory_total</h3>
-<p><strong>Memory Total</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.memory_total) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="cycle_collector_max_pause_1">cycle_collector_max_pause</h3>
-<p><strong>Cycle Collector Max Pause</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.cycle_collector_max_pause) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="cycle_collector_max_pause_content_1">cycle_collector_max_pause_content</h3>
-<p><strong>Cycle Collector Max Pause Content</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.cycle_collector_max_pause) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="gc_max_pause_3">gc_max_pause_2</h3>
-<p><strong>Gc Max Pause 2</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.gc_max_pause_ms_2) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="gc_max_pause_2_content_1">gc_max_pause_2_content</h3>
-<p><strong>Gc Max Pause 2 Content</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.gc_max_pause_ms_2) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="gc_ms_1">gc_ms</h3>
-<p><strong>Gc Ms</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.gc_ms) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="gc_ms_content_1">gc_ms_content</h3>
-<p><strong>Gc Ms Content</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.gc_ms) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="gc_slice_during_idle_1">gc_slice_during_idle</h3>
-<p><strong>Gc Slice During Idle</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.gc_slice_during_idle) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="gc_slice_during_idle_content_1">gc_slice_during_idle_content</h3>
-<p><strong>Gc Slice During Idle Content</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.gc_slice_during_idle) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="gc_non_incremental_1">gc_non_incremental</h3>
-<p><strong>Gc Non Incremental</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.gc_non_incremental) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="gc_reason_3">gc_reason_2</h3>
-<p><strong>Gc Reason 2</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.gc_reason_2) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="gc_mark_rate_3">gc_mark_rate_2</h3>
-<p><strong>Gc Mark Rate 2</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.gc_mark_rate_2) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="gc_budget_overrun_1">gc_budget_overrun</h3>
-<p><strong>Gc Budget Overrun</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.gc_budget_overrun) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="memory_unique_content_startup_1">memory_unique_content_startup</h3>
-<p><strong>Memory Unique Content Startup</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.memory_unique_content_startup) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="perf_first_contentful_paint_ms_1">perf_first_contentful_paint_ms</h3>
-<p><strong>Perf First Contentful Paint Ms</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.perf_first_contentful_paint_ms) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="time_to_first_interaction_ms_1">time_to_first_interaction_ms</h3>
-<p><strong>Time To First Interaction Ms</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.time_to_first_interaction_ms) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="perf_page_load_time_ms_1">perf_page_load_time_ms</h3>
-<p><strong>Perf Page Load Time Ms</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.perf_page_load_time_ms) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="loaded_tab_count_1">loaded_tab_count</h3>
-<p><strong>Loaded Tab Count</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.loaded_tab_count) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="active_ticks_1">active_ticks</h3>
-<p><strong>Active Ticks</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(payload.processes.parent.scalars.browser_engagement_active_ticks)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="subsession_length_1">subsession_length</h3>
-<p><strong>Subsession Length</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">MAX(payload.info.subsession_length)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="uri_count_1">uri_count</h3>
-<p><strong>Uri Count</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(payload.processes.parent.scalars.browser_engagement_total_uri_count)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="tab_pinned_event_count_1">tab_pinned_event_count</h3>
-<p><strong>Tab Pinned Event Count</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(payload.processes.parent.scalars.browser_engagement_tab_pinned_event_count)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="tab_open_event_count_1">tab_open_event_count</h3>
-<p><strong>Tab Open Event Count</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(payload.processes.parent.scalars.browser_engagement_tab_open_event_count)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="tab_unload_to_reload_1">tab_unload_to_reload</h3>
-<p><strong>Tab Unload To Reload</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.tab_unload_to_reload) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="tab_reload_count_1">tab_reload_count</h3>
-<p><strong>Tab Reload Count</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(payload.processes.parent.scalars.browser_engagement_tab_reload_count)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="tab_unload_count_1">tab_unload_count</h3>
-<p><strong>Tab Unload Count</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(payload.processes.parent.scalars.browser_engagement_tab_unload_count)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="concurrent_pinned_tab_count_1">concurrent_pinned_tab_count</h3>
-<p><strong>Concurrent Pinned Tab Count</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(payload.processes.parent.scalars.browser_engagement_max_concurrent_tab_pinned_count)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="concurrent_opened_tab_count_1">concurrent_opened_tab_count</h3>
-<p><strong>Concurrent Opened Tab Count</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(payload.processes.parent.scalars.browser_engagement_max_concurrent_tab_count)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="opened_tab_count_1">opened_tab_count</h3>
-<p><strong>Opened Tab Count</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.tab_count) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="js_pageload_xdr_encoding_ms_1">js_pageload_xdr_encoding_ms</h3>
-<p><strong>Js Pageload Xdr Encoding Ms</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.js_pageload_xdr_encoding_ms) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="js_pageload_protect_ms_1">js_pageload_protect_ms</h3>
-<p><strong>Js Pageload Protect Ms</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.js_pageload_protect_ms) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="js_pageload_parse_ms_1">js_pageload_parse_ms</h3>
-<p><strong>Js Pageload Parse Ms</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.js_pageload_parse_ms) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="js_pageload_execution_ms_1">js_pageload_execution_ms</h3>
-<p><strong>Js Pageload Execution Ms</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.js_pageload_execution_ms) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="js_pageload_delazification_ms_1">js_pageload_delazification_ms</h3>
-<p><strong>Js Pageload Delazification Ms</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.js_pageload_delazification_ms) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="js_pageload_baseline_compile_ms_1">js_pageload_baseline_compile_ms</h3>
-<p><strong>Js Pageload Baseline Compile Ms</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.js_pageload_baseline_compile_ms) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="input_event_response_ms_1">input_event_response_ms</h3>
-<p><strong>Input Event Response Ms</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.histograms.input_event_response_ms) IGNORE NULLS)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="memory_pressure_count_1">memory_pressure_count</h3>
-<p><strong>Memory Pressure Count</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#events_memory"><code>events_memory</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(SAFE_CAST(SPLIT(event_string_value, ',')[OFFSET(1)] AS NUMERIC))
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="tagged_search_count_1">tagged_search_count</h3>
-<p><strong>Tagged Search Count</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(tagged_sap)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="tagged_follow_on_search_count_1">tagged_follow_on_search_count</h3>
-<p><strong>Tagged Follow On Search Count</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(tagged_follow_on)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="search_with_ads_1">search_with_ads</h3>
-<p><strong>Search with Ads</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(search_with_ads)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="ad_click_1">ad_click</h3>
-<p><strong>Ad Clicks</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(ad_click)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="organic_search_count_1">organic_search_count</h3>
-<p><strong>Organic Search Count</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(organic)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="sap_1">sap</h3>
-<p><strong>SAP Search Count</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(sap)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="ad_click_organic_1">ad_click_organic</h3>
-<p><strong>Organic Ad Click Count</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(ad_click_organic)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="search_with_ads_organic_1">search_with_ads_organic</h3>
-<p><strong>Organic Searches with Ads</strong></p>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(search_with_ads_organic)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>

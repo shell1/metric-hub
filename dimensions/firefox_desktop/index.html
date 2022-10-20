@@ -1461,40 +1461,6 @@
     Overrides from opmon-config
   </a>
   
-    <nav class="md-nav" aria-label="Overrides from opmon-config">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#os_1" class="md-nav__link">
-    os
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cores_count_1" class="md-nav__link">
-    cores_count
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#build_1" class="md-nav__link">
-    build
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#country_1" class="md-nav__link">
-    country
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -1851,40 +1817,6 @@
     Overrides from opmon-config
   </a>
   
-    <nav class="md-nav" aria-label="Overrides from opmon-config">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#os_1" class="md-nav__link">
-    os
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cores_count_1" class="md-nav__link">
-    cores_count
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#build_1" class="md-nav__link">
-    build
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#country_1" class="md-nav__link">
-    country
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -1971,54 +1903,6 @@
 <h2 id="overrides-from-opmon-config">Overrides from opmon-config</h2>
 <p>Tool-specific configurations that override the defaults.
 These dimensions are defined in <a href="https://github.com/mozilla/opmon-config/blob/main/definitions/firefox_desktop.toml">opmon-config</a></p>
-<h3 id="os_1">os</h3>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
-<details>
-<summary>Definition:</summary>
-
-
-<pre><code class="language-sql">normalized_os
-</code></pre>
-
-</details>
-
-<hr />
-<h3 id="cores_count_1">cores_count</h3>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
-<details>
-<summary>Definition:</summary>
-
-
-<pre><code class="language-sql">environment.system.cpu.cores
-</code></pre>
-
-</details>
-
-<hr />
-<h3 id="build_1">build</h3>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
-<details>
-<summary>Definition:</summary>
-
-
-<pre><code class="language-sql">SAFE.SUBSTR(application.build_id, 0, 8)
-</code></pre>
-
-</details>
-
-<hr />
-<h3 id="country_1">country</h3>
-<p>Data Source: <a href="https://mozilla.github.io/jetstream-config/data_sources/firefox_desktop/#main"><code>main</code></a></p>
-<details>
-<summary>Definition:</summary>
-
-
-<pre><code class="language-sql">normalized_country_code
-</code></pre>
-
-</details>
-
-<hr />
 <h2 id="overrides-from-jetstream-config">Overrides from jetstream-config</h2>
 <p>Tool-specific configurations that override the defaults.
 These dimensions are defined in <a href="https://github.com/mozilla/jetstream-config/blob/main/definitions/firefox_desktop.toml">jetstream-config</a></p>
