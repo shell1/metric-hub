@@ -945,6 +945,90 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#performance_pageload_load_time" class="md-nav__link">
+    performance_pageload_load_time
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance_pageload_load_time_responsestart" class="md-nav__link">
+    performance_pageload_load_time_responsestart
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance_pageload_req_anim_frame_callback" class="md-nav__link">
+    performance_pageload_req_anim_frame_callback
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance_pageload_dcl" class="md-nav__link">
+    performance_pageload_dcl
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance_pageload_dcl_responsestart" class="md-nav__link">
+    performance_pageload_dcl_responsestart
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance_pageload_fcp" class="md-nav__link">
+    performance_pageload_fcp
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance_pageload_fcp_responsestart" class="md-nav__link">
+    performance_pageload_fcp_responsestart
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perf_startup_cold_main_app_to_first_frame" class="md-nav__link">
+    perf_startup_cold_main_app_to_first_frame
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perf_startup_cold_view_app_to_first_frame" class="md-nav__link">
+    perf_startup_cold_view_app_to_first_frame
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage_stats_app_bytes" class="md-nav__link">
+    storage_stats_app_bytes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage_stats_cache_bytes" class="md-nav__link">
+    storage_stats_cache_bytes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage_stats_data_dir_bytes" class="md-nav__link">
+    storage_stats_data_dir_bytes
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1924,6 +2008,90 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#performance_pageload_load_time" class="md-nav__link">
+    performance_pageload_load_time
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance_pageload_load_time_responsestart" class="md-nav__link">
+    performance_pageload_load_time_responsestart
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance_pageload_req_anim_frame_callback" class="md-nav__link">
+    performance_pageload_req_anim_frame_callback
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance_pageload_dcl" class="md-nav__link">
+    performance_pageload_dcl
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance_pageload_dcl_responsestart" class="md-nav__link">
+    performance_pageload_dcl_responsestart
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance_pageload_fcp" class="md-nav__link">
+    performance_pageload_fcp
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance_pageload_fcp_responsestart" class="md-nav__link">
+    performance_pageload_fcp_responsestart
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perf_startup_cold_main_app_to_first_frame" class="md-nav__link">
+    perf_startup_cold_main_app_to_first_frame
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perf_startup_cold_view_app_to_first_frame" class="md-nav__link">
+    perf_startup_cold_view_app_to_first_frame
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage_stats_app_bytes" class="md-nav__link">
+    storage_stats_app_bytes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage_stats_cache_bytes" class="md-nav__link">
+    storage_stats_cache_bytes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage_stats_data_dir_bytes" class="md-nav__link">
+    storage_stats_data_dir_bytes
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2131,6 +2299,179 @@
 
 
 <pre><code class="language-sql">MIN(client_info.first_run_date)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="performance_pageload_load_time">performance_pageload_load_time</h3>
+<p><strong>Pageload Load Time</strong></p>
+<p>Time in milliseconds from navigationStart to loadEventStart for the foreground http or https root content document.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#metrics"><code>metrics</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(metrics.timing_distribution.performance_pageload_load_time) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="performance_pageload_load_time_responsestart">performance_pageload_load_time_responsestart</h3>
+<p><strong>Pageload Load Time Response Start</strong></p>
+<p>Time in milliseconds from responseStart to loadEventStart for the foreground http or https root content document.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#metrics"><code>metrics</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(metrics.timing_distribution.performance_pageload_load_time_responsestart) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="performance_pageload_req_anim_frame_callback">performance_pageload_req_anim_frame_callback</h3>
+<p><strong>Pageload Load Req Animation Frame Callback</strong></p>
+<p>Time spent in milliseconds calling all request animation frame callbacks for a document before it has reached readystate complete.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#metrics"><code>metrics</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(metrics.timing_distribution.performance_pageload_req_anim_frame_callback) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="performance_pageload_dcl">performance_pageload_dcl</h3>
+<p><strong>Pageload DCL</strong></p>
+<p>Time in milliseconds from navigationStart to domContentLoaded for the foreground http or https root content document.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#metrics"><code>metrics</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(metrics.timing_distribution.performance_pageload_dcl) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="performance_pageload_dcl_responsestart">performance_pageload_dcl_responsestart</h3>
+<p><strong>Pageload DCL Response Start</strong></p>
+<p>Time in milliseconds from responseStart to domContentLoaded for the foreground http or https root content document.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#metrics"><code>metrics</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(metrics.timing_distribution.performance_pageload_dcl_responsestart) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="performance_pageload_fcp">performance_pageload_fcp</h3>
+<p><strong>Pageload FCP</strong></p>
+<p>The time between navigationStart and the first contentful paint of a foreground http or https root content document, in milliseconds. The contentful paint timestamp is taken during display list building and does not include rasterization or compositing of that paint.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#metrics"><code>metrics</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(metrics.timing_distribution.performance_pageload_fcp) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="performance_pageload_fcp_responsestart">performance_pageload_fcp_responsestart</h3>
+<p><strong>Pageload FCP Response Start</strong></p>
+<p>The time between responseStart and the first contentful paint of a foreground http or https root content document, in milliseconds. The contentful paint timestamp is taken during display list building and does not include rasterization or compositing of that paint.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#metrics"><code>metrics</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(metrics.timing_distribution.performance_pageload_fcp_responsestart) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="perf_startup_cold_main_app_to_first_frame">perf_startup_cold_main_app_to_first_frame</h3>
+<p><strong>Startup Cold Main App to First Frame</strong></p>
+<p>The duration from <code>*Application</code>'s initializer to the first Android frame
+being drawn in a <a href="https://wiki.mozilla.org/index.php?title=Performance/Fenix/Glossary">COLD MAIN start
+up</a>.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#metrics"><code>metrics</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(metrics.timing_distribution.perf_startup_cold_main_app_to_first_frame) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="perf_startup_cold_view_app_to_first_frame">perf_startup_cold_view_app_to_first_frame</h3>
+<p><strong>Startup Cold View App to First Frame</strong></p>
+<p>The duration from <code>*Application</code>'s initializer to the first Android frame
+being drawn in a <a href="https://wiki.mozilla.org/index.php?title=Performance/Fenix/Glossary">COLD VIEW start
+up</a>.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#metrics"><code>metrics</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(metrics.timing_distribution.perf_startup_cold_view_app_to_first_frame) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="storage_stats_app_bytes">storage_stats_app_bytes</h3>
+<p><strong>App Byte Size</strong></p>
+<p>The size of the app's APK and related files as installed: this is expected
+to be larger than download size.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#metrics"><code>metrics</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(metrics.memory_distribution.storage_stats_app_bytes) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="storage_stats_cache_bytes">storage_stats_cache_bytes</h3>
+<p><strong>Cache Byte Size</strong></p>
+<p>The size of all cached data in the app.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#metrics"><code>metrics</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(metrics.memory_distribution.storage_stats_cache_bytes) IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="storage_stats_data_dir_bytes">storage_stats_data_dir_bytes</h3>
+<p><strong>Data Dir Byte Size</strong></p>
+<p>The size of all data minus <code>cache_bytes</code>.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#metrics"><code>metrics</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(metrics.memory_distribution.storage_stats_data_dir_bytes) IGNORE NULLS)
 </code></pre>
 
 </details>
