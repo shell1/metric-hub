@@ -1541,15 +1541,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#startup_crashes" class="md-nav__link">
-    startup_crashes
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#main_crashes" class="md-nav__link">
-    main_crashes
+  <a href="#shutdown_hangs" class="md-nav__link">
+    shutdown_hangs
   </a>
   
 </li>
@@ -1562,6 +1555,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#startup_crashes" class="md-nav__link">
+    startup_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#content_crashes" class="md-nav__link">
     content_crashes
   </a>
@@ -1569,8 +1569,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#shutdown_hangs" class="md-nav__link">
-    shutdown_hangs
+  <a href="#main_crashes" class="md-nav__link">
+    main_crashes
   </a>
   
 </li>
@@ -1911,15 +1911,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#startup_crashes" class="md-nav__link">
-    startup_crashes
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#main_crashes" class="md-nav__link">
-    main_crashes
+  <a href="#shutdown_hangs" class="md-nav__link">
+    shutdown_hangs
   </a>
   
 </li>
@@ -1932,6 +1925,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#startup_crashes" class="md-nav__link">
+    startup_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#content_crashes" class="md-nav__link">
     content_crashes
   </a>
@@ -1939,8 +1939,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#shutdown_hangs" class="md-nav__link">
-    shutdown_hangs
+  <a href="#main_crashes" class="md-nav__link">
+    main_crashes
   </a>
   
 </li>
@@ -2092,7 +2092,7 @@
 <h2 id="opmon-config">opmon-config</h2>
 <p><a href="https://github.com/mozilla/metric-hub/blob/main/defaults/firefox_desktop.toml">Source</a>  |  <a href="https://github.com/mozilla/metric-hub/edit/main/defaults/firefox_desktop.toml">Edit</a></p>
 <h3 id="metrics">Metrics</h3>
-<h4 id="startup_crashes"><code>startup_crashes</code></h4>
+<h4 id="shutdown_hangs"><code>shutdown_hangs</code></h4>
 <p>Analysis Periods:  <code>daily</code>  </p>
 <p>Data Source: <a href="#crash"><code>crash</code></a></p>
 <p>Statistics: <code>sum</code></p>
@@ -2100,21 +2100,7 @@
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(IF(payload.metadata.startup_crash = '1', 1, 0))
-</code></pre>
-
-</details>
-
-<hr />
-<h4 id="main_crashes"><code>main_crashes</code></h4>
-<p>Analysis Periods:  <code>daily</code>  </p>
-<p>Data Source: <a href="#crash"><code>crash</code></a></p>
-<p>Statistics: <code>sum</code></p>
-<details>
-<summary>Definition:</summary>
-
-
-<pre><code class="language-sql">SUM(IF(payload.process_type = 'main' OR payload.process_type IS NULL, 1, 0))
+<pre><code class="language-sql">SUM(IF(payload.metadata.moz_crash_reason LIKE 'MOZ_CRASH%', 1, 0))
 </code></pre>
 
 </details>
@@ -2134,6 +2120,20 @@
 </details>
 
 <hr />
+<h4 id="startup_crashes"><code>startup_crashes</code></h4>
+<p>Analysis Periods:  <code>daily</code>  </p>
+<p>Data Source: <a href="#crash"><code>crash</code></a></p>
+<p>Statistics: <code>sum</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(IF(payload.metadata.startup_crash = '1', 1, 0))
+</code></pre>
+
+</details>
+
+<hr />
 <h4 id="content_crashes"><code>content_crashes</code></h4>
 <p>Analysis Periods:  <code>daily</code>  </p>
 <p>Data Source: <a href="#crash"><code>crash</code></a></p>
@@ -2148,7 +2148,7 @@
 </details>
 
 <hr />
-<h4 id="shutdown_hangs"><code>shutdown_hangs</code></h4>
+<h4 id="main_crashes"><code>main_crashes</code></h4>
 <p>Analysis Periods:  <code>daily</code>  </p>
 <p>Data Source: <a href="#crash"><code>crash</code></a></p>
 <p>Statistics: <code>sum</code></p>
@@ -2156,7 +2156,7 @@
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(IF(payload.metadata.moz_crash_reason LIKE 'MOZ_CRASH%', 1, 0))
+<pre><code class="language-sql">SUM(IF(payload.process_type = 'main' OR payload.process_type IS NULL, 1, 0))
 </code></pre>
 
 </details>
