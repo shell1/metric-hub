@@ -1366,13 +1366,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#perf_first_contentful_paint" class="md-nav__link">
-    perf_first_contentful_paint
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#perf_request_animation_callback_non_pageload" class="md-nav__link">
     perf_request_animation_callback_non_pageload
   </a>
@@ -3409,13 +3402,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#perf_first_contentful_paint" class="md-nav__link">
-    perf_first_contentful_paint
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#perf_request_animation_callback_non_pageload" class="md-nav__link">
     perf_request_animation_callback_non_pageload
   </a>
@@ -5154,20 +5140,6 @@
 
 
 <pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.perf_page_load_time_from_responsestart_ms) IGNORE NULLS)
-</code></pre>
-
-</details>
-
-<hr />
-<h3 id="perf_first_contentful_paint">perf_first_contentful_paint</h3>
-<p><strong>Perf First Contentful Paint</strong></p>
-<p>The time between navigationStart and the first contentful paint of a foreground http or https root content document, in milliseconds. The contentful paint timestamp is taken during display list building and does not include rasterization or compositing of that paint.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#main"><code>main</code></a></p>
-<details>
-<summary>Definition:</summary>
-
-
-<pre><code class="language-sql">ARRAY_AGG(mozfun.hist.extract(payload.processes.content.histograms.perf_first_contentful_paint_ms) IGNORE NULLS)
 </code></pre>
 
 </details>

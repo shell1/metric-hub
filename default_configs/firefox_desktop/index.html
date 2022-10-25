@@ -1548,13 +1548,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#startup_crashes" class="md-nav__link">
-    startup_crashes
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#shutdown_hangs" class="md-nav__link">
     shutdown_hangs
   </a>
@@ -1564,6 +1557,13 @@
           <li class="md-nav__item">
   <a href="#main_crashes" class="md-nav__link">
     main_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startup_crashes" class="md-nav__link">
+    startup_crashes
   </a>
   
 </li>
@@ -1918,13 +1918,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#startup_crashes" class="md-nav__link">
-    startup_crashes
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#shutdown_hangs" class="md-nav__link">
     shutdown_hangs
   </a>
@@ -1934,6 +1927,13 @@
           <li class="md-nav__item">
   <a href="#main_crashes" class="md-nav__link">
     main_crashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startup_crashes" class="md-nav__link">
+    startup_crashes
   </a>
   
 </li>
@@ -2106,20 +2106,6 @@
 </details>
 
 <hr />
-<h4 id="startup_crashes"><code>startup_crashes</code></h4>
-<p>Analysis Periods:  <code>daily</code>  </p>
-<p>Data Source: <a href="#crash"><code>crash</code></a></p>
-<p>Statistics: <code>sum</code></p>
-<details>
-<summary>Definition:</summary>
-
-
-<pre><code class="language-sql">SUM(IF(payload.metadata.startup_crash = '1', 1, 0))
-</code></pre>
-
-</details>
-
-<hr />
 <h4 id="shutdown_hangs"><code>shutdown_hangs</code></h4>
 <p>Analysis Periods:  <code>daily</code>  </p>
 <p>Data Source: <a href="#crash"><code>crash</code></a></p>
@@ -2143,6 +2129,20 @@
 
 
 <pre><code class="language-sql">SUM(IF(payload.process_type = 'main' OR payload.process_type IS NULL, 1, 0))
+</code></pre>
+
+</details>
+
+<hr />
+<h4 id="startup_crashes"><code>startup_crashes</code></h4>
+<p>Analysis Periods:  <code>daily</code>  </p>
+<p>Data Source: <a href="#crash"><code>crash</code></a></p>
+<p>Statistics: <code>sum</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(IF(payload.metadata.startup_crash = '1', 1, 0))
 </code></pre>
 
 </details>
@@ -2187,7 +2187,7 @@
 <h4 id="retained"><code>retained</code></h4>
 <p><strong>Retained</strong></p>
 <p>Records whether a client submitted any pings (i.e. used Firefox).</p>
-<p>Analysis Periods:  <code>weekly</code> ,   <code>daily</code>  </p>
+<p>Analysis Periods:  <code>daily</code> ,   <code>weekly</code>  </p>
 <p>Data Source: <a href="#clients_daily"><code>clients_daily</code></a></p>
 <p>Statistics: <code>binomial</code></p>
 <details>
@@ -2261,7 +2261,7 @@ Includes within-page navigation events (e.g. to anchors).</p>
 <p>The number of days in the interval that each client sent a main ping.</p>
 <p>Analysis Periods:  <code>weekly</code> ,   <code>overall</code>  </p>
 <p>Data Source: <a href="#clients_daily"><code>clients_daily</code></a></p>
-<p>Statistics: <code>bootstrap_mean</code>, <code>empirical_cdf</code>, <code>deciles</code></p>
+<p>Statistics: <code>bootstrap_mean</code>, <code>deciles</code>, <code>empirical_cdf</code></p>
 <details>
 <summary>Definition:</summary>
 
