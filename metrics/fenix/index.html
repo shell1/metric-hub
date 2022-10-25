@@ -2241,7 +2241,7 @@
 
 
 <pre><code class="language-sql">COUNTIF(event.name = 'browser_menu_action' AND
-    mozfun.map.get_key('event.extra', 'item') = 'report_site_issue')
+    mozfun.map.get_key(event.extra, 'item') = 'report_site_issue')
 </code></pre>
 
 </details>
@@ -2256,7 +2256,7 @@
 
 
 <pre><code class="language-sql">COUNTIF(event.name = 'browser_menu_action' AND
-    mozfun.map.get_key('event.extra', 'item') = 'reload')
+    mozfun.map.get_key(event.extra, 'item') = 'reload')
 </code></pre>
 
 </details>

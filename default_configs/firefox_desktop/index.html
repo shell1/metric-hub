@@ -1541,8 +1541,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#main_crashes" class="md-nav__link">
-    main_crashes
+  <a href="#oom_crashes" class="md-nav__link">
+    oom_crashes
   </a>
   
 </li>
@@ -1562,8 +1562,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#oom_crashes" class="md-nav__link">
-    oom_crashes
+  <a href="#main_crashes" class="md-nav__link">
+    main_crashes
   </a>
   
 </li>
@@ -1911,8 +1911,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#main_crashes" class="md-nav__link">
-    main_crashes
+  <a href="#oom_crashes" class="md-nav__link">
+    oom_crashes
   </a>
   
 </li>
@@ -1932,8 +1932,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#oom_crashes" class="md-nav__link">
-    oom_crashes
+  <a href="#main_crashes" class="md-nav__link">
+    main_crashes
   </a>
   
 </li>
@@ -2092,7 +2092,7 @@
 <h2 id="opmon-config">opmon-config</h2>
 <p><a href="https://github.com/mozilla/metric-hub/blob/main/defaults/firefox_desktop.toml">Source</a>  |  <a href="https://github.com/mozilla/metric-hub/edit/main/defaults/firefox_desktop.toml">Edit</a></p>
 <h3 id="metrics">Metrics</h3>
-<h4 id="main_crashes"><code>main_crashes</code></h4>
+<h4 id="oom_crashes"><code>oom_crashes</code></h4>
 <p>Analysis Periods:  <code>daily</code>  </p>
 <p>Data Source: <a href="#crash"><code>crash</code></a></p>
 <p>Statistics: <code>sum</code></p>
@@ -2100,7 +2100,7 @@
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(IF(payload.process_type = 'main' OR payload.process_type IS NULL, 1, 0))
+<pre><code class="language-sql">SUM(IF(payload.metadata.oom_allocation_size IS NOT NULL, 1, 0))
 </code></pre>
 
 </details>
@@ -2134,7 +2134,7 @@
 </details>
 
 <hr />
-<h4 id="oom_crashes"><code>oom_crashes</code></h4>
+<h4 id="main_crashes"><code>main_crashes</code></h4>
 <p>Analysis Periods:  <code>daily</code>  </p>
 <p>Data Source: <a href="#crash"><code>crash</code></a></p>
 <p>Statistics: <code>sum</code></p>
@@ -2142,7 +2142,7 @@
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(IF(payload.metadata.oom_allocation_size IS NOT NULL, 1, 0))
+<pre><code class="language-sql">SUM(IF(payload.process_type = 'main' OR payload.process_type IS NULL, 1, 0))
 </code></pre>
 
 </details>
@@ -2261,7 +2261,7 @@ Includes within-page navigation events (e.g. to anchors).</p>
 <p>The number of days in the interval that each client sent a main ping.</p>
 <p>Analysis Periods:  <code>weekly</code> ,   <code>overall</code>  </p>
 <p>Data Source: <a href="#clients_daily"><code>clients_daily</code></a></p>
-<p>Statistics: <code>bootstrap_mean</code>, <code>deciles</code>, <code>empirical_cdf</code></p>
+<p>Statistics: <code>bootstrap_mean</code>, <code>empirical_cdf</code>, <code>deciles</code></p>
 <details>
 <summary>Definition:</summary>
 
