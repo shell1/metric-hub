@@ -952,6 +952,34 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#active_hours" class="md-nav__link">
+    active_hours
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#days_of_use" class="md-nav__link">
+    days_of_use
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ad_clicks" class="md-nav__link">
+    ad_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search_count" class="md-nav__link">
+    search_count
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1840,6 +1868,34 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#active_hours" class="md-nav__link">
+    active_hours
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#days_of_use" class="md-nav__link">
+    days_of_use
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ad_clicks" class="md-nav__link">
+    ad_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search_count" class="md-nav__link">
+    search_count
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1961,6 +2017,63 @@
 
 
 <pre><code class="language-sql">MIN(client_info.first_run_date)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="active_hours">active_hours</h3>
+<p><strong>Active Hours</strong></p>
+<p>Total time Firefox was active</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_ios/#baseline"><code>baseline</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(SUM(metrics.timespan.glean_baseline_duration.value), 0) / 3600.0
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="days_of_use">days_of_use</h3>
+<p><strong>Days of use</strong></p>
+<p>The number of days in an observation window that clients used the browser.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_ios/#baseline"><code>baseline</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COUNT(DISTINCT DATE(submission_timestamp))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="ad_clicks">ad_clicks</h3>
+<p><strong>Ad Clicks</strong></p>
+<p>Counts clicks on ads on search engine result pages with a Mozilla
+    partner tag.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_ios/#mobile_search_clients_engines_sources_daily"><code>mobile_search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_sum('ad_click')}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="search_count">search_count</h3>
+<p><strong>SAP search count</strong></p>
+<p>Number of searches performed through a Search Access Point.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_ios/#mobile_search_clients_engines_sources_daily"><code>mobile_search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_sum('search_count')}}
 </code></pre>
 
 </details>
