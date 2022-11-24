@@ -1258,21 +1258,7 @@
     metric-hub
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#overrides-from-opmon-config" class="md-nav__link">
-    Overrides from opmon-config
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#overrides-from-jetstream-config" class="md-nav__link">
-    Overrides from jetstream-config
-  </a>
-  
-    <nav class="md-nav" aria-label="Overrides from jetstream-config">
+    <nav class="md-nav" aria-label="metric-hub">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1305,6 +1291,61 @@
         
           <li class="md-nav__item">
   <a href="#new_unique_profiles" class="md-nav__link">
+    new_unique_profiles
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overrides-from-opmon-config" class="md-nav__link">
+    Overrides from opmon-config
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overrides-from-jetstream-config" class="md-nav__link">
+    Overrides from jetstream-config
+  </a>
+  
+    <nav class="md-nav" aria-label="Overrides from jetstream-config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#regular_users_v3_1" class="md-nav__link">
+    regular_users_v3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new_or_resurrected_v3_1" class="md-nav__link">
+    new_or_resurrected_v3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weekday_regular_v1_1" class="md-nav__link">
+    weekday_regular_v1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allweek_regular_v1_1" class="md-nav__link">
+    allweek_regular_v1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new_unique_profiles_1" class="md-nav__link">
     new_unique_profiles
   </a>
   
@@ -1783,21 +1824,7 @@
     metric-hub
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#overrides-from-opmon-config" class="md-nav__link">
-    Overrides from opmon-config
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#overrides-from-jetstream-config" class="md-nav__link">
-    Overrides from jetstream-config
-  </a>
-  
-    <nav class="md-nav" aria-label="Overrides from jetstream-config">
+    <nav class="md-nav" aria-label="metric-hub">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1840,6 +1867,61 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#overrides-from-opmon-config" class="md-nav__link">
+    Overrides from opmon-config
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overrides-from-jetstream-config" class="md-nav__link">
+    Overrides from jetstream-config
+  </a>
+  
+    <nav class="md-nav" aria-label="Overrides from jetstream-config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#regular_users_v3_1" class="md-nav__link">
+    regular_users_v3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new_or_resurrected_v3_1" class="md-nav__link">
+    new_or_resurrected_v3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weekday_regular_v1_1" class="md-nav__link">
+    weekday_regular_v1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allweek_regular_v1_1" class="md-nav__link">
+    allweek_regular_v1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new_unique_profiles_1" class="md-nav__link">
+    new_unique_profiles
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1858,12 +1940,6 @@
 
 <h2 id="metric-hub">metric-hub</h2>
 <p>Pre-defined segments for <code>firefox_desktop</code>. These segments are defined in <a href="https://github.com/mozilla/metric-hub/blob/main/definitions/firefox_desktop.toml">metric-hub</a></p>
-<h2 id="overrides-from-opmon-config">Overrides from opmon-config</h2>
-<p>Tool-specific configurations that override the defaults.
-These segments are defined in <a href="https://github.com/mozilla/opmon-config/blob/main/definitions/firefox_desktop.toml">opmon-config</a></p>
-<h2 id="overrides-from-jetstream-config">Overrides from jetstream-config</h2>
-<p>Tool-specific configurations that override the defaults.
-These segments are defined in <a href="https://github.com/mozilla/jetstream-config/blob/main/definitions/firefox_desktop.toml">jetstream-config</a></p>
 <h3 id="regular_users_v3">regular_users_v3</h3>
 <p><strong>Regular users (v3)</strong></p>
 <p>Clients who used Firefox on at least 14 of the 27 days prior to enrolling.
@@ -1922,6 +1998,84 @@ These segments are defined in <a href="https://github.com/mozilla/jetstream-conf
 
 <hr />
 <h3 id="new_unique_profiles">new_unique_profiles</h3>
+<p><strong>New unique profiles</strong></p>
+<p>Clients that enrolled the first date their client_id ever appeared
+    in telemetry (i.e. new, unique profiles).</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#clients_last_seen"><code>clients_last_seen</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(ANY_VALUE(first_seen_date) &gt;= submission_date, TRUE)
+</code></pre>
+
+</details>
+
+<hr />
+<h2 id="overrides-from-opmon-config">Overrides from opmon-config</h2>
+<p>Tool-specific configurations that override the defaults.
+These segments are defined in <a href="https://github.com/mozilla/opmon-config/blob/main/definitions/firefox_desktop.toml">opmon-config</a></p>
+<h2 id="overrides-from-jetstream-config">Overrides from jetstream-config</h2>
+<p>Tool-specific configurations that override the defaults.
+These segments are defined in <a href="https://github.com/mozilla/jetstream-config/blob/main/definitions/firefox_desktop.toml">jetstream-config</a></p>
+<h3 id="regular_users_v3_1">regular_users_v3</h3>
+<p><strong>Regular users (v3)</strong></p>
+<p>Clients who used Firefox on at least 14 of the 27 days prior to enrolling.
+    This segment is characterized by high retention.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#clients_last_seen"><code>clients_last_seen</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_any(&quot;is_regular_user_v3&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="new_or_resurrected_v3_1">new_or_resurrected_v3</h3>
+<p><strong>New or resurrected users (v3)</strong></p>
+<p>Clients who used Firefox on none of the 27 days prior to enrolling.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#clients_last_seen"><code>clients_last_seen</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">LOGICAL_OR(COALESCE(is_new_or_resurrected_v3, TRUE))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="weekday_regular_v1_1">weekday_regular_v1</h3>
+<p><strong>Weekday regular users (v1)</strong></p>
+<p>A subset of "regular users" who typically use Firefox on weekdays.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#clients_last_seen"><code>clients_last_seen</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_any(&quot;is_weekday_regular_v1&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="allweek_regular_v1_1">allweek_regular_v1</h3>
+<p><strong>All-week regulars (v1)</strong></p>
+<p>A subset of "regular users" that have used Firefox on weekends.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#clients_last_seen"><code>clients_last_seen</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_any(&quot;is_allweek_regular_v1&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="new_unique_profiles_1">new_unique_profiles</h3>
 <p><strong>New unique profiles</strong></p>
 <p>Clients that enrolled the first date their client_id ever appeared
     in telemetry (i.e. new, unique profiles).</p>
