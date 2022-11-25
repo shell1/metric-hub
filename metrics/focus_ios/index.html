@@ -1069,6 +1069,34 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#active_hours_1" class="md-nav__link">
+    active_hours
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#days_of_use_1" class="md-nav__link">
+    days_of_use
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ad_clicks_1" class="md-nav__link">
+    ad_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search_count_1" class="md-nav__link">
+    search_count
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1957,6 +1985,34 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#active_hours_1" class="md-nav__link">
+    active_hours
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#days_of_use_1" class="md-nav__link">
+    days_of_use
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ad_clicks_1" class="md-nav__link">
+    ad_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search_count_1" class="md-nav__link">
+    search_count
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2110,42 +2166,84 @@ These metrics are defined in <a href="https://github.com/mozilla/opmon-config/bl
 <p>Tool-specific configurations that override the defaults.
 These metrics are defined in <a href="https://github.com/mozilla/jetstream-config/blob/main/definitions/focus_ios.toml">jetstream-config</a></p>
 <h3 id="baseline_ping_count_2">baseline_ping_count</h3>
-<p><strong>Baseline pings</strong></p>
-<p>Counts the number of <code>baseline</code> pings received from each client.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/focus_ios/#baseline"><code>baseline</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/focus_ios/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COUNT(document_id)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="metric_ping_count_2">metric_ping_count</h3>
-<p><strong>Metrics pings</strong></p>
-<p>Counts the number of <code>metrics</code> pings received from each client.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/focus_ios/#metrics"><code>metrics</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/focus_ios/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COUNT(document_id)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="first_run_date_1">first_run_date</h3>
-<p><strong>First run date</strong></p>
-<p>The earliest first-run date reported by each client.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/focus_ios/#baseline"><code>baseline</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/focus_ios/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">MIN(client_info.first_run_date)
+<pre><code class="language-sql">None
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="active_hours_1">active_hours</h3>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/focus_ios/#">``</a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">None
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="days_of_use_1">days_of_use</h3>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/focus_ios/#">``</a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">None
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="ad_clicks_1">ad_clicks</h3>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/focus_ios/#">``</a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">None
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="search_count_1">search_count</h3>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/focus_ios/#">``</a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>

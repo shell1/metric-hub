@@ -6630,309 +6630,216 @@ These metrics are defined in <a href="https://github.com/mozilla/opmon-config/bl
 <p>Tool-specific configurations that override the defaults.
 These metrics are defined in <a href="https://github.com/mozilla/jetstream-config/blob/main/definitions/firefox_desktop.toml">jetstream-config</a></p>
 <h3 id="active_hours_1">active_hours</h3>
-<p><strong>Active hours</strong></p>
-<p>Measures the amount of time (in 5-second increments) during which
-    Firefox received user input from a keyboard or mouse. The Firefox
-    window does not need to be focused.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#clients_daily"><code>clients_daily</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">{{agg_sum(&quot;active_hours_sum&quot;)}}
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="uri_count_2">uri_count</h3>
-<p><strong>URIs visited</strong></p>
-<p>Counts the total number of URIs visited.
-    Includes within-page navigation events (e.g. to anchors).</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#clients_daily"><code>clients_daily</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">{{agg_sum(&quot;scalar_parent_browser_engagement_total_uri_count_sum&quot;)}}
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="search_count_1">search_count</h3>
-<p><strong>SAP searches</strong></p>
-<p>Counts the number of searches a user performed through Firefox's
-    Search Access Points.
-    Learn more in the
-    <a href="https://docs.telemetry.mozilla.org/datasets/search.html">search data documentation</a>.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">{{agg_sum(&quot;sap&quot;)}}
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="tagged_search_count_2">tagged_search_count</h3>
-<p><strong>Tagged SAP searches</strong></p>
-<p>Counts the number of searches a user performed through Firefox's
-    Search Access Points that were submitted with a partner code
-    and were potentially revenue-generating.
-    Learn more in the
-    <a href="https://docs.telemetry.mozilla.org/datasets/search.html">search data documentation</a>.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">{{agg_sum(&quot;tagged_sap&quot;)}}
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="tagged_follow_on_search_count_2">tagged_follow_on_search_count</h3>
-<p><strong>Tagged follow-on searches</strong></p>
-<p>Counts the number of follow-on searches with a Mozilla partner tag.
-    These are additional searches that users performed from a search engine
-    results page after executing a tagged search through a SAP.
-    Learn more in the
-    <a href="https://docs.telemetry.mozilla.org/datasets/search.html">search data documentation</a>.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">{{agg_sum(&quot;tagged_follow_on&quot;)}}
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="ad_clicks_1">ad_clicks</h3>
-<p><strong>Ad clicks</strong></p>
-<p>Counts clicks on ads on search engine result pages with a Mozilla
-    partner tag.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">{{agg_sum(&quot;ad_click&quot;)}}
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="searches_with_ads_1">searches_with_ads</h3>
-<p><strong>Search result pages with ads</strong></p>
-<p>Counts search result pages served with advertising.
-    Users may not actually see these ads thanks to e.g. ad-blockers.
-    Learn more in the
-    <a href="https://mozilla-private.report/search-analysis-docs/book/in_content_searches.html">search analysis documentation</a>.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">{{agg_sum(&quot;search_with_ads&quot;)}}
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="organic_search_count_2">organic_search_count</h3>
-<p><strong>Organic searches</strong></p>
-<p>Counts organic searches, which are searches that are <em>not</em> performed
-    through a Firefox SAP and which are not monetizable.
-    Learn more in the
-    <a href="https://docs.telemetry.mozilla.org/datasets/search.html">search data documentation</a>.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">{{agg_sum(&quot;organic&quot;)}}
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="unenroll_1">unenroll</h3>
-<p><strong>Unenrollments</strong></p>
-<p>Counts the number of clients with an experiment unenrollment event.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#normandy_events"><code>normandy_events</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">{{agg_any(
-     &quot;&quot;&quot;        event_category = 'normandy'
-        AND event_method = 'unenroll'
-        AND event_string_value = '{experiment_slug}'
-     &quot;&quot;&quot;)}}
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="view_about_logins_1">view_about_logins</h3>
-<p><strong>about:logins viewers</strong></p>
-<p>Counts the number of clients that viewed about:logins.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#events"><code>events</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">{{agg_any(
-     &quot;&quot;&quot;            event_method = 'open_management'
-            AND event_category = 'pwmgr'
-         &quot;&quot;&quot;)}}
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="view_about_protections_1">view_about_protections</h3>
-<p><strong>about:protections viewers</strong></p>
-<p>Counts the number of clients that viewed about:protections.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#events"><code>events</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">{{agg_any(
-     &quot;&quot;&quot;            event_method = 'show'
-            AND event_object = 'protection_report'
-         &quot;&quot;&quot;)}}
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="connect_fxa_1">connect_fxa</h3>
-<p><strong>Connected FxA</strong></p>
-<p>Counts the number of clients that took action to connect to FxA.
-    This does not include clients that were already connected to FxA at
-    the start of the experiment and remained connected.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#events"><code>events</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">{{agg_any(
-     &quot;&quot;&quot;            event_method = 'connect'
-            AND event_object = 'account'
-         &quot;&quot;&quot;)}}
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="pocket_rec_clicks_1">pocket_rec_clicks</h3>
-<p><strong>Clicked Pocket organic recs in New Tab</strong></p>
-<p>Counts the number of Pocket rec clicks made by each client.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#activity_stream_events"><code>activity_stream_events</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COUNTIF(
-    event = 'CLICK'
-    AND source = 'CARDGRID'
-    AND JSON_EXTRACT_SCALAR(value, '$.card_type') = 'organic'
-)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="pocket_spoc_clicks_1">pocket_spoc_clicks</h3>
-<p><strong>Clicked Pocket sponsored content in New Tab</strong></p>
-<p>Counts the number of Pocket sponsored content clicks made by each client.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#activity_stream_events"><code>activity_stream_events</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COUNTIF(
-    event = 'CLICK'
-    AND source = 'CARDGRID'
-    AND JSON_EXTRACT_SCALAR(value, '$.card_type') = 'spoc'
-)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="days_of_use_1">days_of_use</h3>
-<p><strong>Days of use</strong></p>
-<p>The number of days in the interval that each client sent a main ping.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#clients_daily"><code>clients_daily</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COUNT(ds.submission_date)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="qualified_cumulative_days_of_use_1">qualified_cumulative_days_of_use</h3>
-<p><strong>QCDOU</strong></p>
-<p>The number of days in the interval that each client sent a main ping,
-    given that the client had &gt;0 active hours and &gt;0 URIs loaded.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#clients_daily"><code>clients_daily</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COUNTIF(
-    active_hours_sum &gt; 0 AND
-    scalar_parent_browser_engagement_total_uri_count_normal_and_private_mode_sum &gt; 0
-)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="disable_pocket_clicks_1">disable_pocket_clicks</h3>
-<p><strong>Disabled Pocket in New Tab</strong></p>
-<p>Counts the number of clicks to disable Pocket in New Tab made by each client.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#activity_stream_events"><code>activity_stream_events</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COUNTIF(
-    event = 'PREF_CHANGED'
-    AND source = 'TOP_STORIES'
-    AND JSON_EXTRACT_SCALAR(value, '$.status') = 'false'
-)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="disable_pocket_spocs_clicks_1">disable_pocket_spocs_clicks</h3>
-<p><strong>Disabled Pocket sponsored content in New Tab</strong></p>
-<p>Counts the number of clicks to disable Pocket sponsored content
-    in New Tab made by each client.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#activity_stream_events"><code>activity_stream_events</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COUNTIF(
-    event = 'PREF_CHANGED'
-    AND source = 'POCKET_SPOCS'
-    AND JSON_EXTRACT_SCALAR(value, '$.status') = 'false'
-)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>

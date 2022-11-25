@@ -1251,6 +1251,41 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#active_hours_1" class="md-nav__link">
+    active_hours
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#days_of_use_1" class="md-nav__link">
+    days_of_use
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ad_clicks_1" class="md-nav__link">
+    ad_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tagged_sap_searches_1" class="md-nav__link">
+    tagged_sap_searches
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search_count_1" class="md-nav__link">
+    search_count
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2433,6 +2468,41 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#active_hours_1" class="md-nav__link">
+    active_hours
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#days_of_use_1" class="md-nav__link">
+    days_of_use
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ad_clicks_1" class="md-nav__link">
+    ad_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tagged_sap_searches_1" class="md-nav__link">
+    tagged_sap_searches
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search_count_1" class="md-nav__link">
+    search_count
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2997,86 +3067,132 @@ These metrics are defined in <a href="https://github.com/mozilla/opmon-config/bl
 <p>Tool-specific configurations that override the defaults.
 These metrics are defined in <a href="https://github.com/mozilla/jetstream-config/blob/main/definitions/fenix.toml">jetstream-config</a></p>
 <h3 id="uri_count_2">uri_count</h3>
-<p><strong>URIs visited</strong></p>
-<p>Counts the number of URIs each client visited</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#baseline"><code>baseline</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">{{agg_sum(&quot;metrics.counter.events_total_uri_count&quot;)}}
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="user_reports_site_issue_count_2">user_reports_site_issue_count</h3>
-<p><strong>Site issues reported</strong></p>
-<p>Counts the number of times clients reported an issue with a site.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#events"><code>events</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COUNTIF(event.name = 'browser_menu_action' AND
-    mozfun.map.get_key('event.extra', 'item') = 'report_site_issue')
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="user_reload_count_2">user_reload_count</h3>
-<p><strong>Pages reloaded</strong></p>
-<p>Counts the number of times a client reloaded a page.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#events"><code>events</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COUNTIF(event.name = 'browser_menu_action' AND
-    mozfun.map.get_key('event.extra', 'item') = 'reload')
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="baseline_ping_count_2">baseline_ping_count</h3>
-<p><strong>Baseline pings</strong></p>
-<p>Counts the number of <code>baseline</code> pings received from each client.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#baseline"><code>baseline</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COUNT(document_id)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="metric_ping_count_2">metric_ping_count</h3>
-<p><strong>Metrics pings</strong></p>
-<p>Counts the number of <code>metrics</code> pings received from each client.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#metrics"><code>metrics</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COUNT(document_id)
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="first_run_date_1">first_run_date</h3>
-<p><strong>First run date</strong></p>
-<p>The earliest first-run date reported by each client.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#baseline"><code>baseline</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#">``</a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">MIN(client_info.first_run_date)
+<pre><code class="language-sql">None
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="active_hours_1">active_hours</h3>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#">``</a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">None
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="days_of_use_1">days_of_use</h3>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#">``</a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">None
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="ad_clicks_1">ad_clicks</h3>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#">``</a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">None
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="tagged_sap_searches_1">tagged_sap_searches</h3>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#">``</a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">None
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="search_count_1">search_count</h3>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#">``</a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">None
 </code></pre>
 
 </details>
