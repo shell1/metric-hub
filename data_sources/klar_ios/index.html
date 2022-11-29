@@ -1909,7 +1909,11 @@
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">mozdata.search.mobile_search_clients_engines_sources_daily
+<pre><code class="language-sql">(
+    SELECT *
+    FROM `mozdata.search.mobile_search_clients_engines_sources_daily`
+    WHERE app_name = 'Klar' and os = 'iOS'
+ )
 </code></pre>
 
 </details>
