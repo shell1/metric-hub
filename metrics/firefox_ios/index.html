@@ -967,8 +967,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ad_clicks" class="md-nav__link">
-    ad_clicks
+  <a href="#organic_search_count" class="md-nav__link">
+    organic_search_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ad_click_organic" class="md-nav__link">
+    ad_click_organic
   </a>
   
 </li>
@@ -976,6 +983,55 @@
           <li class="md-nav__item">
   <a href="#search_count" class="md-nav__link">
     search_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#searches_with_ads" class="md-nav__link">
+    searches_with_ads
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ad_clicks" class="md-nav__link">
+    ad_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tagged_search_count" class="md-nav__link">
+    tagged_search_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tagged_follow_on" class="md-nav__link">
+    tagged_follow_on
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spoc_tiles_impressions" class="md-nav__link">
+    spoc_tiles_impressions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spoc_tiles_clicks" class="md-nav__link">
+    spoc_tiles_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spoc_tiles_preference_toggled" class="md-nav__link">
+    spoc_tiles_preference_toggled
   </a>
   
 </li>
@@ -1911,8 +1967,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ad_clicks" class="md-nav__link">
-    ad_clicks
+  <a href="#organic_search_count" class="md-nav__link">
+    organic_search_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ad_click_organic" class="md-nav__link">
+    ad_click_organic
   </a>
   
 </li>
@@ -1920,6 +1983,55 @@
           <li class="md-nav__item">
   <a href="#search_count" class="md-nav__link">
     search_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#searches_with_ads" class="md-nav__link">
+    searches_with_ads
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ad_clicks" class="md-nav__link">
+    ad_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tagged_search_count" class="md-nav__link">
+    tagged_search_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tagged_follow_on" class="md-nav__link">
+    tagged_follow_on
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spoc_tiles_impressions" class="md-nav__link">
+    spoc_tiles_impressions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spoc_tiles_clicks" class="md-nav__link">
+    spoc_tiles_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spoc_tiles_preference_toggled" class="md-nav__link">
+    spoc_tiles_preference_toggled
   </a>
   
 </li>
@@ -2106,8 +2218,73 @@
 </details>
 
 <hr />
+<h3 id="organic_search_count">organic_search_count</h3>
+<p><strong>Organic searches</strong></p>
+<p>Counts organic searches, which are searches that are <em>not</em> performed
+    through a Firefox SAP and which are not monetizable.
+    Learn more in the
+    <a href="https://docs.telemetry.mozilla.org/datasets/search.html">search data documentation</a>.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_ios/#mobile_search_clients_engines_sources_daily"><code>mobile_search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_sum('organic')}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="ad_click_organic">ad_click_organic</h3>
+<p><strong>Organic Ad Click Count</strong></p>
+<p>Total number of Organic Ad Click Counts</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_ios/#mobile_search_clients_engines_sources_daily"><code>mobile_search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_sum('ad_click_organic')}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="search_count">search_count</h3>
+<p><strong>SAP searches</strong></p>
+<p>Counts the number of searches a user performed through Firefox's
+    Search Access Points.
+    Learn more in the
+    <a href="https://docs.telemetry.mozilla.org/datasets/search.html">search data documentation</a>.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_ios/#mobile_search_clients_engines_sources_daily"><code>mobile_search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_sum('search_count')}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="searches_with_ads">searches_with_ads</h3>
+<p><strong>Search result pages with ads</strong></p>
+<p>Counts search result pages served with advertising.
+    Users may not actually see these ads thanks to e.g. ad-blockers.
+    Learn more in the
+    <a href="https://mozilla-private.report/search-analysis-docs/book/in_content_searches.html">search analysis documentation</a>.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_ios/#mobile_search_clients_engines_sources_daily"><code>mobile_search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_sum('search_with_ads')}}
+</code></pre>
+
+</details>
+
+<hr />
 <h3 id="ad_clicks">ad_clicks</h3>
-<p><strong>Ad Clicks</strong></p>
+<p><strong>Ad clicks</strong></p>
 <p>Counts clicks on ads on search engine result pages with a Mozilla
     partner tag.</p>
 <p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_ios/#mobile_search_clients_engines_sources_daily"><code>mobile_search_clients_engines_sources_daily</code></a></p>
@@ -2121,15 +2298,90 @@
 </details>
 
 <hr />
-<h3 id="search_count">search_count</h3>
-<p><strong>SAP search count</strong></p>
-<p>Number of searches performed through a Search Access Point.</p>
+<h3 id="tagged_search_count">tagged_search_count</h3>
+<p><strong>Tagged SAP searches</strong></p>
+<p>Counts the number of searches a user performed through Firefox's
+    Search Access Points that were submitted with a partner code
+    and were potentially revenue-generating.
+    Learn more in the
+    <a href="https://docs.telemetry.mozilla.org/datasets/search.html">search data documentation</a>.</p>
 <p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_ios/#mobile_search_clients_engines_sources_daily"><code>mobile_search_clients_engines_sources_daily</code></a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">{{agg_sum('search_count')}}
+<pre><code class="language-sql">{{agg_sum('tagged_sap')}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="tagged_follow_on">tagged_follow_on</h3>
+<p><strong>Tagged follow-on searches</strong></p>
+<p>Counts the number of follow-on searches with a Mozilla partner tag.
+    These are additional searches that users performed from a search engine
+    results page after executing a tagged search through a SAP.
+    Learn more in the
+    <a href="https://docs.telemetry.mozilla.org/datasets/search.html">search data documentation</a>.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_ios/#mobile_search_clients_engines_sources_daily"><code>mobile_search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_sum('tagged_follow_on')}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="spoc_tiles_impressions">spoc_tiles_impressions</h3>
+<p><strong>Sponsored Tiles Impressions</strong></p>
+<p>Number of times Contile Sponsored Tiles are shown.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_ios/#events"><code>events</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(COUNTIF(
+          event.category = 'top_site'
+          AND event.name = 'contile_impression'
+      ),0)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="spoc_tiles_clicks">spoc_tiles_clicks</h3>
+<p><strong>Sponsored Tiles Clicks</strong></p>
+<p>Number of times user clicked a Contile Sponsored Tile.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_ios/#events"><code>events</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(COUNTIF(
+          event.category = 'top_site'
+          AND event.name = 'contile_click'
+      ),0)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="spoc_tiles_preference_toggled">spoc_tiles_preference_toggled</h3>
+<p><strong>Sponsored Tiles Preference Toggled</strong></p>
+<p>Number of times Contile Sponsored Tiles setting is flipped.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_ios/#events"><code>events</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(SUM(CASE WHEN
+          event.category = 'preferences'
+          AND event.name = 'changed'
+          AND `mozfun.map.get_key`(event.extra, 'preference') = 'sponsoredTiles'
+    THEN 1 ELSE 0 END
+  ),0)
 </code></pre>
 
 </details>

@@ -1909,7 +1909,11 @@
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">mozdata.search.mobile_search_clients_engines_sources_daily
+<pre><code class="language-sql">(
+    SELECT *
+    FROM `mozdata.search.mobile_search_clients_engines_sources_daily` 
+    WHERE os = &quot;iOS&quot; AND normalized_app_name = &quot;Fennec&quot;
+)
 </code></pre>
 
 </details>
