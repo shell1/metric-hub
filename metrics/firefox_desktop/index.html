@@ -1554,6 +1554,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#is_default_browser" class="md-nav__link">
+    is_default_browser
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is_default_pdf_handler" class="md-nav__link">
+    is_default_pdf_handler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is_pinned" class="md-nav__link">
+    is_pinned
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3688,6 +3709,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#is_default_browser" class="md-nav__link">
+    is_default_browser
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is_default_pdf_handler" class="md-nav__link">
+    is_default_pdf_handler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is_pinned" class="md-nav__link">
+    is_pinned
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5718,6 +5760,48 @@
 
 
 <pre><code class="language-sql">SUM(ad_click_organic)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="is_default_browser">is_default_browser</h3>
+<p><strong>Is Default Browser</strong></p>
+<p>Was Firefox the default browser at any point during the interval?</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#clients_daily"><code>clients_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(LOGICAL_OR(is_default_browser), FALSE)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="is_default_pdf_handler">is_default_pdf_handler</h3>
+<p><strong>Is Default PDF Handler (Windows)</strong></p>
+<p>Was Firefox the default PDF Handler at any point during the interval?</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(LOGICAL_OR(mozfun.map.get_key(payload.processes.parent.keyed_scalars.os_environment_is_default_handler, '.pdf')), FALSE)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="is_pinned">is_pinned</h3>
+<p><strong>Is Pinned (Windows Taskbar)</strong></p>
+<p>Was Firefox pinned to the Windows Taskbar at any point during the interval?</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#clients_daily"><code>clients_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(LOGICAL_OR(scalar_parent_os_environment_is_taskbar_pinned), FALSE)
 </code></pre>
 
 </details>
