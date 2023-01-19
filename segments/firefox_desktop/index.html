@@ -1310,6 +1310,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#pocket_countries" class="md-nav__link">
+    pocket_countries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sponsored_tile_countries" class="md-nav__link">
+    sponsored_tile_countries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#marketing_tier1_countries" class="md-nav__link">
+    marketing_tier1_countries
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1835,6 +1856,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#pocket_countries" class="md-nav__link">
+    pocket_countries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sponsored_tile_countries" class="md-nav__link">
+    sponsored_tile_countries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#marketing_tier1_countries" class="md-nav__link">
+    marketing_tier1_countries
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1939,6 +1981,48 @@
 
 
 <pre><code class="language-sql">COALESCE(ANY_VALUE(first_seen_date) &gt;= submission_date, TRUE)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="pocket_countries">pocket_countries</h3>
+<p><strong>Pocket Countries</strong></p>
+<p>Clients in countries with Pocket.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_interactions"><code>newtab_interactions</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">LOGICAL_OR(COALESCE(country_code in ('AT', 'BE', 'CA', 'CH', 'DE', 'GB', 'IE', 'IN', 'US'), FALSE))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="sponsored_tile_countries">sponsored_tile_countries</h3>
+<p><strong>Sponsored Tile Countries</strong></p>
+<p>Clients in countries with AdMarketplace Sponsored Tiles.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_interactions"><code>newtab_interactions</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">LOGICAL_OR(COALESCE(country_code in ('AU', 'BR', 'CA', 'DE', 'ES', 'FR', 'GB', 'IN', 'IT', 'JA', 'MX', 'US'), FALSE))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="marketing_tier1_countries">marketing_tier1_countries</h3>
+<p><strong>Marketing Tier1 Countries</strong></p>
+<p>Clients in countries considered Tier 1 by Marketing. Other business units may have different definitions of 'Tier 1'.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_interactions"><code>newtab_interactions</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">LOGICAL_OR(COALESCE(country_code in ('CA', 'DE', 'FR', 'GB', 'US'), FALSE))
 </code></pre>
 
 </details>
