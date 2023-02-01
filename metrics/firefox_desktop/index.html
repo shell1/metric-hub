@@ -1589,6 +1589,48 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#imported_bookmarks" class="md-nav__link">
+    imported_bookmarks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imported_bookmarks_count" class="md-nav__link">
+    imported_bookmarks_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imported_logins" class="md-nav__link">
+    imported_logins
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imported_logins_count" class="md-nav__link">
+    imported_logins_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imported_history" class="md-nav__link">
+    imported_history
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imported_history_count" class="md-nav__link">
+    imported_history_count
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2262,6 +2304,48 @@
           <li class="md-nav__item">
   <a href="#disable_pocket_spocs_clicks_1" class="md-nav__link">
     disable_pocket_spocs_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imported_bookmarks_1" class="md-nav__link">
+    imported_bookmarks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imported_bookmarks_count_1" class="md-nav__link">
+    imported_bookmarks_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imported_logins_1" class="md-nav__link">
+    imported_logins
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imported_logins_count_1" class="md-nav__link">
+    imported_logins_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imported_history_1" class="md-nav__link">
+    imported_history
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imported_history_count_1" class="md-nav__link">
+    imported_history_count
   </a>
   
 </li>
@@ -3744,6 +3828,48 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#imported_bookmarks" class="md-nav__link">
+    imported_bookmarks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imported_bookmarks_count" class="md-nav__link">
+    imported_bookmarks_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imported_logins" class="md-nav__link">
+    imported_logins
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imported_logins_count" class="md-nav__link">
+    imported_logins_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imported_history" class="md-nav__link">
+    imported_history
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imported_history_count" class="md-nav__link">
+    imported_history_count
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4417,6 +4543,48 @@
           <li class="md-nav__item">
   <a href="#disable_pocket_spocs_clicks_1" class="md-nav__link">
     disable_pocket_spocs_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imported_bookmarks_1" class="md-nav__link">
+    imported_bookmarks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imported_bookmarks_count_1" class="md-nav__link">
+    imported_bookmarks_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imported_logins_1" class="md-nav__link">
+    imported_logins
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imported_logins_count_1" class="md-nav__link">
+    imported_logins_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imported_history_1" class="md-nav__link">
+    imported_history
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imported_history_count_1" class="md-nav__link">
+    imported_history_count
   </a>
   
 </li>
@@ -5821,6 +5989,90 @@
 </details>
 
 <hr />
+<h3 id="imported_bookmarks">imported_bookmarks</h3>
+<p><strong>Imported Bookmarks</strong></p>
+<p>Count of clients who imported bookmarks</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#clients_daily"><code>clients_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">LOGICAL_OR(bookmark_migrations_quantity_all IS NOT NULL AND bookmark_migrations_quantity_all != 0)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="imported_bookmarks_count">imported_bookmarks_count</h3>
+<p><strong>Total Number of Imported Bookmarks</strong></p>
+<p>Total number of imported bookmarks per client who imported</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#clients_daily"><code>clients_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">NULLIF(SUM(bookmark_migrations_quantity_all), 0)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="imported_logins">imported_logins</h3>
+<p><strong>Imported Logins</strong></p>
+<p>Count of clients who imported logins</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#clients_daily"><code>clients_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">LOGICAL_OR(logins_migrations_quantity_all IS NOT NULL AND logins_migrations_quantity_all != 0)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="imported_logins_count">imported_logins_count</h3>
+<p><strong>Total Number of Imported Logins</strong></p>
+<p>Total number of imported logins per client who imported</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#clients_daily"><code>clients_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">NULLIF(SUM(logins_migrations_quantity_all), 0)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="imported_history">imported_history</h3>
+<p><strong>Imported History</strong></p>
+<p>Count of clients who imported history</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#clients_daily"><code>clients_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">LOGICAL_OR(history_migrations_quantity_all IS NOT NULL AND history_migrations_quantity_all != 0)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="imported_history_count">imported_history_count</h3>
+<p><strong>Total Number of Imported History Links</strong></p>
+<p>Total number of imported history links per client who imported</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#clients_daily"><code>clients_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">NULLIF(SUM(history_migrations_quantity_all), 0)
+</code></pre>
+
+</details>
+
+<hr />
 <h2 id="overrides-from-opmon-config">Overrides from opmon-config</h2>
 <p>Tool-specific configurations that override the defaults.
 These metrics are defined in <a href="https://github.com/mozilla/opmon-config/blob/main/definitions/firefox_desktop.toml">opmon-config</a></p>
@@ -6932,6 +7184,78 @@ These metrics are defined in <a href="https://github.com/mozilla/jetstream-confi
 
 <hr />
 <h3 id="disable_pocket_spocs_clicks_1">disable_pocket_spocs_clicks</h3>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#">``</a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">None
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="imported_bookmarks_1">imported_bookmarks</h3>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#">``</a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">None
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="imported_bookmarks_count_1">imported_bookmarks_count</h3>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#">``</a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">None
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="imported_logins_1">imported_logins</h3>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#">``</a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">None
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="imported_logins_count_1">imported_logins_count</h3>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#">``</a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">None
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="imported_history_1">imported_history</h3>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#">``</a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">None
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="imported_history_count_1">imported_history_count</h3>
 <p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
