@@ -1050,6 +1050,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#new_profile_activation" class="md-nav__link">
+    new_profile_activation
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2050,6 +2057,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#new_profile_activation" class="md-nav__link">
+    new_profile_activation
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2396,6 +2410,20 @@
           AND `mozfun.map.get_key`(event.extra, 'preference') = 'sponsoredTiles'
     THEN 1 ELSE 0 END
   ),0)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="new_profile_activation">new_profile_activation</h3>
+<p><strong>New Profile Activation</strong></p>
+<p>A new profile is counted as activated one week after creation if it meets the following conditions: 1) at least 3 days of use during first week 2) at least one search between days 4-7.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_ios/#new_profile_activation"><code>new_profile_activation</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(SUM(activated))
 </code></pre>
 
 </details>
