@@ -629,6 +629,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../outcomes/firefox_desktop/new_user_onboarding/" class="md-nav__link">
+        New user onboarding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../outcomes/firefox_desktop/newtab_do_no_harm/" class="md-nav__link">
         Newtab do no harm
       </a>
@@ -1597,6 +1611,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#retained" class="md-nav__link">
+    retained
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#active_hours" class="md-nav__link">
     active_hours
   </a>
@@ -1606,13 +1627,6 @@
           <li class="md-nav__item">
   <a href="#search_count" class="md-nav__link">
     search_count
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#retained" class="md-nav__link">
-    retained
   </a>
   
 </li>
@@ -1897,6 +1911,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#retained" class="md-nav__link">
+    retained
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#active_hours" class="md-nav__link">
     active_hours
   </a>
@@ -1906,13 +1927,6 @@
           <li class="md-nav__item">
   <a href="#search_count" class="md-nav__link">
     search_count
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#retained" class="md-nav__link">
-    retained
   </a>
   
 </li>
@@ -2041,6 +2055,22 @@ partner tag.</p>
 </details>
 
 <hr />
+<h4 id="retained"><code>retained</code></h4>
+<p><strong>Retained</strong></p>
+<p>Records whether a client submitted any pings (i.e. used Firefox).</p>
+<p>Analysis Periods:  <code>daily</code>  </p>
+<p>Data Source: <a href="#baseline"><code>baseline</code></a></p>
+<p>Statistics: <code>mean</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">IF(COALESCE(COUNT(document_id), 0) &gt; 0, 1, 0)
+</code></pre>
+
+</details>
+
+<hr />
 <h4 id="active_hours"><code>active_hours</code></h4>
 <p><strong>Active Hours</strong></p>
 <p>Total time Firefox was active</p>
@@ -2071,22 +2101,6 @@ Learn more in the
 
 
 <pre><code class="language-sql">COALESCE(SUM(search_count), 0)
-</code></pre>
-
-</details>
-
-<hr />
-<h4 id="retained"><code>retained</code></h4>
-<p><strong>Retained</strong></p>
-<p>Records whether a client submitted any pings (i.e. used Firefox).</p>
-<p>Analysis Periods:  <code>daily</code>  </p>
-<p>Data Source: <a href="#baseline"><code>baseline</code></a></p>
-<p>Statistics: <code>mean</code></p>
-<details>
-<summary>Definition:</summary>
-
-
-<pre><code class="language-sql">IF(COALESCE(COUNT(document_id), 0) &gt; 0, 1, 0)
 </code></pre>
 
 </details>
@@ -2149,7 +2163,7 @@ Learn more in the
 <p>The number of days in an observation window that clients used the browser.</p>
 <p>Analysis Periods:  <code>overall</code> ,   <code>weekly</code>  </p>
 <p>Data Source: <a href="#baseline"><code>baseline</code></a></p>
-<p>Statistics: <code>deciles</code>, <code>empirical_cdf</code>, <code>bootstrap_mean</code></p>
+<p>Statistics: <code>deciles</code>, <code>bootstrap_mean</code>, <code>empirical_cdf</code></p>
 <details>
 <summary>Definition:</summary>
 

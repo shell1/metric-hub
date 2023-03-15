@@ -629,6 +629,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../outcomes/firefox_desktop/new_user_onboarding/" class="md-nav__link">
+        New user onboarding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../outcomes/firefox_desktop/newtab_do_no_harm/" class="md-nav__link">
         Newtab do no harm
       </a>
@@ -1569,15 +1583,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#qualified_cumulative_days_of_use" class="md-nav__link">
-    qualified_cumulative_days_of_use
+  <a href="#ad_clicks" class="md-nav__link">
+    ad_clicks
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ad_clicks" class="md-nav__link">
-    ad_clicks
+  <a href="#uri_count" class="md-nav__link">
+    uri_count
   </a>
   
 </li>
@@ -1590,8 +1604,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#uri_count" class="md-nav__link">
-    uri_count
+  <a href="#qualified_cumulative_days_of_use" class="md-nav__link">
+    qualified_cumulative_days_of_use
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retained" class="md-nav__link">
+    retained
   </a>
   
 </li>
@@ -1606,13 +1627,6 @@
           <li class="md-nav__item">
   <a href="#search_count" class="md-nav__link">
     search_count
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#retained" class="md-nav__link">
-    retained
   </a>
   
 </li>
@@ -1960,15 +1974,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#qualified_cumulative_days_of_use" class="md-nav__link">
-    qualified_cumulative_days_of_use
+  <a href="#ad_clicks" class="md-nav__link">
+    ad_clicks
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ad_clicks" class="md-nav__link">
-    ad_clicks
+  <a href="#uri_count" class="md-nav__link">
+    uri_count
   </a>
   
 </li>
@@ -1981,8 +1995,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#uri_count" class="md-nav__link">
-    uri_count
+  <a href="#qualified_cumulative_days_of_use" class="md-nav__link">
+    qualified_cumulative_days_of_use
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retained" class="md-nav__link">
+    retained
   </a>
   
 </li>
@@ -1997,13 +2018,6 @@
           <li class="md-nav__item">
   <a href="#search_count" class="md-nav__link">
     search_count
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#retained" class="md-nav__link">
-    retained
   </a>
   
 </li>
@@ -2162,26 +2176,6 @@
 <h2 id="opmon-config">opmon-config</h2>
 <p><a href="https://github.com/mozilla/metric-hub/blob/main/defaults/firefox_desktop.toml">Source</a>  |  <a href="https://github.com/mozilla/metric-hub/edit/main/defaults/firefox_desktop.toml">Edit</a></p>
 <h3 id="metrics">Metrics</h3>
-<h4 id="qualified_cumulative_days_of_use"><code>qualified_cumulative_days_of_use</code></h4>
-<p><strong>QCDOU</strong></p>
-<p>The number of days in the interval that each client sent a main ping,
-given that the client had &gt;0 active hours and &gt;0 URIs loaded.</p>
-<p>Analysis Periods:  <code>daily</code>  </p>
-<p>Data Source: <a href="#clients_daily"><code>clients_daily</code></a></p>
-<p>Statistics: <code>mean</code></p>
-<details>
-<summary>Definition:</summary>
-
-
-<pre><code class="language-sql">COUNTIF(
-    active_hours_sum &gt; 0 AND
-    scalar_parent_browser_engagement_total_uri_count_normal_and_private_mode_sum &gt; 0
-)
-</code></pre>
-
-</details>
-
-<hr />
 <h4 id="ad_clicks"><code>ad_clicks</code></h4>
 <p><strong>Ad clicks</strong></p>
 <p>Counts clicks on ads on search engine result pages with a Mozilla
@@ -2194,6 +2188,23 @@ partner tag.</p>
 
 
 <pre><code class="language-sql">COALESCE(SUM(ad_click), 0)
+</code></pre>
+
+</details>
+
+<hr />
+<h4 id="uri_count"><code>uri_count</code></h4>
+<p><strong>URIs visited</strong></p>
+<p>Counts the total number of URIs visited.
+Includes within-page navigation events (e.g. to anchors).</p>
+<p>Analysis Periods:  <code>daily</code>  </p>
+<p>Data Source: <a href="#clients_daily"><code>clients_daily</code></a></p>
+<p>Statistics: <code>mean</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(SUM(scalar_parent_browser_engagement_total_uri_count_sum), 0)
 </code></pre>
 
 </details>
@@ -2215,10 +2226,10 @@ partner tag.</p>
 </details>
 
 <hr />
-<h4 id="uri_count"><code>uri_count</code></h4>
-<p><strong>URIs visited</strong></p>
-<p>Counts the total number of URIs visited.
-Includes within-page navigation events (e.g. to anchors).</p>
+<h4 id="qualified_cumulative_days_of_use"><code>qualified_cumulative_days_of_use</code></h4>
+<p><strong>QCDOU</strong></p>
+<p>The number of days in the interval that each client sent a main ping,
+given that the client had &gt;0 active hours and &gt;0 URIs loaded.</p>
 <p>Analysis Periods:  <code>daily</code>  </p>
 <p>Data Source: <a href="#clients_daily"><code>clients_daily</code></a></p>
 <p>Statistics: <code>mean</code></p>
@@ -2226,7 +2237,26 @@ Includes within-page navigation events (e.g. to anchors).</p>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COALESCE(SUM(scalar_parent_browser_engagement_total_uri_count_sum), 0)
+<pre><code class="language-sql">COUNTIF(
+    active_hours_sum &gt; 0 AND
+    scalar_parent_browser_engagement_total_uri_count_normal_and_private_mode_sum &gt; 0
+)
+</code></pre>
+
+</details>
+
+<hr />
+<h4 id="retained"><code>retained</code></h4>
+<p><strong>Retained</strong></p>
+<p>Records whether a client submitted any pings (i.e. used Firefox).</p>
+<p>Analysis Periods:  <code>daily</code>  </p>
+<p>Data Source: <a href="#clients_daily"><code>clients_daily</code></a></p>
+<p>Statistics: <code>mean</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">IF(COALESCE(SUM(pings_aggregated_by_this_row), 0) &gt; 0, 1, 0)
 </code></pre>
 
 </details>
@@ -2264,22 +2294,6 @@ Learn more in the
 
 
 <pre><code class="language-sql">COALESCE(SUM(sap), 0)
-</code></pre>
-
-</details>
-
-<hr />
-<h4 id="retained"><code>retained</code></h4>
-<p><strong>Retained</strong></p>
-<p>Records whether a client submitted any pings (i.e. used Firefox).</p>
-<p>Analysis Periods:  <code>daily</code>  </p>
-<p>Data Source: <a href="#clients_daily"><code>clients_daily</code></a></p>
-<p>Statistics: <code>mean</code></p>
-<details>
-<summary>Definition:</summary>
-
-
-<pre><code class="language-sql">IF(COALESCE(SUM(pings_aggregated_by_this_row), 0) &gt; 0, 1, 0)
 </code></pre>
 
 </details>
@@ -2400,7 +2414,7 @@ Includes within-page navigation events (e.g. to anchors).</p>
 <p>The number of days in the interval that each client sent a main ping.</p>
 <p>Analysis Periods:  <code>overall</code> ,   <code>weekly</code>  </p>
 <p>Data Source: <a href="#clients_daily"><code>clients_daily</code></a></p>
-<p>Statistics: <code>deciles</code>, <code>empirical_cdf</code>, <code>bootstrap_mean</code></p>
+<p>Statistics: <code>deciles</code>, <code>bootstrap_mean</code>, <code>empirical_cdf</code></p>
 <details>
 <summary>Definition:</summary>
 

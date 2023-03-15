@@ -629,6 +629,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../outcomes/firefox_desktop/new_user_onboarding/" class="md-nav__link">
+        New user onboarding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../outcomes/firefox_desktop/newtab_do_no_harm/" class="md-nav__link">
         Newtab do no harm
       </a>
@@ -1764,6 +1778,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#fxa_signed_in" class="md-nav__link">
+    fxa_signed_in
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retained" class="md-nav__link">
+    retained
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2479,6 +2507,13 @@
           <li class="md-nav__item">
   <a href="#imported_history_count_1" class="md-nav__link">
     imported_history_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fxa_signed_in_1" class="md-nav__link">
+    fxa_signed_in
   </a>
   
 </li>
@@ -4122,6 +4157,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#fxa_signed_in" class="md-nav__link">
+    fxa_signed_in
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retained" class="md-nav__link">
+    retained
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4837,6 +4886,13 @@
           <li class="md-nav__item">
   <a href="#imported_history_count_1" class="md-nav__link">
     imported_history_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fxa_signed_in_1" class="md-nav__link">
+    fxa_signed_in
   </a>
   
 </li>
@@ -6563,6 +6619,34 @@
 </details>
 
 <hr />
+<h3 id="fxa_signed_in">fxa_signed_in</h3>
+<p><strong>FxA Sign-in Rate</strong></p>
+<p>Did the client sign in to Firefox Desktop</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#clients_daily"><code>clients_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">CAST(COALESCE(SUM(CASE WHEN fxa_configured IS TRUE THEN 1 ELSE 0 END),0) &gt; 0 AS INT)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="retained">retained</h3>
+<p><strong>Retained</strong></p>
+<p>Records whether a client submitted any pings (i.e. used Firefox).</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#clients_daily"><code>clients_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(SUM(pings_aggregated_by_this_row), 0) &gt; 0
+</code></pre>
+
+</details>
+
+<hr />
 <h2 id="overrides-from-opmon-config">Overrides from opmon-config</h2>
 <p>Tool-specific configurations that override the defaults.
 These metrics are defined in <a href="https://github.com/mozilla/opmon-config/blob/main/definitions/firefox_desktop.toml">opmon-config</a></p>
@@ -7746,6 +7830,18 @@ These metrics are defined in <a href="https://github.com/mozilla/jetstream-confi
 
 <hr />
 <h3 id="imported_history_count_1">imported_history_count</h3>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#">``</a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">None
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="fxa_signed_in_1">fxa_signed_in</h3>
 <p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#">``</a></p>
 <details>
 <summary>Definition:</summary>
