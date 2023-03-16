@@ -1900,7 +1900,7 @@ implying the client has Firefox set as the default browser</p>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(metrics.counter.app_opened_as_default_browser) &gt; 0
+<pre><code class="language-sql">COALESCE(CAST(SUM(metrics.counter.app_opened_as_default_browser) &gt; 0 AS int), 0)
 </code></pre>
 
 </details>
