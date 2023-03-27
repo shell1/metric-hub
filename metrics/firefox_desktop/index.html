@@ -1086,6 +1086,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#daily_active_users" class="md-nav__link">
+    daily_active_users
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desktop_dau_kpi" class="md-nav__link">
+    desktop_dau_kpi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#disable_pocket_clicks" class="md-nav__link">
     disable_pocket_clicks
   </a>
@@ -3465,6 +3479,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#daily_active_users" class="md-nav__link">
+    daily_active_users
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desktop_dau_kpi" class="md-nav__link">
+    desktop_dau_kpi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#disable_pocket_clicks" class="md-nav__link">
     disable_pocket_clicks
   </a>
@@ -5220,6 +5248,49 @@
     active_hours_sum &gt; 0 AND
     scalar_parent_browser_engagement_total_uri_count_normal_and_private_mode_sum &gt; 0
 )
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="daily_active_users">daily_active_users</h3>
+<p><strong>DAU</strong></p>
+<p>The number of unique clients with &gt;0 active hours and &gt;0 URIs loaded that
+    we received a main ping from each day. To be comparable to DAU used for KPI
+    tracking, this metric needs to be aggregated by <code>submission_date</code>. If the
+    metric is NOT aggregated by <code>submission_date</code>, the metric is similar to a 
+    "days of use" metric.</p>
+<pre><code>For questions, please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
+</code></pre>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#clients_daily"><code>clients_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COUNTIF(active_hours_sum &gt; 0 AND total_uri_count &gt; 0)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="desktop_dau_kpi">desktop_dau_kpi</h3>
+<p><strong>Desktop DAU KPI</strong></p>
+<p>The average number of unique clients with &gt;0 active hours and &gt;0 URIs loaded that
+    we received a main ping from each day in the 28-day period ending on December 15th. 
+    To reconstruct the annual Desktop DAU KPI, this metric needs to be aggregated by
+    <code>EXTRACT(YEAR FROM submission_date)</code>.  </p>
+<pre><code>For questions, please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
+</code></pre>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#clients_daily"><code>clients_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COUNTIF(
+    active_hours_sum &gt; 0 AND
+    total_uri_count &gt; 0 AND
+    FORMAT_DATE('%m-%d', submission_date) BETWEEN '11-18' AND '12-15'
+    ) / 28
 </code></pre>
 
 </details>
