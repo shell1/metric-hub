@@ -1044,6 +1044,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#search_count_imputed" class="md-nav__link">
+    search_count_imputed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#tagged_search_count" class="md-nav__link">
     tagged_search_count
   </a>
@@ -2044,6 +2051,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#search_count_imputed" class="md-nav__link">
+    search_count_imputed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#tagged_search_count" class="md-nav__link">
     tagged_search_count
   </a>
@@ -2327,6 +2341,20 @@
 
 
 <pre><code class="language-sql">{{agg_sum('search_count')}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="search_count_imputed">search_count_imputed</h3>
+<p><strong>SAP search count (legacy to glean conversion)</strong></p>
+<p>Imputed SAP for converting historical search counts from legacy to glean</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/focus_android/#mobile_search_clients_engines_sources_daily"><code>mobile_search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ROUND(SUM(IF(submission_date &lt; '2023-01-01', search_count * 0.49, search_count)))
 </code></pre>
 
 </details>
