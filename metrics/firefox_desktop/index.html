@@ -1806,6 +1806,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#non_ssl_loads_v1" class="md-nav__link">
+    non_ssl_loads_v1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssl_loads_v1" class="md-nav__link">
+    ssl_loads_v1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http_pageload_is_ssl_ratio_v1" class="md-nav__link">
+    http_pageload_is_ssl_ratio_v1
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4195,6 +4216,27 @@
           <li class="md-nav__item">
   <a href="#retained" class="md-nav__link">
     retained
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non_ssl_loads_v1" class="md-nav__link">
+    non_ssl_loads_v1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssl_loads_v1" class="md-nav__link">
+    ssl_loads_v1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http_pageload_is_ssl_ratio_v1" class="md-nav__link">
+    http_pageload_is_ssl_ratio_v1
   </a>
   
 </li>
@@ -6713,6 +6755,52 @@
 
 
 <pre><code class="language-sql">COALESCE(SUM(pings_aggregated_by_this_row), 0) &gt; 0
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="non_ssl_loads_v1">non_ssl_loads_v1</h3>
+<p><strong>Non-SSL Loads</strong></p>
+<p>Page loads of Firefox users that were not using SSL</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(
+    mozfun.map.get_key(mozfun.hist.extract(payload.histograms.http_pageload_is_ssl).values, 0)
+)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="ssl_loads_v1">ssl_loads_v1</h3>
+<p><strong>SSL Loads</strong></p>
+<p>Page loads of Firefox users that were using SSL</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(
+    mozfun.map.get_key(mozfun.hist.extract(payload.histograms.http_pageload_is_ssl).values, 1)
+)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="http_pageload_is_ssl_ratio_v1">http_pageload_is_ssl_ratio_v1</h3>
+<p><strong>SSL Loads Probe Ratio</strong></p>
+<p>Ratio of clients that have the http_pageload_is_ssl_ratio_v1 probe</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#main"><code>main</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COUNT(payload.histograms.http_pageload_is_ssl) / COUNT(*)
 </code></pre>
 
 </details>
