@@ -967,6 +967,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#daily_active_users" class="md-nav__link">
+    daily_active_users
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#user_reports_site_issue_count" class="md-nav__link">
     user_reports_site_issue_count
   </a>
@@ -2032,6 +2039,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#daily_active_users" class="md-nav__link">
+    daily_active_users
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#user_reports_site_issue_count" class="md-nav__link">
     user_reports_site_issue_count
   </a>
@@ -2301,6 +2315,26 @@
 
 
 <pre><code class="language-sql">COUNT(DISTINCT DATE(submission_timestamp))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="daily_active_users">daily_active_users</h3>
+<p><strong>DAU</strong></p>
+<p>The number of unique clients that we received a baseline ping from each day, excluding
+    pings originating from BrowserStack. To be comparable to DAU used for KPI tracking,
+    this metric needs to be aggregated by <code>submission_date</code>. If the metric is NOT
+    aggregated by <code>submission_date</code>, the metric is similar to a "days of use" metric. For more details, refer to
+    <a href="https://docs.telemetry.mozilla.org/concepts/terminology.html#dau">the DAU description in the Mozilla Data Documentation</a>.</p>
+<pre><code>For questions, please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
+</code></pre>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#baseline_v2"><code>baseline_v2</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COUNT(DISTINCT CASE WHEN LOWER(metadata.isp.name) != 'browserstack' THEN client_info.client_id ELSE NULL END)
 </code></pre>
 
 </details>

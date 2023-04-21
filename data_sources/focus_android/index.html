@@ -1174,6 +1174,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#baseline_v2" class="md-nav__link">
+    baseline_v2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#events" class="md-nav__link">
     events
   </a>
@@ -1815,6 +1822,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#baseline_v2" class="md-nav__link">
+    baseline_v2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#events" class="md-nav__link">
     events
   </a>
@@ -1859,6 +1873,24 @@
 <h2 id="metric-hub">metric-hub</h2>
 <p>Pre-defined data sources for <code>focus_android</code>. These data sources are defined in <a href="https://github.com/mozilla/metric-hub/blob/main/definitions/focus_android.toml">metric-hub</a></p>
 <h3 id="baseline"><a href="#baseline">baseline</a></h3>
+<p>Client ID column: <code>client_info.client_id</code></p>
+<p>Submission Date column: <code>None</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">(
+    SELECT
+        p.*,
+        DATE(p.submission_timestamp) AS submission_date
+    FROM `moz-fx-data-shared-prod.{dataset}.baseline` p
+)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="baseline_v2"><a href="#baseline_v2">baseline_v2</a></h3>
 <p>Client ID column: <code>client_info.client_id</code></p>
 <p>Submission Date column: <code>None</code></p>
 <details>
