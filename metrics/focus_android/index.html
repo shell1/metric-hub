@@ -1058,6 +1058,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#daily_active_users_v2" class="md-nav__link">
+    daily_active_users_v2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#client_level_daily_active_users_v1" class="md-nav__link">
+    client_level_daily_active_users_v1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ad_clicks" class="md-nav__link">
     ad_clicks
   </a>
@@ -1177,6 +1191,20 @@
     <li class="md-nav__item">
       <a href="../klar_ios/" class="md-nav__link">
         Klar ios
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multi_product/" class="md-nav__link">
+        Multi product
       </a>
     </li>
   
@@ -1356,6 +1384,20 @@
     <li class="md-nav__item">
       <a href="../../data_sources/klar_ios/" class="md-nav__link">
         Klar ios
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_sources/multi_product/" class="md-nav__link">
+        Multi product
       </a>
     </li>
   
@@ -1948,6 +1990,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#daily_active_users_v2" class="md-nav__link">
+    daily_active_users_v2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#client_level_daily_active_users_v1" class="md-nav__link">
+    client_level_daily_active_users_v1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ad_clicks" class="md-nav__link">
     ad_clicks
   </a>
@@ -2106,6 +2162,50 @@
     which is shorter than other mobile <code>baseline</code> tables. For more details, refer to
     <a href="https://docs.telemetry.mozilla.org/concepts/terminology.html#dau">the DAU description in the Mozilla Data Documentation</a>.</p>
 <pre><code>For questions, please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
+</code></pre>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/focus_android/#baseline_v2"><code>baseline_v2</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COUNT(DISTINCT CASE WHEN LOWER(metadata.isp.name) != 'browserstack' THEN client_info.client_id ELSE NULL END)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="daily_active_users_v2">daily_active_users_v2</h3>
+<p><strong>Focus Android DAU</strong></p>
+<p>This is the official DAU reporting definition. The logic is
+    <a href="https://github.com/mozilla/bigquery-etl/blob/main/sql_generators/active_users/templates/focus_android_query.sql">defined in <code>bigquery-etl</code></a>
+    and is automatically cross-checked, actively monitored, and change controlled.
+    Whenever possible, this is the preferred DAU reporting definition to use for Focus Android.
+    This metric needs to be aggregated by <code>submission_date</code>. If it is not aggregated by <code>submission_date</code>,
+    it is similar to a "days of use" metric, and not DAU.</p>
+<pre><code>For more information, refer to [the DAU description in the Mozilla Data Documentation](https://docs.telemetry.mozilla.org/concepts/terminology.html#dau).
+For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
+</code></pre>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/focus_android/#active_users_aggregates_v1"><code>active_users_aggregates_v1</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(dau)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="client_level_daily_active_users_v1">client_level_daily_active_users_v1</h3>
+<p><strong>Focus Android Client-Level DAU</strong></p>
+<p>This metric reports DAU values similar (but not necessarily identical)
+    to the <a href="https://mozilla.github.io/metric-hub/metrics/focus_android/#daily_active_users_v2">official DAU reporting definition</a>.
+    It's generally preferable to use the official DAU reporting definition when possible; this metric
+    exists only for cases where reporting <code>client_id</code> is required (e.g. for experiments). This metric
+    needs to be aggregated by <code>submission_date</code>. If it is not aggregated by <code>submission_date</code>, it is
+    similar to a "days of use" metric, and not DAU.</p>
+<pre><code>For more information, refer to [the DAU description in the Mozilla Data Documentation](https://docs.telemetry.mozilla.org/concepts/terminology.html#dau).
+For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 </code></pre>
 <p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/focus_android/#baseline_v2"><code>baseline_v2</code></a></p>
 <details>

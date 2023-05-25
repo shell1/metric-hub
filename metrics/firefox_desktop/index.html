@@ -1121,8 +1121,29 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#daily_active_users_v2" class="md-nav__link">
+    daily_active_users_v2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#client_level_daily_active_users_v1" class="md-nav__link">
+    client_level_daily_active_users_v1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#desktop_dau_kpi" class="md-nav__link">
     desktop_dau_kpi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desktop_dau_kpi_v2" class="md-nav__link">
+    desktop_dau_kpi_v2
   </a>
   
 </li>
@@ -1953,6 +1974,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multi_product/" class="md-nav__link">
+        Multi product
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2126,6 +2161,20 @@
     <li class="md-nav__item">
       <a href="../../data_sources/klar_ios/" class="md-nav__link">
         Klar ios
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_sources/multi_product/" class="md-nav__link">
+        Multi product
       </a>
     </li>
   
@@ -2809,8 +2858,29 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#daily_active_users_v2" class="md-nav__link">
+    daily_active_users_v2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#client_level_daily_active_users_v1" class="md-nav__link">
+    client_level_daily_active_users_v1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#desktop_dau_kpi" class="md-nav__link">
     desktop_dau_kpi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desktop_dau_kpi_v2" class="md-nav__link">
+    desktop_dau_kpi_v2
   </a>
   
 </li>
@@ -3892,6 +3962,50 @@
 </details>
 
 <hr />
+<h3 id="daily_active_users_v2">daily_active_users_v2</h3>
+<p><strong>Firefox Desktop DAU</strong></p>
+<p>This is the official DAU reporting definition. The logic is
+    <a href="https://github.com/mozilla/bigquery-etl/blob/main/sql_generators/active_users/templates/desktop_query.sql">defined in <code>bigquery-etl</code></a>
+    and is automatically cross-checked, actively monitored, and change controlled.
+    Whenever possible, this is the preferred DAU reporting definition to use for Desktop.
+    This metric needs to be aggregated by <code>submission_date</code>. If it is not aggregated by <code>submission_date</code>,
+    it is similar to a "days of use" metric, and not DAU.</p>
+<pre><code>For more information, refer to [the DAU description in the Mozilla Data Documentation](https://docs.telemetry.mozilla.org/concepts/terminology.html#dau).
+For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
+</code></pre>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#active_users_aggregates_v1"><code>active_users_aggregates_v1</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(dau)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="client_level_daily_active_users_v1">client_level_daily_active_users_v1</h3>
+<p><strong>Firefox Desktop Client-Level DAU</strong></p>
+<p>This metric reports DAU values similar (but not necessarily identical)
+    to the <a href="https://mozilla.github.io/metric-hub/metrics/firefox_desktop/#daily_active_users_v2">official DAU reporting definition</a>.
+    It's generally preferable to use the official DAU reporting definition when possible; this metric
+    exists only for cases where reporting <code>client_id</code> is required (e.g. for experiments). This metric
+    needs to be aggregated by <code>submission_date</code>. If it is not aggregated by <code>submission_date</code>, it is
+    similar to a "days of use" metric, and not DAU.</p>
+<pre><code>For more information, refer to [the DAU description in the Mozilla Data Documentation](https://docs.telemetry.mozilla.org/concepts/terminology.html#dau).
+For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
+</code></pre>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#clients_daily"><code>clients_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COUNTIF(active_hours_sum &gt; 0 AND total_uri_count &gt; 0 AND isp_name &lt;&gt; 'BrowserStack')
+</code></pre>
+
+</details>
+
+<hr />
 <h3 id="desktop_dau_kpi">desktop_dau_kpi</h3>
 <p><strong>Desktop DAU KPI</strong></p>
 <p>The average number of unique clients with &gt;0 active hours and &gt;0 URIs loaded that
@@ -3910,6 +4024,28 @@
     total_uri_count &gt; 0 AND
     FORMAT_DATE('%m-%d', submission_date) BETWEEN '11-18' AND '12-15'
     ) / 28
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="desktop_dau_kpi_v2">desktop_dau_kpi_v2</h3>
+<p><strong>Firefox Desktop DAU KPI</strong></p>
+<p>The average <a href="https://mozilla.github.io/metric-hub/metrics/firefox_desktop/#daily_active_users_v2">Firefox Desktop DAU</a>
+    in the 28-day period ending on December 15th. This is the official Desktop DAU KPI reporting definition. The logic for calculating DAU is
+    <a href="https://github.com/mozilla/bigquery-etl/blob/main/sql_generators/active_users/templates/desktop_query.sql">defined in <code>bigquery-etl</code></a>
+    and is automatically cross-checked, actively monitored, and change controlled.
+    To reconstruct the annual Desktop DAU KPI, this metric needs to be aggregated by
+    <code>EXTRACT(YEAR FROM submission_date)</code>.  </p>
+<pre><code>For more information, refer to [the DAU description in the Mozilla Data Documentation](https://docs.telemetry.mozilla.org/concepts/terminology.html#dau).
+For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
+</code></pre>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#active_users_aggregates_v1"><code>active_users_aggregates_v1</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(IF(FORMAT_DATE('%m-%d', submission_date) BETWEEN '11-18' AND '12-15', dau, 0)) / 28
 </code></pre>
 
 </details>

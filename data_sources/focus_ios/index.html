@@ -1038,6 +1038,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics/multi_product/" class="md-nav__link">
+        Multi product
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1209,6 +1223,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#active_users_aggregates_v1" class="md-nav__link">
+    active_users_aggregates_v1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#baseline" class="md-nav__link">
     baseline
   </a>
@@ -1293,6 +1314,20 @@
     <li class="md-nav__item">
       <a href="../klar_ios/" class="md-nav__link">
         Klar ios
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multi_product/" class="md-nav__link">
+        Multi product
       </a>
     </li>
   
@@ -1843,6 +1878,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#active_users_aggregates_v1" class="md-nav__link">
+    active_users_aggregates_v1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#baseline" class="md-nav__link">
     baseline
   </a>
@@ -1900,6 +1942,23 @@
 
 <h2 id="metric-hub">metric-hub</h2>
 <p>Pre-defined data sources for <code>focus_ios</code>. These data sources are defined in <a href="https://github.com/mozilla/metric-hub/blob/main/definitions/focus_ios.toml">metric-hub</a></p>
+<h3 id="active_users_aggregates_v1"><a href="#active_users_aggregates_v1">active_users_aggregates_v1</a></h3>
+<p>Client ID column: <code>NULL</code></p>
+<p>Submission Date column: <code>submission_date</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">(
+    SELECT *
+     FROM `moz-fx-data-shared-prod.telemetry.active_users_aggregates`
+    WHERE app_name = 'Focus iOS'
+)
+</code></pre>
+
+</details>
+
+<hr />
 <h3 id="baseline"><a href="#baseline">baseline</a></h3>
 <p>Client ID column: <code>client_info.client_id</code></p>
 <p>Submission Date column: <code>None</code></p>
