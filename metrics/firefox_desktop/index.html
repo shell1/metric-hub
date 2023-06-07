@@ -1079,6 +1079,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#notification_clicks" class="md-nav__link">
+    notification_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#view_about_logins" class="md-nav__link">
     view_about_logins
   </a>
@@ -2816,6 +2823,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#notification_clicks" class="md-nav__link">
+    notification_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#view_about_logins" class="md-nav__link">
     view_about_logins
   </a>
@@ -3828,6 +3842,24 @@
      &quot;&quot;&quot;        event_category = 'normandy'
         AND event_method = 'unenroll'
         AND event_string_value = '{experiment_slug}'
+     &quot;&quot;&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="notification_clicks">notification_clicks</h3>
+<p><strong>System Notification Clicks</strong></p>
+<p>Counts the number of clients that launched Firefox to handle the notification corresponding to this experiment.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#browser_launched_to_handle_events"><code>browser_launched_to_handle_events</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_any(
+     &quot;&quot;&quot;    event_method = 'system_notification'
+    AND event_object = 'toast'
+    AND STARTS_WITH(mozfun.map.get_key(event_map_values, 'name'), '{experiment_slug}:')
      &quot;&quot;&quot;)}}
 </code></pre>
 

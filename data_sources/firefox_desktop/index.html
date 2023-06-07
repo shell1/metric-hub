@@ -1195,6 +1195,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#browser_launched_to_handle_events" class="md-nav__link">
+    browser_launched_to_handle_events
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#active_users_aggregates_v1" class="md-nav__link">
     active_users_aggregates_v1
   </a>
@@ -1941,6 +1948,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#browser_launched_to_handle_events" class="md-nav__link">
+    browser_launched_to_handle_events
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#active_users_aggregates_v1" class="md-nav__link">
     active_users_aggregates_v1
   </a>
@@ -2054,6 +2068,24 @@
 
 <h2 id="metric-hub">metric-hub</h2>
 <p>Pre-defined data sources for <code>firefox_desktop</code>. These data sources are defined in <a href="https://github.com/mozilla/metric-hub/blob/main/definitions/firefox_desktop.toml">metric-hub</a></p>
+<h3 id="browser_launched_to_handle_events"><a href="#browser_launched_to_handle_events">browser_launched_to_handle_events</a></h3>
+<p>Client ID column: <code>None</code></p>
+<p>Submission Date column: <code>None</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">(
+    SELECT
+        *
+    FROM `mozdata.telemetry.events`
+    WHERE event_category = 'browser.launched_to_handle'
+)
+</code></pre>
+
+</details>
+
+<hr />
 <h3 id="active_users_aggregates_v1"><a href="#active_users_aggregates_v1">active_users_aggregates_v1</a></h3>
 <p>Client ID column: <code>NULL</code></p>
 <p>Submission Date column: <code>submission_date</code></p>
