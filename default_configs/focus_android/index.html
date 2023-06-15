@@ -1681,6 +1681,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#retained" class="md-nav__link">
+    retained
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#search_count" class="md-nav__link">
     search_count
   </a>
@@ -1690,13 +1697,6 @@
           <li class="md-nav__item">
   <a href="#days_of_use" class="md-nav__link">
     days_of_use
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#retained" class="md-nav__link">
-    retained
   </a>
   
 </li>
@@ -1967,6 +1967,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#retained" class="md-nav__link">
+    retained
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#search_count" class="md-nav__link">
     search_count
   </a>
@@ -1976,13 +1983,6 @@
           <li class="md-nav__item">
   <a href="#days_of_use" class="md-nav__link">
     days_of_use
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#retained" class="md-nav__link">
-    retained
   </a>
   
 </li>
@@ -2092,6 +2092,22 @@
 <h2 id="opmon-config">opmon-config</h2>
 <p><a href="https://github.com/mozilla/metric-hub/blob/main/defaults/focus_android.toml">Source</a>  |  <a href="https://github.com/mozilla/metric-hub/edit/main/defaults/focus_android.toml">Edit</a></p>
 <h3 id="metrics">Metrics</h3>
+<h4 id="retained"><code>retained</code></h4>
+<p><strong>Retained</strong></p>
+<p>Records whether a client submitted any pings (i.e. used Firefox).</p>
+<p>Analysis Periods:  <code>daily</code>  </p>
+<p>Data Source: <a href="#baseline"><code>baseline</code></a></p>
+<p>Statistics: <code>mean</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">IF(COALESCE(COUNT(document_id), 0) &gt; 0, 1, 0)
+</code></pre>
+
+</details>
+
+<hr />
 <h4 id="search_count"><code>search_count</code></h4>
 <p><strong>SAP search count</strong></p>
 <p>Number of searches performed through a Search Access Point.</p>
@@ -2119,22 +2135,6 @@
 
 
 <pre><code class="language-sql">COUNT(DISTINCT DATE(submission_timestamp))
-</code></pre>
-
-</details>
-
-<hr />
-<h4 id="retained"><code>retained</code></h4>
-<p><strong>Retained</strong></p>
-<p>Records whether a client submitted any pings (i.e. used Firefox).</p>
-<p>Analysis Periods:  <code>daily</code>  </p>
-<p>Data Source: <a href="#baseline"><code>baseline</code></a></p>
-<p>Statistics: <code>mean</code></p>
-<details>
-<summary>Definition:</summary>
-
-
-<pre><code class="language-sql">IF(COALESCE(COUNT(document_id), 0) &gt; 0, 1, 0)
 </code></pre>
 
 </details>
