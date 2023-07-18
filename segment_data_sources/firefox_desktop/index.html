@@ -741,6 +741,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../outcomes/firefox_desktop/sponsored_tiles/" class="md-nav__link">
+        Sponsored tiles
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../outcomes/firefox_desktop/spotlight_engagement/" class="md-nav__link">
         Spotlight engagement
       </a>
@@ -1475,6 +1489,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#newtab" class="md-nav__link">
+    newtab
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1891,6 +1912,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#newtab" class="md-nav__link">
+    newtab
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1954,6 +1982,28 @@
 
 
 <pre><code class="language-sql">mozdata.telemetry.newtab_interactions
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="newtab"><a href="#newtab">newtab</a></h3>
+<p>Client ID column: <code>client_id</code></p>
+<p>Submission Date column: <code>submission_date</code></p>
+<p>Window Start: <code>0</code></p>
+<p>Window End: <code>0</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">(
+    SELECT
+        DATE(submission_timestamp) AS submission_date,
+        client_info.client_id AS client_id,
+        *
+    FROM
+        mozdata.firefox_desktop.newtab
+)
 </code></pre>
 
 </details>

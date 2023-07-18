@@ -741,6 +741,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../outcomes/firefox_desktop/sponsored_tiles/" class="md-nav__link">
+        Sponsored tiles
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../outcomes/firefox_desktop/spotlight_engagement/" class="md-nav__link">
         Spotlight engagement
       </a>
@@ -1235,6 +1249,13 @@
           <li class="md-nav__item">
   <a href="#new_profile_activation" class="md-nav__link">
     new_profile_activation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fxa_sign_in" class="md-nav__link">
+    fxa_sign_in
   </a>
   
 </li>
@@ -2353,6 +2374,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#fxa_sign_in" class="md-nav__link">
+    fxa_sign_in
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2936,6 +2964,20 @@ to be larger than download size.</p>
 
 
 <pre><code class="language-sql">COALESCE(SUM(activated))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="fxa_sign_in">fxa_sign_in</h3>
+<p><strong>Firefox Accounts Signed In</strong></p>
+<p>Whether a user was signed into FxA at any point in the period</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#metrics"><code>metrics</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">MAX(IF(metrics.boolean.preferences_signed_in_sync, 1, 0))
 </code></pre>
 
 </details>

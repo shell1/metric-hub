@@ -741,6 +741,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../outcomes/firefox_desktop/sponsored_tiles/" class="md-nav__link">
+        Sponsored tiles
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../outcomes/firefox_desktop/spotlight_engagement/" class="md-nav__link">
         Spotlight engagement
       </a>
@@ -1429,6 +1443,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#clients_with_blocked_sponsors" class="md-nav__link">
+    clients_with_blocked_sponsors
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1961,6 +1982,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#clients_with_blocked_sponsors" class="md-nav__link">
+    clients_with_blocked_sponsors
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2093,6 +2121,20 @@
 
 
 <pre><code class="language-sql">LOGICAL_OR(COALESCE(country_code in ('CA', 'DE', 'FR', 'GB', 'US'), FALSE))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="clients_with_blocked_sponsors">clients_with_blocked_sponsors</h3>
+<p><strong>Clients with Blocked Sponsors</strong></p>
+<p>Clients with any sponsors in their newtab blocked sponsors list.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab"><code>newtab</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_any(&quot;ARRAY_LENGTH(metrics.string_list.newtab_blocked_sponsors) &gt; 0&quot;)}}
 </code></pre>
 
 </details>

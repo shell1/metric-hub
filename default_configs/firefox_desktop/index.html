@@ -741,6 +741,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../outcomes/firefox_desktop/sponsored_tiles/" class="md-nav__link">
+        Sponsored tiles
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../outcomes/firefox_desktop/spotlight_engagement/" class="md-nav__link">
         Spotlight engagement
       </a>
@@ -1653,15 +1667,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#active_hours" class="md-nav__link">
-    active_hours
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#retained" class="md-nav__link">
-    retained
+  <a href="#ad_clicks" class="md-nav__link">
+    ad_clicks
   </a>
   
 </li>
@@ -1674,8 +1681,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ad_clicks" class="md-nav__link">
-    ad_clicks
+  <a href="#days_of_use" class="md-nav__link">
+    days_of_use
   </a>
   
 </li>
@@ -1688,8 +1695,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#days_of_use" class="md-nav__link">
-    days_of_use
+  <a href="#retained" class="md-nav__link">
+    retained
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#active_hours" class="md-nav__link">
+    active_hours
   </a>
   
 </li>
@@ -2044,15 +2058,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#active_hours" class="md-nav__link">
-    active_hours
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#retained" class="md-nav__link">
-    retained
+  <a href="#ad_clicks" class="md-nav__link">
+    ad_clicks
   </a>
   
 </li>
@@ -2065,8 +2072,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ad_clicks" class="md-nav__link">
-    ad_clicks
+  <a href="#days_of_use" class="md-nav__link">
+    days_of_use
   </a>
   
 </li>
@@ -2079,8 +2086,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#days_of_use" class="md-nav__link">
-    days_of_use
+  <a href="#retained" class="md-nav__link">
+    retained
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#active_hours" class="md-nav__link">
+    active_hours
   </a>
   
 </li>
@@ -2246,35 +2260,18 @@
 <h2 id="opmon-config">opmon-config</h2>
 <p><a href="https://github.com/mozilla/metric-hub/blob/main/defaults/firefox_desktop.toml">Source</a>  |  <a href="https://github.com/mozilla/metric-hub/edit/main/defaults/firefox_desktop.toml">Edit</a></p>
 <h3 id="metrics">Metrics</h3>
-<h4 id="active_hours"><code>active_hours</code></h4>
-<p><strong>Active hours</strong></p>
-<p>Measures the amount of time (in 5-second increments) during which
-Firefox received user input from a keyboard or mouse. The Firefox
-window does not need to be focused.</p>
+<h4 id="ad_clicks"><code>ad_clicks</code></h4>
+<p><strong>Ad clicks</strong></p>
+<p>Counts clicks on ads on search engine result pages with a Mozilla
+partner tag.</p>
 <p>Analysis Periods:  <code>daily</code>  </p>
-<p>Data Source: <a href="#clients_daily"><code>clients_daily</code></a></p>
+<p>Data Source: <a href="#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
 <p>Statistics: <code>mean</code></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COALESCE(SUM(active_hours_sum), 0)
-</code></pre>
-
-</details>
-
-<hr />
-<h4 id="retained"><code>retained</code></h4>
-<p><strong>Retained</strong></p>
-<p>Records whether a client submitted any pings (i.e. used Firefox).</p>
-<p>Analysis Periods:  <code>daily</code>  </p>
-<p>Data Source: <a href="#clients_daily"><code>clients_daily</code></a></p>
-<p>Statistics: <code>mean</code></p>
-<details>
-<summary>Definition:</summary>
-
-
-<pre><code class="language-sql">IF(COALESCE(SUM(pings_aggregated_by_this_row), 0) &gt; 0, 1, 0)
+<pre><code class="language-sql">COALESCE(SUM(ad_click), 0)
 </code></pre>
 
 </details>
@@ -2300,18 +2297,17 @@ given that the client had &gt;0 active hours and &gt;0 URIs loaded.</p>
 </details>
 
 <hr />
-<h4 id="ad_clicks"><code>ad_clicks</code></h4>
-<p><strong>Ad clicks</strong></p>
-<p>Counts clicks on ads on search engine result pages with a Mozilla
-partner tag.</p>
+<h4 id="days_of_use"><code>days_of_use</code></h4>
+<p><strong>Days of use</strong></p>
+<p>The number of days in the interval that each client sent a main ping.</p>
 <p>Analysis Periods:  <code>daily</code>  </p>
-<p>Data Source: <a href="#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<p>Data Source: <a href="#clients_daily"><code>clients_daily</code></a></p>
 <p>Statistics: <code>mean</code></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COALESCE(SUM(ad_click), 0)
+<pre><code class="language-sql">COUNT(submission_date)
 </code></pre>
 
 </details>
@@ -2334,9 +2330,9 @@ Includes within-page navigation events (e.g. to anchors).</p>
 </details>
 
 <hr />
-<h4 id="days_of_use"><code>days_of_use</code></h4>
-<p><strong>Days of use</strong></p>
-<p>The number of days in the interval that each client sent a main ping.</p>
+<h4 id="retained"><code>retained</code></h4>
+<p><strong>Retained</strong></p>
+<p>Records whether a client submitted any pings (i.e. used Firefox).</p>
 <p>Analysis Periods:  <code>daily</code>  </p>
 <p>Data Source: <a href="#clients_daily"><code>clients_daily</code></a></p>
 <p>Statistics: <code>mean</code></p>
@@ -2344,7 +2340,25 @@ Includes within-page navigation events (e.g. to anchors).</p>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COUNT(submission_date)
+<pre><code class="language-sql">IF(COALESCE(SUM(pings_aggregated_by_this_row), 0) &gt; 0, 1, 0)
+</code></pre>
+
+</details>
+
+<hr />
+<h4 id="active_hours"><code>active_hours</code></h4>
+<p><strong>Active hours</strong></p>
+<p>Measures the amount of time (in 5-second increments) during which
+Firefox received user input from a keyboard or mouse. The Firefox
+window does not need to be focused.</p>
+<p>Analysis Periods:  <code>daily</code>  </p>
+<p>Data Source: <a href="#clients_daily"><code>clients_daily</code></a></p>
+<p>Statistics: <code>mean</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(SUM(active_hours_sum), 0)
 </code></pre>
 
 </details>
@@ -2394,7 +2408,7 @@ Learn more in the
 <h4 id="retained_1"><code>retained</code></h4>
 <p><strong>Retained</strong></p>
 <p>Records whether a client submitted any pings (i.e. used Firefox).</p>
-<p>Analysis Periods:  <code>daily</code> ,   <code>weekly</code>  </p>
+<p>Analysis Periods:  <code>weekly</code> ,   <code>daily</code>  </p>
 <p>Data Source: <a href="#clients_daily"><code>clients_daily</code></a></p>
 <p>Statistics: <code>binomial</code></p>
 <details>
@@ -2484,7 +2498,7 @@ Includes within-page navigation events (e.g. to anchors).</p>
 <p>The number of days in the interval that each client sent a main ping.</p>
 <p>Analysis Periods:  <code>weekly</code> ,   <code>overall</code>  </p>
 <p>Data Source: <a href="#clients_daily"><code>clients_daily</code></a></p>
-<p>Statistics: <code>deciles</code>, <code>empirical_cdf</code>, <code>bootstrap_mean</code></p>
+<p>Statistics: <code>empirical_cdf</code>, <code>deciles</code>, <code>bootstrap_mean</code></p>
 <details>
 <summary>Definition:</summary>
 

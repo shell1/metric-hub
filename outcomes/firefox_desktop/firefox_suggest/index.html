@@ -659,6 +659,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#ad_click_rate" class="md-nav__link">
+    ad_click_rate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#urlbar_search_count" class="md-nav__link">
     urlbar_search_count
   </a>
@@ -677,6 +684,13 @@
   
     <nav class="md-nav" aria-label="Data Sources">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    ``
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#search_clients_engines_sources_daily-search-clients-engines-sources-daily" class="md-nav__link">
@@ -805,6 +819,20 @@
     <li class="md-nav__item">
       <a href="../reader_mode/" class="md-nav__link">
         Reader mode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sponsored_tiles/" class="md-nav__link">
+        Sponsored tiles
       </a>
     </li>
   
@@ -1879,6 +1907,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#ad_click_rate" class="md-nav__link">
+    ad_click_rate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#urlbar_search_count" class="md-nav__link">
     urlbar_search_count
   </a>
@@ -1897,6 +1932,13 @@
   
     <nav class="md-nav" aria-label="Data Sources">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    ``
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#search_clients_engines_sources_daily-search-clients-engines-sources-daily" class="md-nav__link">
@@ -1929,6 +1971,25 @@
 <p>Usage &amp; engagement metrics and revenue proxies for Firefox Suggest.</p>
 <p><a href="https://github.com/mozilla/jetstream-config/blob/main/outcomes/firefox_desktop/firefox_suggest.toml">Source</a>  |  <a href="https://github.com/mozilla/jetstream-config/edit/main/outcomes/firefox_desktop/firefox_suggest.toml">Edit</a></p>
 <h2 id="metrics">Metrics</h2>
+<h3 id="ad_click_rate"><code>ad_click_rate</code></h3>
+<p>**Ad Click Rate **</p>
+<p>This is a Population Ratio Metric. It is the total number of
+ad clicks over all clients in the population divided by the 
+total number of SAP searches over all clients in the 
+population.</p>
+<p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
+<p>Data Source: <a href="#">``</a></p>
+<p>Statistics: <code>population_ratio</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">None
+</code></pre>
+
+</details>
+
+<hr />
 <h3 id="urlbar_search_count"><code>urlbar_search_count</code></h3>
 <p>**urlbar searches **</p>
 <p>Number of searches performed in the urlbar, including search mode and handoff</p>
@@ -1939,13 +2000,24 @@
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(CASE WHEN source in ('urlbar', 'urlbar-searchmode', 'urlbar-handoff') THEN COALESCE(sap, 0) ELSE 0 END)
+<pre><code class="language-sql">SUM(CASE WHEN source LIKE 'urlbar%' THEN COALESCE(sap, 0) ELSE 0 END)
 </code></pre>
 
 </details>
 
 <hr />
 <h2 id="data-sources">Data Sources</h2>
+<h3 id="_1"><a href="#">``</a></h3>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">
+</code></pre>
+
+</details>
+
+<hr />
 <h3 id="search_clients_engines_sources_daily-search-clients-engines-sources-daily"><a href="#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code>- Search Clients Engines Sources Daily</a></h3>
 <p>Search Clients Engines Sources Daily</p>
 <details>

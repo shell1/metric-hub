@@ -741,6 +741,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../outcomes/firefox_desktop/sponsored_tiles/" class="md-nav__link">
+        Sponsored tiles
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../outcomes/firefox_desktop/spotlight_engagement/" class="md-nav__link">
         Spotlight engagement
       </a>
@@ -1000,6 +1014,13 @@
   
     <nav class="md-nav" aria-label="metric-hub">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ad_click_rate" class="md-nav__link">
+    ad_click_rate
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#active_hours" class="md-nav__link">
@@ -1893,6 +1914,34 @@
           <li class="md-nav__item">
   <a href="#http_pageload_is_ssl_ratio_v1" class="md-nav__link">
     http_pageload_is_ssl_ratio_v1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sponsored_tiles_disabled" class="md-nav__link">
+    sponsored_tiles_disabled
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sponsored_tiles_dismissals" class="md-nav__link">
+    sponsored_tiles_dismissals
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#any_sponsored_tiles_dismissals" class="md-nav__link">
+    any_sponsored_tiles_dismissals
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sponsored_tiles_dismissals_pos1_2" class="md-nav__link">
+    sponsored_tiles_dismissals_pos1_2
   </a>
   
 </li>
@@ -2746,6 +2795,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#ad_click_rate" class="md-nav__link">
+    ad_click_rate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#active_hours" class="md-nav__link">
     active_hours
   </a>
@@ -3641,6 +3697,34 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#sponsored_tiles_disabled" class="md-nav__link">
+    sponsored_tiles_disabled
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sponsored_tiles_dismissals" class="md-nav__link">
+    sponsored_tiles_dismissals
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#any_sponsored_tiles_dismissals" class="md-nav__link">
+    any_sponsored_tiles_dismissals
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sponsored_tiles_dismissals_pos1_2" class="md-nav__link">
+    sponsored_tiles_dismissals_pos1_2
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3664,6 +3748,23 @@
 
 <h2 id="metric-hub">metric-hub</h2>
 <p>Pre-defined metrics for <code>firefox_desktop</code>. These metrics are defined in <a href="https://github.com/mozilla/metric-hub/blob/main/definitions/firefox_desktop.toml">metric-hub</a></p>
+<h3 id="ad_click_rate">ad_click_rate</h3>
+<p><strong>Ad Click Rate</strong></p>
+<p>This is a Population Ratio Metric. It is the total number of
+    ad clicks over all clients in the population divided by the 
+    total number of SAP searches over all clients in the 
+    population.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#">``</a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">None
+</code></pre>
+
+</details>
+
+<hr />
 <h3 id="active_hours">active_hours</h3>
 <p><strong>Active hours</strong></p>
 <p>Measures the amount of time (in 5-second increments) during which
@@ -5560,6 +5661,75 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 
 
 <pre><code class="language-sql">COUNT(payload.histograms.http_pageload_is_ssl) / COUNT(*)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="sponsored_tiles_disabled">sponsored_tiles_disabled</h3>
+<p><strong>Sponsored Tiles Disabled Event</strong></p>
+<p>Boolean that identifies clients that disabled sponsored tiles during experiment</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#sponsored_tiles_clients_daily"><code>sponsored_tiles_clients_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_any(&quot;sponsored_tiles_disable_count &gt; 0&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="sponsored_tiles_dismissals">sponsored_tiles_dismissals</h3>
+<p><strong>Sponsored Tiles Dismissals Count</strong></p>
+<p>Count of sponsored tiles dismissals in all positions</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#activity_stream_events"><code>activity_stream_events</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COUNTIF(
+        event = 'BLOCK'
+        AND value LIKE '%spoc%'
+        AND SOURCE = 'TOP_SITES'
+      )
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="any_sponsored_tiles_dismissals">any_sponsored_tiles_dismissals</h3>
+<p><strong>Any Sponsored Tiles Dismissed</strong></p>
+<p>Clients that dismissed any sponsored tiles</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#activity_stream_events"><code>activity_stream_events</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(LOGICAL_OR(
+        event = 'BLOCK'
+        AND value LIKE '%spoc%'
+        AND SOURCE = 'TOP_SITES'
+      ), FALSE)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="sponsored_tiles_dismissals_pos1_2">sponsored_tiles_dismissals_pos1_2</h3>
+<p><strong>Sponsored Tiles Dismissals Count (Positions 1 and 2)</strong></p>
+<p>Count of sponsored tiles dismissals in the first two positions</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#activity_stream_events"><code>activity_stream_events</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COUNTIF(
+        event = 'BLOCK'
+        AND value LIKE '%spoc%'
+        AND SOURCE = 'TOP_SITES'
+        AND action_position &lt;= 1
+      )
 </code></pre>
 
 </details>
