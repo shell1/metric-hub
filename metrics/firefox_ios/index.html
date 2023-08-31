@@ -540,6 +540,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../outcomes/fenix/onboarding/" class="md-nav__link">
+        Onboarding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../outcomes/fenix/pocket/" class="md-nav__link">
         Pocket
       </a>
@@ -1158,6 +1172,34 @@
           <li class="md-nav__item">
   <a href="#new_profile_activation" class="md-nav__link">
     new_profile_activation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#turn_on_notifications_onboarding" class="md-nav__link">
+    turn_on_notifications_onboarding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_to_default_onboarding" class="md-nav__link">
+    set_to_default_onboarding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sign_in_onboarding" class="md-nav__link">
+    sign_in_onboarding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#at_least_1_cta_onboarding" class="md-nav__link">
+    at_least_1_cta_onboarding
   </a>
   
 </li>
@@ -2129,6 +2171,34 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#turn_on_notifications_onboarding" class="md-nav__link">
+    turn_on_notifications_onboarding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_to_default_onboarding" class="md-nav__link">
+    set_to_default_onboarding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sign_in_onboarding" class="md-nav__link">
+    sign_in_onboarding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#at_least_1_cta_onboarding" class="md-nav__link">
+    at_least_1_cta_onboarding
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2464,6 +2534,62 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 
 
 <pre><code class="language-sql">COALESCE(SUM(activated))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="turn_on_notifications_onboarding">turn_on_notifications_onboarding</h3>
+<p><strong>Turn on Notification Rate</strong></p>
+<p>This metric looks at proportion of all new profiles that were exposed to the turn on notification card and clicked the action during on-boarding.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_ios/#special_onboarding_events"><code>special_onboarding_events</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(SUM(turn_on_notifications_flag))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="set_to_default_onboarding">set_to_default_onboarding</h3>
+<p><strong>Set to Default Rate</strong></p>
+<p>This metric looks at proportion of all new profiles that were exposed to the set to default card and clicked the action during on-boarding.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_ios/#special_onboarding_events"><code>special_onboarding_events</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(SUM(set_to_default_flag))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="sign_in_onboarding">sign_in_onboarding</h3>
+<p><strong>Sign in Rate</strong></p>
+<p>This metric looks at proportion of all new profiles that were exposed to the sign-in card and clicked the action during on-boarding.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_ios/#special_onboarding_events"><code>special_onboarding_events</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(SUM(sign_in_flag))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="at_least_1_cta_onboarding">at_least_1_cta_onboarding</h3>
+<p><strong>Completed at least one CTA</strong></p>
+<p>This metric looks at proportion of all new profiles that were exposed to onboarding cards and clicked at least one action during on-boarding.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_ios/#special_onboarding_events"><code>special_onboarding_events</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(SUM(at_least_1_cta))
 </code></pre>
 
 </details>

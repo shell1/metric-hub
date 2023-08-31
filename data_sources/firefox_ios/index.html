@@ -540,6 +540,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../outcomes/fenix/onboarding/" class="md-nav__link">
+        Onboarding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../outcomes/fenix/pocket/" class="md-nav__link">
         Pocket
       </a>
@@ -1271,6 +1285,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#special_onboarding_events" class="md-nav__link">
+    special_onboarding_events
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1961,6 +1982,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#special_onboarding_events" class="md-nav__link">
+    special_onboarding_events
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2086,7 +2114,7 @@
 
 <pre><code class="language-sql">(
     SELECT *
-    FROM `mozdata.search.mobile_search_clients_engines_sources_daily` 
+    FROM `mozdata.search.mobile_search_clients_engines_sources_daily`
     WHERE os = &quot;iOS&quot; AND normalized_app_name = &quot;Fennec&quot;
 )
 </code></pre>
@@ -2102,6 +2130,73 @@
 
 
 <pre><code class="language-sql">`moz-fx-data-shared-prod.firefox_ios.new_profile_activation`
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="special_onboarding_events"><a href="#special_onboarding_events">special_onboarding_events</a></h3>
+<p>Client ID column: <code>None</code></p>
+<p>Submission Date column: <code>None</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">(
+SELECT
+    expo.submission_date
+    , expo.client_id
+    , case when (conv.set_to_default &gt;= 1 AND expo.set_to_default_card &gt;= 1) then 1
+           when (conv.set_to_default = 0 AND expo.set_to_default_card &gt;= 1) then 0 else null end as set_to_default_flag
+    , case when (conv.turn_on_notifications &gt;= 1 AND expo.turn_on_notifications_card &gt;= 1) then 1
+           when (conv.turn_on_notifications = 0 AND expo.turn_on_notifications_card &gt;= 1) then 0 else null end as turn_on_notifications_flag
+    , case when (conv.sign_in &gt;= 1 AND expo.sign_in_card &gt;= 1) then 1
+           when (conv.sign_in = 0 AND expo.sign_in_card &gt;= 1) then 0 else null end as sign_in_flag
+    , case when (conv.set_to_default &gt;= 1 AND expo.set_to_default_card &gt;= 1) OR (conv.turn_on_notifications &gt;= 1 AND expo.turn_on_notifications_card &gt;= 1) OR (conv.sign_in &gt;= 1 AND expo.sign_in_card &gt;= 1)then 1
+           when (conv.set_to_default = 0 AND conv.turn_on_notifications = 0 AND conv.sign_in = 0)  AND (set_to_default_card &gt;= 1 OR turn_on_notifications_card &gt;= 1 OR sign_in_card &gt;= 1) then 0 else null end as at_least_1_cta
+
+FROM (
+      SELECT
+            client_info.client_id as client_id
+            , min(DATE(submission_timestamp)) as submission_date
+            , count(case when ext.value = &quot;default-browser&quot; then DATE(submission_timestamp) END) as set_to_default_card
+            , count(case when ext.value in ( &quot;notification-permissions&quot;, &quot;notificationPermission&quot;, &quot;notificationPermissions&quot;) then DATE(submission_timestamp) END) as turn_on_notifications_card
+            , count(case when ext.value in (&quot;sign-to-sync&quot;, &quot;signToSync&quot;) then DATE(submission_timestamp) END) as sign_in_card
+      FROM
+        `mozdata.org_mozilla_ios_firefox.events` tm
+      CROSS JOIN
+        UNNEST(events) AS event
+      CROSS JOIN
+        UNNEST(event.extra) AS ext
+      WHERE event.name = &quot;card_view&quot; AND event.category = &quot;onboarding&quot; AND ext.key =&quot;card_type&quot;
+        AND ext.value in (&quot;default-browser&quot;, &quot;notification-permissions&quot;, &quot;sign-to-sync&quot;, &quot;signToSync&quot;, &quot;notificationPermission&quot;, &quot;notificationPermissions&quot;)
+        -- Ask if any of the CTAs we care about are shown on wallpaper, welcome, pin card
+        -- if so that will make the logic a bit complex
+        -- Also ask if the different variation mean the same thing and ask engineers to standardize
+      AND DATE(submission_timestamp) &gt;= &quot;2023-06-01&quot;
+      GROUP BY 1
+      ) expo
+LEFT JOIN (
+  SELECT
+      client_info.client_id as client_id
+            , count(case when ext.value = &quot;set-default-browser&quot; then DATE(submission_timestamp) END) as set_to_default
+            , count(case when ext.value = &quot;request-notifications&quot; then DATE(submission_timestamp) END) as turn_on_notifications
+            , count(case when ext.value = &quot;sync-sign-in&quot; then DATE(submission_timestamp) END) as sign_in
+  FROM
+    `mozdata.org_mozilla_ios_firefox.events` tm
+  CROSS JOIN
+     UNNEST(events) AS event
+  CROSS JOIN
+     UNNEST(event.extra) AS ext
+  WHERE event.category = &quot;onboarding&quot; AND event.name = &quot;primary_button_tap&quot;  AND ext.key =&quot;button_action&quot;
+    AND ext.value in (&quot;set-default-browser&quot;, &quot;request-notifications&quot;, &quot;open-default-browser-popup&quot;, &quot;sync-sign-in&quot;)
+    -- &quot;open-default-browser-popup&quot; the same as &quot;set-default-browser&quot;??
+  AND DATE(submission_timestamp) &gt;= &quot;2023-06-01&quot;
+  GROUP BY 1
+) conv
+ON expo.client_id = conv.client_id
+GROUP BY 1, 2, 3, 4, 5, 6
+)
 </code></pre>
 
 </details>

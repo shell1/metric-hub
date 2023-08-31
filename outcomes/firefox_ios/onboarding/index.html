@@ -544,6 +544,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../fenix/onboarding/" class="md-nav__link">
+        Onboarding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../fenix/pocket/" class="md-nav__link">
         Pocket
       </a>
@@ -901,6 +915,34 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#at_least_1_cta_onboarding" class="md-nav__link">
+    at_least_1_cta_onboarding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sign_in_onboarding" class="md-nav__link">
+    sign_in_onboarding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_to_default_onboarding" class="md-nav__link">
+    set_to_default_onboarding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#turn_on_notifications_onboarding" class="md-nav__link">
+    turn_on_notifications_onboarding
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -913,6 +955,13 @@
   
     <nav class="md-nav" aria-label="Data Sources">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#special_onboarding_events" class="md-nav__link">
+    special_onboarding_events
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#metrics-metrics" class="md-nav__link">
@@ -1913,6 +1962,34 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#at_least_1_cta_onboarding" class="md-nav__link">
+    at_least_1_cta_onboarding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sign_in_onboarding" class="md-nav__link">
+    sign_in_onboarding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_to_default_onboarding" class="md-nav__link">
+    set_to_default_onboarding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#turn_on_notifications_onboarding" class="md-nav__link">
+    turn_on_notifications_onboarding
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1925,6 +2002,13 @@
   
     <nav class="md-nav" aria-label="Data Sources">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#special_onboarding_events" class="md-nav__link">
+    special_onboarding_events
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#metrics-metrics" class="md-nav__link">
@@ -1990,7 +2074,82 @@ implying the client has Firefox set as the default browser</p>
 </details>
 
 <hr />
+<h3 id="at_least_1_cta_onboarding"><code>at_least_1_cta_onboarding</code></h3>
+<p>**Completed at least one CTA **</p>
+<p>This metric looks at proportion of all new profiles that were exposed to onboarding cards and clicked at least one action during on-boarding.</p>
+<p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
+<p>Data Source: <a href="#special_onboarding_events"><code>special_onboarding_events</code></a></p>
+<p>Statistics: <code>binomial</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(SUM(at_least_1_cta))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="sign_in_onboarding"><code>sign_in_onboarding</code></h3>
+<p>**Sign in Rate **</p>
+<p>This metric looks at proportion of all new profiles that were exposed to the sign-in card and clicked the action during on-boarding.</p>
+<p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
+<p>Data Source: <a href="#special_onboarding_events"><code>special_onboarding_events</code></a></p>
+<p>Statistics: <code>binomial</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(SUM(sign_in_flag))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="set_to_default_onboarding"><code>set_to_default_onboarding</code></h3>
+<p>**Set to Default Rate **</p>
+<p>This metric looks at proportion of all new profiles that were exposed to the set to default card and clicked the action during on-boarding.</p>
+<p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
+<p>Data Source: <a href="#special_onboarding_events"><code>special_onboarding_events</code></a></p>
+<p>Statistics: <code>binomial</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(SUM(set_to_default_flag))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="turn_on_notifications_onboarding"><code>turn_on_notifications_onboarding</code></h3>
+<p>**Turn on Notification Rate **</p>
+<p>This metric looks at proportion of all new profiles that were exposed to the turn on notification card and clicked the action during on-boarding.</p>
+<p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
+<p>Data Source: <a href="#special_onboarding_events"><code>special_onboarding_events</code></a></p>
+<p>Statistics: <code>binomial</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(SUM(turn_on_notifications_flag))
+</code></pre>
+
+</details>
+
+<hr />
 <h2 id="data-sources">Data Sources</h2>
+<h3 id="special_onboarding_events"><a href="#special_onboarding_events"><code>special_onboarding_events</code></a></h3>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">
+</code></pre>
+
+</details>
+
+<hr />
 <h3 id="metrics-metrics"><a href="#metrics"><code>metrics</code>- Metrics</a></h3>
 <p>Metrics Ping</p>
 <details>

@@ -540,6 +540,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../outcomes/fenix/onboarding/" class="md-nav__link">
+        Onboarding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../outcomes/fenix/pocket/" class="md-nav__link">
         Pocket
       </a>
@@ -2138,8 +2152,8 @@ SELECT
            when (conv.turn_on_notifications = 0 AND expo.turn_on_notifications_card &gt;= 1) then 0 else null end as turn_on_notifications_flag
     , case when (conv.sign_in &gt;= 1 AND expo.sign_in_card &gt;= 1) then 1
            when (conv.sign_in = 0 AND expo.sign_in_card &gt;= 1) then 0 else null end as sign_in_flag
-    , case when (conv.set_to_default &gt;= 1 AND expo.set_to_default_card &gt;= 1) OR (conv.turn_on_notifications &gt;= 1 AND expo.turn_on_notifications_card &gt;= 1) OR (conv.sign_in &gt;= 1 AND expo.sign_in_card &gt;= 1) then 1
-           when (conv.set_to_default = 0 AND conv.turn_on_notifications = 0 AND conv.sign_in = 0)  AND (set_to_default_card &gt;= 1 OR turn_on_notifications_card &gt;= 1 OR sign_in_card &gt;= 1) then 0 else null end as at_least_1_cta_flag
+    , case when (conv.set_to_default &gt;= 1 AND expo.set_to_default_card &gt;= 1) OR (conv.turn_on_notifications &gt;= 1 AND expo.turn_on_notifications_card &gt;= 1) OR (conv.sign_in &gt;= 1 AND expo.sign_in_card &gt;= 1)then 1
+           when (conv.set_to_default = 0 AND conv.turn_on_notifications = 0 AND conv.sign_in = 0)  AND (set_to_default_card &gt;= 1 OR turn_on_notifications_card &gt;= 1 OR sign_in_card &gt;= 1) then 0 else null end as at_least_1_cta
 
 FROM (
       SELECT
@@ -2152,7 +2166,9 @@ FROM (
         `mozdata.org_mozilla_firefox.events` tm
       CROSS JOIN
         UNNEST(events) AS event
-      WHERE (event.name = &quot;set_to_default_card&quot; OR event.name = &quot;turn_on_notifications_card&quot; OR event.name = &quot;sign_in_card&quot;)
+      CROSS JOIN
+        UNNEST(event.extra) AS ext
+      WHERE event.category = &quot;onboarding&quot; AND ext.value =&quot;impression&quot; AND event.name in (&quot;set_to_default_card&quot;, &quot;turn_on_notifications_card&quot;, &quot;sign_in_card&quot;)
       AND DATE(submission_timestamp) &gt;= &quot;2023-01-01&quot;
       GROUP BY 1
       ) expo
@@ -2166,7 +2182,9 @@ LEFT JOIN (
     `mozdata.org_mozilla_firefox.events` tm
   CROSS JOIN
      UNNEST(events) AS event
-  WHERE (event.name = &quot;set_to_default&quot; OR event.name = &quot;turn_on_notifications&quot; OR event.name = &quot;sign_in&quot;)
+  CROSS JOIN
+     UNNEST(event.extra) AS ext
+  WHERE event.category = &quot;onboarding&quot; AND ext.key =&quot;action&quot; AND event.name in  (&quot;set_to_default&quot;, &quot;turn_on_notifications&quot;, &quot;sign_in&quot;)
   AND DATE(submission_timestamp) &gt;= &quot;2023-01-01&quot;
   GROUP BY 1
 ) conv
