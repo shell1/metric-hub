@@ -2147,19 +2147,19 @@ SELECT
     expo.submission_date
     , expo.client_id
     , case when (conv.set_to_default &gt;= 1 AND expo.set_to_default_card &gt;= 1) then 1
-           when (conv.set_to_default = 0 AND expo.set_to_default_card &gt;= 1) then 0 else null end as set_to_default_flag
+           when (coalesce(conv.set_to_default, 0) = 0 AND expo.set_to_default_card &gt;= 1) then 0 else null end as set_to_default_flag
     , case when (conv.turn_on_notifications &gt;= 1 AND expo.turn_on_notifications_card &gt;= 1) then 1
-           when (conv.turn_on_notifications = 0 AND expo.turn_on_notifications_card &gt;= 1) then 0 else null end as turn_on_notifications_flag
+           when (coalesce(conv.turn_on_notifications, 0) = 0 AND expo.turn_on_notifications_card &gt;= 1) then 0 else null end as turn_on_notifications_flag
     , case when (conv.sign_in &gt;= 1 AND expo.sign_in_card &gt;= 1) then 1
-           when (conv.sign_in = 0 AND expo.sign_in_card &gt;= 1) then 0 else null end as sign_in_flag
+           when (coalesce(conv.sign_in,0) = 0 AND expo.sign_in_card &gt;= 1) then 0 else null end as sign_in_flag
     , case when (conv.set_to_default &gt;= 1 AND expo.set_to_default_card &gt;= 1) OR (conv.turn_on_notifications &gt;= 1 AND expo.turn_on_notifications_card &gt;= 1) OR (conv.sign_in &gt;= 1 AND expo.sign_in_card &gt;= 1)then 1
-           when (conv.set_to_default = 0 AND conv.turn_on_notifications = 0 AND conv.sign_in = 0)  AND (set_to_default_card &gt;= 1 OR turn_on_notifications_card &gt;= 1 OR sign_in_card &gt;= 1) then 0 else null end as at_least_1_cta
+           when (coalesce(conv.set_to_default, 0) = 0 AND coalesce(conv.turn_on_notifications, 0) = 0 AND coalesce(conv.sign_in,0) = 0)  AND (set_to_default_card &gt;= 1 OR turn_on_notifications_card &gt;= 1 OR sign_in_card &gt;= 1) then 0 else null end as at_least_1_cta
 
 FROM (
       SELECT
             client_info.client_id as client_id
             , min(DATE(submission_timestamp)) as submission_date
-            , count(case when ext.value = &quot;default-browser&quot; then DATE(submission_timestamp) END) as set_to_default_card
+            , count(case when ext.value in (&quot;default-browser&quot;, &quot;welcome&quot;) then DATE(submission_timestamp) END) as set_to_default_card
             , count(case when ext.value in ( &quot;notification-permissions&quot;, &quot;notificationPermission&quot;, &quot;notificationPermissions&quot;) then DATE(submission_timestamp) END) as turn_on_notifications_card
             , count(case when ext.value in (&quot;sign-to-sync&quot;, &quot;signToSync&quot;) then DATE(submission_timestamp) END) as sign_in_card
       FROM
@@ -2169,7 +2169,7 @@ FROM (
       CROSS JOIN
         UNNEST(event.extra) AS ext
       WHERE event.name = &quot;card_view&quot; AND event.category = &quot;onboarding&quot; AND ext.key =&quot;card_type&quot;
-        AND ext.value in (&quot;default-browser&quot;, &quot;notification-permissions&quot;, &quot;sign-to-sync&quot;, &quot;signToSync&quot;, &quot;notificationPermission&quot;, &quot;notificationPermissions&quot;)
+        AND ext.value in (&quot;default-browser&quot;, &quot;welcome&quot;, &quot;notification-permissions&quot;, &quot;sign-to-sync&quot;, &quot;signToSync&quot;, &quot;notificationPermission&quot;, &quot;notificationPermissions&quot;)
         -- Ask if any of the CTAs we care about are shown on wallpaper, welcome, pin card
         -- if so that will make the logic a bit complex
         -- Also ask if the different variation mean the same thing and ask engineers to standardize
