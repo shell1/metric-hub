@@ -1974,6 +1974,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#separate_search_engine" class="md-nav__link">
+    separate_search_engine
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3749,6 +3756,13 @@
           <li class="md-nav__item">
   <a href="#sponsored_tiles_dismissals_pos1_2" class="md-nav__link">
     sponsored_tiles_dismissals_pos1_2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#separate_search_engine" class="md-nav__link">
+    separate_search_engine
   </a>
   
 </li>
@@ -5758,6 +5772,20 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
         AND SOURCE = 'TOP_SITES'
         AND action_position &lt;= 1
       )
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="separate_search_engine">separate_search_engine</h3>
+<p><strong>Split PBM search engine</strong></p>
+<p>Indicates whether the client configured separate search engines for regular browsing and private browsing mode.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(ANY_VALUE(default_search_engine != default_private_search_engine), false)
 </code></pre>
 
 </details>
