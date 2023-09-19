@@ -1121,6 +1121,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#performance_page_non_blank_paint" class="md-nav__link">
+    performance_page_non_blank_paint
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#performance_pageload_req_anim_frame_callback" class="md-nav__link">
     performance_pageload_req_anim_frame_callback
   </a>
@@ -2270,6 +2277,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#performance_page_non_blank_paint" class="md-nav__link">
+    performance_page_non_blank_paint
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#performance_pageload_req_anim_frame_callback" class="md-nav__link">
     performance_pageload_req_anim_frame_callback
   </a>
@@ -2689,6 +2703,20 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 
 
 <pre><code class="language-sql">ARRAY_AGG(metrics.timing_distribution.performance_pageload_load_time_responsestart IGNORE NULLS)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="performance_page_non_blank_paint">performance_page_non_blank_paint</h3>
+<p><strong>Page Non Blank Paint</strong></p>
+<p>The time between navigationStart and the first non-blank paint of a foreground root content document, in milliseconds.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#metrics"><code>metrics</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">ARRAY_AGG(metrics.timing_distribution.performance_page_non_blank_paint IGNORE NULLS)
 </code></pre>
 
 </details>
