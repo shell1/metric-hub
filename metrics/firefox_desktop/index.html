@@ -1884,6 +1884,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#newtab_organic_topsite_clicks" class="md-nav__link">
+    newtab_organic_topsite_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newtab_organic_topsite_impressions" class="md-nav__link">
+    newtab_organic_topsite_impressions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#imported_bookmarks" class="md-nav__link">
     imported_bookmarks
   </a>
@@ -3665,6 +3679,20 @@
           <li class="md-nav__item">
   <a href="#newtab_engagement" class="md-nav__link">
     newtab_engagement
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newtab_organic_topsite_clicks" class="md-nav__link">
+    newtab_organic_topsite_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newtab_organic_topsite_impressions" class="md-nav__link">
+    newtab_organic_topsite_impressions
   </a>
   
 </li>
@@ -5558,7 +5586,35 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COALESCE(MAX(case when searches &gt; 0 OR pocket_clicks &gt; 0 OR topsite_clicks &gt; 0 then 1 else 0 end), 0)
+<pre><code class="language-sql">COALESCE(MAX(case when searches &gt; 0 OR pocket_clicks &gt; 0 OR topsite_clicks &gt; 0 OR organic_topsite_clicks &gt; 0 then 1 else 0 end), 0)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="newtab_organic_topsite_clicks">newtab_organic_topsite_clicks</h3>
+<p><strong>Newtab Organic Tile Clicks</strong></p>
+<p>Count of New Tab organic tile clicks.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_interactions"><code>newtab_interactions</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(COALESCE(organic_topsite_clicks, 0))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="newtab_organic_topsite_impressions">newtab_organic_topsite_impressions</h3>
+<p><strong>Newtab Organic Tile Impressions</strong></p>
+<p>Count of New Tab organic tile impressions.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_interactions"><code>newtab_interactions</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(COALESCE(organic_topsite_impressions, 0))
 </code></pre>
 
 </details>
