@@ -1348,6 +1348,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#appstore_funnel" class="md-nav__link">
+    appstore_funnel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funnel_retention" class="md-nav__link">
+    funnel_retention
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2045,6 +2059,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#appstore_funnel" class="md-nav__link">
+    appstore_funnel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funnel_retention" class="md-nav__link">
+    funnel_retention
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2252,6 +2280,38 @@ LEFT JOIN (
 ) conv
 ON expo.client_id = conv.client_id
 GROUP BY 1, 2, 3, 4, 5, 6
+)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="appstore_funnel"><a href="#appstore_funnel">appstore_funnel</a></h3>
+<p>Client ID column: <code>NULL</code></p>
+<p>Submission Date column: <code>submission_date</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">(
+    SELECT *
+     FROM `mozdata.firefox_ios.app_store_funnel`
+)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="funnel_retention"><a href="#funnel_retention">funnel_retention</a></h3>
+<p>Client ID column: <code>NULL</code></p>
+<p>Submission Date column: <code>submission_date</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">(
+    SELECT *
+     FROM `mozdata.firefox_ios.funnel_retention_week_4`
 )
 </code></pre>
 
