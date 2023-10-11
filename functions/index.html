@@ -1142,6 +1142,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../metrics/monitor_cirrus/" class="md-nav__link">
+        Monitor cirrus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../metrics/multi_product/" class="md-nav__link">
         Multi product
       </a>
@@ -1323,6 +1337,20 @@
     <li class="md-nav__item">
       <a href="../data_sources/klar_ios/" class="md-nav__link">
         Klar ios
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data_sources/monitor_cirrus/" class="md-nav__link">
+        Monitor cirrus
       </a>
     </li>
   
@@ -1785,6 +1813,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../default_configs/monitor_cirrus/" class="md-nav__link">
+        Monitor cirrus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../default_configs/rollout/" class="md-nav__link">
         Rollout
       </a>
@@ -2085,7 +2127,7 @@
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">functools.partial(&lt;function FunctionsSpec.from_dict.&lt;locals&gt;.&lt;dictcomp&gt;.&lt;lambda&gt; at 0x7fc6fdc72b90&gt;, definition='COALESCE(SUM({select_expr}), 0)')
+<pre><code class="language-sql">functools.partial(&lt;function FunctionsSpec.from_dict.&lt;locals&gt;.&lt;dictcomp&gt;.&lt;lambda&gt; at 0x7fd80a5a6c20&gt;, definition='COALESCE(SUM({select_expr}), 0)')
 </code></pre>
 
 </details>
@@ -2098,7 +2140,7 @@
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">functools.partial(&lt;function FunctionsSpec.from_dict.&lt;locals&gt;.&lt;dictcomp&gt;.&lt;lambda&gt; at 0x7fc6fdc72c20&gt;, definition='COALESCE(LOGICAL_OR({select_expr}), FALSE)')
+<pre><code class="language-sql">functools.partial(&lt;function FunctionsSpec.from_dict.&lt;locals&gt;.&lt;dictcomp&gt;.&lt;lambda&gt; at 0x7fd80a5a6dd0&gt;, definition='COALESCE(LOGICAL_OR({select_expr}), FALSE)')
 </code></pre>
 
 </details>
@@ -2111,7 +2153,7 @@
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">functools.partial(&lt;function FunctionsSpec.from_dict.&lt;locals&gt;.&lt;dictcomp&gt;.&lt;lambda&gt; at 0x7fc6fdc72dd0&gt;, definition='    SAFE_DIVIDE(\n        SUM(CAST(JSON_EXTRACT_SCALAR({select_expr}, &quot;$.sum&quot;) AS int64)),\n        SUM((SELECT SUM(value) FROM UNNEST(mozfun.hist.extract({select_expr}).values)))\n    )\n')
+<pre><code class="language-sql">functools.partial(&lt;function FunctionsSpec.from_dict.&lt;locals&gt;.&lt;dictcomp&gt;.&lt;lambda&gt; at 0x7fd80a5a6d40&gt;, definition='    SAFE_DIVIDE(\n        SUM(CAST(JSON_EXTRACT_SCALAR({select_expr}, &quot;$.sum&quot;) AS int64)),\n        SUM((SELECT SUM(value) FROM UNNEST(mozfun.hist.extract({select_expr}).values)))\n    )\n')
 </code></pre>
 
 </details>
@@ -2124,7 +2166,7 @@
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">functools.partial(&lt;function FunctionsSpec.from_dict.&lt;locals&gt;.&lt;dictcomp&gt;.&lt;lambda&gt; at 0x7fc6fdc72cb0&gt;, definition='    SAFE_DIVIDE(\n        SUM(mozfun.map.get_key(mozfun.hist.extract({select_expr}).values,0)),\n        SUM(mozfun.hist.threshold_count({select_expr},1))\n    )\n')
+<pre><code class="language-sql">functools.partial(&lt;function FunctionsSpec.from_dict.&lt;locals&gt;.&lt;dictcomp&gt;.&lt;lambda&gt; at 0x7fd80a5a6b90&gt;, definition='    SAFE_DIVIDE(\n        SUM(mozfun.map.get_key(mozfun.hist.extract({select_expr}).values,0)),\n        SUM(mozfun.hist.threshold_count({select_expr},1))\n    )\n')
 </code></pre>
 
 </details>
@@ -2137,7 +2179,7 @@
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">functools.partial(&lt;function FunctionsSpec.from_dict.&lt;locals&gt;.&lt;dictcomp&gt;.&lt;lambda&gt; at 0x7fc6fd91a8c0&gt;, definition='COALESCE(SUM({select_expr}), 0)')
+<pre><code class="language-sql">functools.partial(&lt;function FunctionsSpec.from_dict.&lt;locals&gt;.&lt;dictcomp&gt;.&lt;lambda&gt; at 0x7fd80a2528c0&gt;, definition='COALESCE(SUM({select_expr}), 0)')
 </code></pre>
 
 </details>
@@ -2148,7 +2190,7 @@
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">functools.partial(&lt;function FunctionsSpec.from_dict.&lt;locals&gt;.&lt;dictcomp&gt;.&lt;lambda&gt; at 0x7fc6fd91bbe0&gt;, definition='COALESCE(LOGICAL_OR({select_expr}), FALSE)')
+<pre><code class="language-sql">functools.partial(&lt;function FunctionsSpec.from_dict.&lt;locals&gt;.&lt;dictcomp&gt;.&lt;lambda&gt; at 0x7fd80a253be0&gt;, definition='COALESCE(LOGICAL_OR({select_expr}), FALSE)')
 </code></pre>
 
 </details>
@@ -2159,7 +2201,7 @@
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">functools.partial(&lt;function FunctionsSpec.from_dict.&lt;locals&gt;.&lt;dictcomp&gt;.&lt;lambda&gt; at 0x7fc6fdb89630&gt;, definition='    SAFE_DIVIDE(\n        SUM(CAST(JSON_EXTRACT_SCALAR({select_expr}, &quot;$.sum&quot;) AS int64)),\n        SUM((SELECT SUM(value) FROM UNNEST(mozfun.hist.extract({select_expr}).values)))\n    )\n')
+<pre><code class="language-sql">functools.partial(&lt;function FunctionsSpec.from_dict.&lt;locals&gt;.&lt;dictcomp&gt;.&lt;lambda&gt; at 0x7fd80a4c0a60&gt;, definition='    SAFE_DIVIDE(\n        SUM(CAST(JSON_EXTRACT_SCALAR({select_expr}, &quot;$.sum&quot;) AS int64)),\n        SUM((SELECT SUM(value) FROM UNNEST(mozfun.hist.extract({select_expr}).values)))\n    )\n')
 </code></pre>
 
 </details>
