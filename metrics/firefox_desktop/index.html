@@ -2051,6 +2051,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#new_profiles_v1" class="md-nav__link">
+    new_profiles_v1
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3889,6 +3896,13 @@
           <li class="md-nav__item">
   <a href="#separate_search_engine" class="md-nav__link">
     separate_search_engine
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new_profiles_v1" class="md-nav__link">
+    new_profiles_v1
   </a>
   
 </li>
@@ -5940,6 +5954,20 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 
 
 <pre><code class="language-sql">COALESCE(ANY_VALUE(default_search_engine != default_private_search_engine), false)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="new_profiles_v1">new_profiles_v1</h3>
+<p><strong>New Profiles</strong></p>
+<p>The number of newly acquired Firefox Desktop clients. A client is newly acquired on the first date they appear in either of new profile, main or first shutdown pings based on submission date</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#clients_first_seen_v2"><code>clients_first_seen_v2</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COUNT(*)
 </code></pre>
 
 </details>
