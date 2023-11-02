@@ -1562,6 +1562,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#suggest" class="md-nav__link">
+    suggest
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suggest_offline" class="md-nav__link">
+    suggest_offline
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suggest_online" class="md-nav__link">
+    suggest_online
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2115,6 +2136,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#suggest" class="md-nav__link">
+    suggest
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suggest_offline" class="md-nav__link">
+    suggest_offline
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suggest_online" class="md-nav__link">
+    suggest_online
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2261,6 +2303,71 @@
 
 
 <pre><code class="language-sql">{{agg_any(&quot;ARRAY_LENGTH(metrics.string_list.newtab_blocked_sponsors) &gt; 0&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="suggest">suggest</h3>
+<p><strong>Clients in Firefox Suggest</strong></p>
+<p>Clients who are eligible for Firefox Suggest</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#clients_daily"><code>clients_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(LOGICAL_AND(
+    locale LIKE 'en%'
+    AND country = 'US'
+    AND (
+        browser_version_info.major_version &gt; 92 OR
+        (browser_version_info.major_version = 92 AND browser_version_info.patch_revision &gt;= 1)
+    )
+), FALSE)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="suggest_offline">suggest_offline</h3>
+<p><strong>Clients in Firefox Suggest Offline</strong></p>
+<p>Clients who are in the Firefox Suggest Offline experience</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#clients_daily"><code>clients_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(LOGICAL_AND(
+    locale LIKE 'en%'
+    AND country = 'US'
+    AND (
+        browser_version_info.major_version &gt; 92 OR
+        (browser_version_info.major_version = 92 AND browser_version_info.patch_revision &gt;= 1)
+    )
+    AND NOT IF(user_pref_browser_urlbar_quicksuggest_data_collection_enabled = 'true', TRUE, FALSE)
+), FALSE)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="suggest_online">suggest_online</h3>
+<p><strong>Clients in Firefox Suggest Online</strong></p>
+<p>Clients who are opted into the Firefox Suggest Online experience (data sharing)</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#clients_daily"><code>clients_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(LOGICAL_AND(
+    locale LIKE 'en%'
+    AND country = 'US'
+    AND (
+        browser_version_info.major_version &gt; 92 OR
+        (browser_version_info.major_version = 92 AND browser_version_info.patch_revision &gt;= 1)
+    )
+    AND IF(user_pref_browser_urlbar_quicksuggest_data_collection_enabled = 'true', TRUE, FALSE)
+), FALSE)
 </code></pre>
 
 </details>
