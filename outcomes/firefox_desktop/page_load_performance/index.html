@@ -966,6 +966,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#perf_largest_contentful_paint_ms" class="md-nav__link">
+    perf_largest_contentful_paint_ms
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2403,6 +2410,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#perf_largest_contentful_paint_ms" class="md-nav__link">
+    perf_largest_contentful_paint_ms
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2945,6 +2959,24 @@
 <pre><code class="language-sql">SAFE_DIVIDE(
         SUM(CAST(JSON_EXTRACT_SCALAR(payload.processes.content.histograms.perf_page_load_time_ms, &quot;$.sum&quot;) AS int64)),
         SUM((SELECT SUM(value) FROM UNNEST(mozfun.hist.extract(payload.processes.content.histograms.perf_page_load_time_ms).values)))
+    )
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="perf_largest_contentful_paint_ms"><code>perf_largest_contentful_paint_ms</code></h3>
+<hr />
+<p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
+<p>Data Source: <a href="#main"><code>main</code></a></p>
+<p>Statistics: <code>empirical_cdf</code>, <code>kernel_density_estimate</code>, <code>deciles</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SAFE_DIVIDE(
+        SUM(CAST(JSON_EXTRACT_SCALAR(payload.processes.content.histograms.perf_largest_contentful_paint_ms, &quot;$.sum&quot;) AS int64)),
+        SUM((SELECT SUM(value) FROM UNNEST(mozfun.hist.extract(payload.processes.content.histograms.perf_largest_contentful_paint_ms).values)))
     )
 </code></pre>
 
