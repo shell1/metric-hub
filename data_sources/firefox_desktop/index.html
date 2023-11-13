@@ -1425,6 +1425,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#urlbar_events_unnested_results" class="md-nav__link">
+    urlbar_events_unnested_results
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2227,6 +2234,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#urlbar_events_unnested_results" class="md-nav__link">
+    urlbar_events_unnested_results
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2511,6 +2525,27 @@
 
 <pre><code class="language-sql">(
     SELECT * FROM `moz-fx-data-shared-prod.firefox_desktop.urlbar_events`
+)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="urlbar_events_unnested_results"><a href="#urlbar_events_unnested_results">urlbar_events_unnested_results</a></h3>
+<p>Client ID column: <code>legacy_telemetry_client_id</code></p>
+<p>Submission Date column: <code>submission_date</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">(
+    SELECT
+        e.* EXCEPT (results),
+        result
+    FROM
+        `moz-fx-data-shared-prod.firefox_desktop.urlbar_events` e
+    CROSS JOIN
+        UNNEST(e.results) AS result
 )
 </code></pre>
 
