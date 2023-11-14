@@ -2125,7 +2125,7 @@
 <pre><code class="language-sql">(
     SELECT
         DATE(submission_timestamp) AS submission_date,
-        client_info.client_id AS client_id,
+        metrics.uuid.legacy_telemetry_client_id AS client_id,
         *
     FROM
         mozdata.firefox_desktop.newtab
