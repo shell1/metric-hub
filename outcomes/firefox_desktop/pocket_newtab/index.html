@@ -827,36 +827,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#urlbar_handoff_search_count" class="md-nav__link">
-    urlbar_handoff_search_count
+  <a href="#newtab_sponsored_pocket_stories_enabled" class="md-nav__link">
+    newtab_sponsored_pocket_stories_enabled
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#disabled_pocket_sponsored_content_in_new_tab" class="md-nav__link">
-    disabled_pocket_sponsored_content_in_new_tab
+  <a href="#newtab_pocket_enabled" class="md-nav__link">
+    newtab_pocket_enabled
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#disabled_pocket_in_new_tab" class="md-nav__link">
-    disabled_pocket_in_new_tab
+  <a href="#newtab_searches" class="md-nav__link">
+    newtab_searches
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pocket_sponsored_content_clicks" class="md-nav__link">
-    pocket_sponsored_content_clicks
+  <a href="#sponsored_pocket_clicks" class="md-nav__link">
+    sponsored_pocket_clicks
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pocket_organic_rec_clicks" class="md-nav__link">
-    pocket_organic_rec_clicks
+  <a href="#organic_pocket_clicks" class="md-nav__link">
+    organic_pocket_clicks
   </a>
   
 </li>
@@ -875,15 +875,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#as_events" class="md-nav__link">
-    as_events
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#clients_daily-clients-daily" class="md-nav__link">
-    clients_daily- Clients Daily
+  <a href="#newtab_interactions-new-tab-interactions" class="md-nav__link">
+    newtab_interactions- New Tab Interactions
   </a>
   
 </li>
@@ -2054,36 +2047,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#urlbar_handoff_search_count" class="md-nav__link">
-    urlbar_handoff_search_count
+  <a href="#newtab_sponsored_pocket_stories_enabled" class="md-nav__link">
+    newtab_sponsored_pocket_stories_enabled
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#disabled_pocket_sponsored_content_in_new_tab" class="md-nav__link">
-    disabled_pocket_sponsored_content_in_new_tab
+  <a href="#newtab_pocket_enabled" class="md-nav__link">
+    newtab_pocket_enabled
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#disabled_pocket_in_new_tab" class="md-nav__link">
-    disabled_pocket_in_new_tab
+  <a href="#newtab_searches" class="md-nav__link">
+    newtab_searches
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pocket_sponsored_content_clicks" class="md-nav__link">
-    pocket_sponsored_content_clicks
+  <a href="#sponsored_pocket_clicks" class="md-nav__link">
+    sponsored_pocket_clicks
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pocket_organic_rec_clicks" class="md-nav__link">
-    pocket_organic_rec_clicks
+  <a href="#organic_pocket_clicks" class="md-nav__link">
+    organic_pocket_clicks
   </a>
   
 </li>
@@ -2102,15 +2095,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#as_events" class="md-nav__link">
-    as_events
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#clients_daily-clients-daily" class="md-nav__link">
-    clients_daily- Clients Daily
+  <a href="#newtab_interactions-new-tab-interactions" class="md-nav__link">
+    newtab_interactions- New Tab Interactions
   </a>
   
 </li>
@@ -2139,116 +2125,89 @@
 <p>Usage and engagement metrics for Pocket content in New Tab.</p>
 <p><a href="https://github.com/mozilla/jetstream-config/blob/main/outcomes/firefox_desktop/pocket_newtab.toml">Source</a>  |  <a href="https://github.com/mozilla/jetstream-config/edit/main/outcomes/firefox_desktop/pocket_newtab.toml">Edit</a></p>
 <h2 id="metrics">Metrics</h2>
-<h3 id="urlbar_handoff_search_count"><code>urlbar_handoff_search_count</code></h3>
-<p>**New Tab search bar searches **</p>
-<p>Number of searches performed in New Tab search bar.</p>
+<h3 id="newtab_sponsored_pocket_stories_enabled"><code>newtab_sponsored_pocket_stories_enabled</code></h3>
+<p>**Newtab Sponsored Pocket Stories Enabled **</p>
+<p>Whether or not Pocket Sponsored Stories is enabled on the New Tab.</p>
 <p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
-<p>Data Source: <a href="#clients_daily"><code>clients_daily</code></a></p>
-<p>Statistics: <code>bootstrap_mean</code></p>
+<p>Data Source: <a href="#newtab_interactions"><code>newtab_interactions</code></a></p>
+<p>Statistics: <code>binomial</code></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">IFNULL(SUM(search_count_urlbar_handoff), 0)
+<pre><code class="language-sql">COALESCE(MAX(CAST(pocket_sponsored_stories_enabled AS INT)), 0)
 </code></pre>
 
 </details>
 
 <hr />
-<h3 id="disabled_pocket_sponsored_content_in_new_tab"><code>disabled_pocket_sponsored_content_in_new_tab</code></h3>
-<p>**Disable Pocket sponsored content in New Tab clicks **</p>
-<p>Number of clicks to disable Pocket sponsored content in New Tab</p>
+<h3 id="newtab_pocket_enabled"><code>newtab_pocket_enabled</code></h3>
+<p>**Newtab Pocket Enabled **</p>
+<p>Whether or not Pocket is enabled on the New Tab.</p>
 <p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
-<p>Data Source: <a href="#as_events"><code>as_events</code></a></p>
-<p>Statistics: <code>bootstrap_mean</code></p>
+<p>Data Source: <a href="#newtab_interactions"><code>newtab_interactions</code></a></p>
+<p>Statistics: <code>binomial</code></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COUNTIF(
-          event = 'PREF_CHANGED'
-          AND source = 'POCKET_SPOCS'
-          AND JSON_EXTRACT_SCALAR(value, '$.status') = 'false'
-      )
+<pre><code class="language-sql">COALESCE(MAX(CAST(pocket_enabled AS INT)), 0)
 </code></pre>
 
 </details>
 
 <hr />
-<h3 id="disabled_pocket_in_new_tab"><code>disabled_pocket_in_new_tab</code></h3>
-<p>**Disable Pocket in New Tab clicks **</p>
-<p>Number of clicks to disable Pocket in New Tab</p>
+<h3 id="newtab_searches"><code>newtab_searches</code></h3>
+<p>**Newtab Handoff Searches **</p>
+<p>Count of searches performed on the New Tab and handed off to the urlbar</p>
 <p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
-<p>Data Source: <a href="#as_events"><code>as_events</code></a></p>
-<p>Statistics: <code>bootstrap_mean</code></p>
+<p>Data Source: <a href="#newtab_interactions"><code>newtab_interactions</code></a></p>
+<p>Statistics: <code>deciles</code>, <code>bootstrap_mean</code></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COUNTIF(
-          event = 'PREF_CHANGED'
-          AND source = 'TOP_STORIES'
-          AND JSON_EXTRACT_SCALAR(value, '$.status') = 'false'
-      )
+<pre><code class="language-sql">SUM(COALESCE(searches, 0))
 </code></pre>
 
 </details>
 
 <hr />
-<h3 id="pocket_sponsored_content_clicks"><code>pocket_sponsored_content_clicks</code></h3>
-<p>**Pocket sponsored content clicks **</p>
-<p>Number of Pocket sponsored content tiles clicked in New Tab</p>
+<h3 id="sponsored_pocket_clicks"><code>sponsored_pocket_clicks</code></h3>
+<p>**Sponsored Pocket Clicks **</p>
+<p>Count of clicks on Sponsored Pocket content.</p>
 <p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
-<p>Data Source: <a href="#as_events"><code>as_events</code></a></p>
-<p>Statistics: <code>bootstrap_mean</code></p>
+<p>Data Source: <a href="#newtab_interactions"><code>newtab_interactions</code></a></p>
+<p>Statistics: <code>deciles</code>, <code>bootstrap_mean</code></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COUNTIF(
-          event = 'CLICK'
-          AND source = 'CARDGRID'
-          AND JSON_EXTRACT_SCALAR(value, '$.card_type') = 'spoc'
-      )
+<pre><code class="language-sql">SUM(COALESCE(sponsored_pocket_clicks, 0))
 </code></pre>
 
 </details>
 
 <hr />
-<h3 id="pocket_organic_rec_clicks"><code>pocket_organic_rec_clicks</code></h3>
-<p>**Pocket organic rec clicks **</p>
-<p>Number of Pocket organic recs clicked in New Tab</p>
+<h3 id="organic_pocket_clicks"><code>organic_pocket_clicks</code></h3>
+<p>**Organic Pocket Clicks **</p>
+<p>Count of clicks on Organic Pocket content.</p>
 <p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
-<p>Data Source: <a href="#as_events"><code>as_events</code></a></p>
-<p>Statistics: <code>bootstrap_mean</code></p>
+<p>Data Source: <a href="#newtab_interactions"><code>newtab_interactions</code></a></p>
+<p>Statistics: <code>deciles</code>, <code>bootstrap_mean</code></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COUNTIF(
-          event = 'CLICK'
-          AND source = 'CARDGRID'
-          AND JSON_EXTRACT_SCALAR(value, '$.card_type') = 'organic'
-      )
+<pre><code class="language-sql">SUM(COALESCE(organic_pocket_clicks, 0))
 </code></pre>
 
 </details>
 
 <hr />
 <h2 id="data-sources">Data Sources</h2>
-<h3 id="as_events"><a href="#as_events"><code>as_events</code></a></h3>
-<details>
-<summary>Definition:</summary>
-
-
-<pre><code class="language-sql">
-</code></pre>
-
-</details>
-
-<hr />
-<h3 id="clients_daily-clients-daily"><a href="#clients_daily"><code>clients_daily</code>- Clients Daily</a></h3>
-<p>Clients Daily</p>
+<h3 id="newtab_interactions-new-tab-interactions"><a href="#newtab_interactions"><code>newtab_interactions</code>- New Tab Interactions</a></h3>
+<p>New Tab Interactions</p>
 <details>
 <summary>Definition:</summary>
 
