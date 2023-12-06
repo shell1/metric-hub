@@ -687,6 +687,20 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#search_engine_rate" class="md-nav__link">
+    search_engine_rate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search_engine_clicks" class="md-nav__link">
+    search_engine_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#urlbar_annoyances" class="md-nav__link">
     urlbar_annoyances
   </a>
@@ -2068,6 +2082,20 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#search_engine_rate" class="md-nav__link">
+    search_engine_rate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search_engine_clicks" class="md-nav__link">
+    search_engine_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#urlbar_annoyances" class="md-nav__link">
     urlbar_annoyances
   </a>
@@ -2167,6 +2195,45 @@
 <p>Usage &amp; engagement metrics and revenue proxies for Firefox Suggest.</p>
 <p><a href="https://github.com/mozilla/jetstream-config/blob/main/outcomes/firefox_desktop/firefox_suggest.toml">Source</a>  |  <a href="https://github.com/mozilla/jetstream-config/edit/main/outcomes/firefox_desktop/firefox_suggest.toml">Edit</a></p>
 <h2 id="metrics">Metrics</h2>
+<h3 id="search_engine_rate"><code>search_engine_rate</code></h3>
+<p>**SERP engagement rate **</p>
+<p>Proportion of urlbar impressions ending with a click leading to a SERP</p>
+<p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
+<p>Data Source: <a href="#">``</a></p>
+<p>Statistics: <code>population_ratio</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">None
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="search_engine_clicks"><code>search_engine_clicks</code></h3>
+<p>**Urlbar impressions ending on a SERP **</p>
+<p>Count of clicks on a result shown in the urlbar dropdown menu leading to a SERP</p>
+<p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
+<p>Data Source: <a href="#urlbar_events"><code>urlbar_events</code></a></p>
+<p>Statistics: <code>bootstrap_mean</code>, <code>deciles</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COUNTIF(
+  is_terminal
+  AND event_action = 'engaged'
+  AND (
+    product_selected_result IN ('default_partner_search_suggestion', 'search_engine', 'trending_suggestion')
+    OR selected_result IN ('recent_search')
+  )
+)
+</code></pre>
+
+</details>
+
+<hr />
 <h3 id="urlbar_annoyances"><code>urlbar_annoyances</code></h3>
 <p>**urlbar annoyances **</p>
 <p>Count of clicks on annoyance signals across all results shown in the urlbar dropdown menu</p>
