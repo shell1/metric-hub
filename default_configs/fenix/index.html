@@ -1765,13 +1765,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#uri_count" class="md-nav__link">
-    uri_count
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#retained" class="md-nav__link">
     retained
   </a>
@@ -1786,15 +1779,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#active_hours" class="md-nav__link">
-    active_hours
+  <a href="#ad_clicks" class="md-nav__link">
+    ad_clicks
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ad_clicks" class="md-nav__link">
-    ad_clicks
+  <a href="#uri_count" class="md-nav__link">
+    uri_count
   </a>
   
 </li>
@@ -1809,6 +1802,13 @@
           <li class="md-nav__item">
   <a href="#days_of_use" class="md-nav__link">
     days_of_use
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#active_hours" class="md-nav__link">
+    active_hours
   </a>
   
 </li>
@@ -2163,13 +2163,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#uri_count" class="md-nav__link">
-    uri_count
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#retained" class="md-nav__link">
     retained
   </a>
@@ -2184,15 +2177,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#active_hours" class="md-nav__link">
-    active_hours
+  <a href="#ad_clicks" class="md-nav__link">
+    ad_clicks
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ad_clicks" class="md-nav__link">
-    ad_clicks
+  <a href="#uri_count" class="md-nav__link">
+    uri_count
   </a>
   
 </li>
@@ -2207,6 +2200,13 @@
           <li class="md-nav__item">
   <a href="#days_of_use" class="md-nav__link">
     days_of_use
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#active_hours" class="md-nav__link">
+    active_hours
   </a>
   
 </li>
@@ -2344,22 +2344,6 @@
 <h2 id="opmon-config">opmon-config</h2>
 <p><a href="https://github.com/mozilla/metric-hub/blob/main/defaults/fenix.toml">Source</a>  |  <a href="https://github.com/mozilla/metric-hub/edit/main/defaults/fenix.toml">Edit</a></p>
 <h3 id="metrics">Metrics</h3>
-<h4 id="uri_count"><code>uri_count</code></h4>
-<p><strong>URIs visited</strong></p>
-<p>Counts the number of URIs each client visited</p>
-<p>Analysis Periods:  <code>daily</code>  </p>
-<p>Data Source: <a href="#baseline"><code>baseline</code></a></p>
-<p>Statistics: <code>mean</code></p>
-<details>
-<summary>Definition:</summary>
-
-
-<pre><code class="language-sql">COALESCE(SUM(metrics.counter.events_total_uri_count), 0)
-</code></pre>
-
-</details>
-
-<hr />
 <h4 id="retained"><code>retained</code></h4>
 <p><strong>Retained</strong></p>
 <p>Records whether a client submitted any pings (i.e. used Firefox).</p>
@@ -2395,22 +2379,6 @@ Learn more in the
 </details>
 
 <hr />
-<h4 id="active_hours"><code>active_hours</code></h4>
-<p><strong>Active Hours</strong></p>
-<p>Total time Firefox was active</p>
-<p>Analysis Periods:  <code>daily</code>  </p>
-<p>Data Source: <a href="#baseline"><code>baseline</code></a></p>
-<p>Statistics: <code>mean</code></p>
-<details>
-<summary>Definition:</summary>
-
-
-<pre><code class="language-sql">COALESCE(SUM(metrics.timespan.glean_baseline_duration.value), 0) / 3600.0
-</code></pre>
-
-</details>
-
-<hr />
 <h4 id="ad_clicks"><code>ad_clicks</code></h4>
 <p><strong>Ad clicks</strong></p>
 <p>Counts clicks on ads on search engine result pages with a Mozilla
@@ -2423,6 +2391,22 @@ partner tag.</p>
 
 
 <pre><code class="language-sql">COALESCE(SUM(ad_click), 0)
+</code></pre>
+
+</details>
+
+<hr />
+<h4 id="uri_count"><code>uri_count</code></h4>
+<p><strong>URIs visited</strong></p>
+<p>Counts the number of URIs each client visited</p>
+<p>Analysis Periods:  <code>daily</code>  </p>
+<p>Data Source: <a href="#baseline"><code>baseline</code></a></p>
+<p>Statistics: <code>mean</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(SUM(metrics.counter.events_total_uri_count), 0)
 </code></pre>
 
 </details>
@@ -2460,6 +2444,22 @@ partner tag.</p>
 </details>
 
 <hr />
+<h4 id="active_hours"><code>active_hours</code></h4>
+<p><strong>Active Hours</strong></p>
+<p>Total time Firefox was active</p>
+<p>Analysis Periods:  <code>daily</code>  </p>
+<p>Data Source: <a href="#baseline"><code>baseline</code></a></p>
+<p>Statistics: <code>mean</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(SUM(metrics.timespan.glean_baseline_duration.value), 0) / 3600.0
+</code></pre>
+
+</details>
+
+<hr />
 <h2 id="jetstream-config">jetstream-config</h2>
 <p><a href="https://github.com/mozilla/metric-hub/blob/main/defaults/fenix.toml">Source</a>  |  <a href="https://github.com/mozilla/metric-hub/edit/main/defaults/fenix.toml">Edit</a></p>
 <h3 id="metrics_1">Metrics</h3>
@@ -2473,7 +2473,7 @@ needs to be aggregated by <code>submission_date</code>. If it is not aggregated 
 similar to a "days of use" metric, and not DAU.</p>
 <p>For more information, refer to <a href="https://docs.telemetry.mozilla.org/concepts/terminology.html#dau">the DAU description in the Mozilla Data Documentation</a>.
 For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.</p>
-<p>Analysis Periods:  <code>overall</code> ,   <code>daily</code> ,   <code>weekly</code>  </p>
+<p>Analysis Periods:  <code>overall</code> ,   <code>weekly</code> ,   <code>daily</code>  </p>
 <p>Data Source: <a href="#baseline_v2"><code>baseline_v2</code></a></p>
 <p>Statistics: <code>per_client_dau_impact</code></p>
 <details>
@@ -2487,7 +2487,7 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.</p
 
 <hr />
 <h4 id="retained_1"><code>retained</code></h4>
-<p>Analysis Periods:  <code>daily</code> ,   <code>weekly</code>  </p>
+<p>Analysis Periods:  <code>weekly</code> ,   <code>daily</code>  </p>
 <p>Data Source: <a href="#baseline"><code>baseline</code></a></p>
 <p>Statistics: <code>binomial</code></p>
 <details>
@@ -2505,7 +2505,7 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.</p
 <p>The number of days in an observation window that clients used the browser.</p>
 <p>Analysis Periods:  <code>overall</code> ,   <code>weekly</code>  </p>
 <p>Data Source: <a href="#baseline"><code>baseline</code></a></p>
-<p>Statistics: <code>bootstrap_mean</code>, <code>deciles</code>, <code>empirical_cdf</code></p>
+<p>Statistics: <code>bootstrap_mean</code>, <code>empirical_cdf</code>, <code>deciles</code></p>
 <details>
 <summary>Definition:</summary>
 
