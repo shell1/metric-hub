@@ -1793,8 +1793,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#search_count" class="md-nav__link">
-    search_count
+  <a href="#active_hours" class="md-nav__link">
+    active_hours
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retained" class="md-nav__link">
+    retained
   </a>
   
 </li>
@@ -1814,15 +1821,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#retained" class="md-nav__link">
-    retained
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#active_hours" class="md-nav__link">
-    active_hours
+  <a href="#search_count" class="md-nav__link">
+    search_count
   </a>
   
 </li>
@@ -2114,8 +2114,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#search_count" class="md-nav__link">
-    search_count
+  <a href="#active_hours" class="md-nav__link">
+    active_hours
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retained" class="md-nav__link">
+    retained
   </a>
   
 </li>
@@ -2135,15 +2142,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#retained" class="md-nav__link">
-    retained
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#active_hours" class="md-nav__link">
-    active_hours
+  <a href="#search_count" class="md-nav__link">
+    search_count
   </a>
   
 </li>
@@ -2246,20 +2246,33 @@
 <h2 id="opmon-config">opmon-config</h2>
 <p><a href="https://github.com/mozilla/metric-hub/blob/main/defaults/firefox_ios.toml">Source</a>  |  <a href="https://github.com/mozilla/metric-hub/edit/main/defaults/firefox_ios.toml">Edit</a></p>
 <h3 id="metrics">Metrics</h3>
-<h4 id="search_count"><code>search_count</code></h4>
-<p><strong>SAP searches</strong></p>
-<p>Counts the number of searches a user performed through Firefox's
-Search Access Points.
-Learn more in the
-<a href="https://docs.telemetry.mozilla.org/datasets/search.html">search data documentation</a>.</p>
+<h4 id="active_hours"><code>active_hours</code></h4>
+<p><strong>Active Hours</strong></p>
+<p>Total time Firefox was active</p>
 <p>Analysis Periods:  <code>daily</code>  </p>
-<p>Data Source: <a href="#mobile_search_clients_engines_sources_daily"><code>mobile_search_clients_engines_sources_daily</code></a></p>
+<p>Data Source: <a href="#baseline"><code>baseline</code></a></p>
 <p>Statistics: <code>mean</code></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COALESCE(SUM(search_count), 0)
+<pre><code class="language-sql">COALESCE(SUM(metrics.timespan.glean_baseline_duration.value), 0) / 3600.0
+</code></pre>
+
+</details>
+
+<hr />
+<h4 id="retained"><code>retained</code></h4>
+<p><strong>Retained</strong></p>
+<p>Records whether a client submitted any pings (i.e. used Firefox).</p>
+<p>Analysis Periods:  <code>daily</code>  </p>
+<p>Data Source: <a href="#baseline"><code>baseline</code></a></p>
+<p>Statistics: <code>mean</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">IF(COALESCE(COUNT(document_id), 0) &gt; 0, 1, 0)
 </code></pre>
 
 </details>
@@ -2298,33 +2311,20 @@ partner tag.</p>
 </details>
 
 <hr />
-<h4 id="retained"><code>retained</code></h4>
-<p><strong>Retained</strong></p>
-<p>Records whether a client submitted any pings (i.e. used Firefox).</p>
+<h4 id="search_count"><code>search_count</code></h4>
+<p><strong>SAP searches</strong></p>
+<p>Counts the number of searches a user performed through Firefox's
+Search Access Points.
+Learn more in the
+<a href="https://docs.telemetry.mozilla.org/datasets/search.html">search data documentation</a>.</p>
 <p>Analysis Periods:  <code>daily</code>  </p>
-<p>Data Source: <a href="#baseline"><code>baseline</code></a></p>
+<p>Data Source: <a href="#mobile_search_clients_engines_sources_daily"><code>mobile_search_clients_engines_sources_daily</code></a></p>
 <p>Statistics: <code>mean</code></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">IF(COALESCE(COUNT(document_id), 0) &gt; 0, 1, 0)
-</code></pre>
-
-</details>
-
-<hr />
-<h4 id="active_hours"><code>active_hours</code></h4>
-<p><strong>Active Hours</strong></p>
-<p>Total time Firefox was active</p>
-<p>Analysis Periods:  <code>daily</code>  </p>
-<p>Data Source: <a href="#baseline"><code>baseline</code></a></p>
-<p>Statistics: <code>mean</code></p>
-<details>
-<summary>Definition:</summary>
-
-
-<pre><code class="language-sql">COALESCE(SUM(metrics.timespan.glean_baseline_duration.value), 0) / 3600.0
+<pre><code class="language-sql">COALESCE(SUM(search_count), 0)
 </code></pre>
 
 </details>
@@ -2343,7 +2343,7 @@ needs to be aggregated by <code>submission_date</code>. If it is not aggregated 
 similar to a "days of use" metric, and not DAU.</p>
 <p>For more information, refer to <a href="https://docs.telemetry.mozilla.org/concepts/terminology.html#dau">the DAU description in the Mozilla Data Documentation</a>.
 For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.</p>
-<p>Analysis Periods:  <code>overall</code> ,   <code>weekly</code> ,   <code>daily</code>  </p>
+<p>Analysis Periods:  <code>overall</code> ,   <code>daily</code> ,   <code>weekly</code>  </p>
 <p>Data Source: <a href="#baseline_v2"><code>baseline_v2</code></a></p>
 <p>Statistics: <code>per_client_dau_impact</code></p>
 <details>
@@ -2357,7 +2357,7 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.</p
 
 <hr />
 <h4 id="retained_1"><code>retained</code></h4>
-<p>Analysis Periods:  <code>weekly</code> ,   <code>daily</code>  </p>
+<p>Analysis Periods:  <code>daily</code> ,   <code>weekly</code>  </p>
 <p>Data Source: <a href="#baseline"><code>baseline</code></a></p>
 <p>Statistics: <code>binomial</code></p>
 <details>
@@ -2375,7 +2375,7 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.</p
 <p>Number of ad clicks on a search engine results page.</p>
 <p>Analysis Periods:  <code>overall</code> ,   <code>weekly</code>  </p>
 <p>Data Source: <a href="#mobile_search_clients_engines_sources_daily"><code>mobile_search_clients_engines_sources_daily</code></a></p>
-<p>Statistics: <code>bootstrap_mean</code>, <code>deciles</code></p>
+<p>Statistics: <code>deciles</code>, <code>bootstrap_mean</code></p>
 <details>
 <summary>Definition:</summary>
 
@@ -2394,7 +2394,7 @@ Learn more in the
 <a href="https://docs.telemetry.mozilla.org/datasets/search.html">search data documentation</a>.</p>
 <p>Analysis Periods:  <code>overall</code> ,   <code>weekly</code>  </p>
 <p>Data Source: <a href="#mobile_search_clients_engines_sources_daily"><code>mobile_search_clients_engines_sources_daily</code></a></p>
-<p>Statistics: <code>bootstrap_mean</code>, <code>deciles</code></p>
+<p>Statistics: <code>deciles</code>, <code>bootstrap_mean</code></p>
 <details>
 <summary>Definition:</summary>
 
@@ -2410,7 +2410,7 @@ Learn more in the
 <p>The number of days in an observation window that clients used the browser.</p>
 <p>Analysis Periods:  <code>overall</code> ,   <code>weekly</code>  </p>
 <p>Data Source: <a href="#baseline"><code>baseline</code></a></p>
-<p>Statistics: <code>empirical_cdf</code>, <code>bootstrap_mean</code>, <code>deciles</code></p>
+<p>Statistics: <code>deciles</code>, <code>empirical_cdf</code>, <code>bootstrap_mean</code></p>
 <details>
 <summary>Definition:</summary>
 
@@ -2426,7 +2426,7 @@ Learn more in the
 <p>Total time Firefox was active</p>
 <p>Analysis Periods:  <code>overall</code> ,   <code>weekly</code>  </p>
 <p>Data Source: <a href="#baseline"><code>baseline</code></a></p>
-<p>Statistics: <code>bootstrap_mean</code>, <code>deciles</code></p>
+<p>Statistics: <code>deciles</code>, <code>bootstrap_mean</code></p>
 <details>
 <summary>Definition:</summary>
 
