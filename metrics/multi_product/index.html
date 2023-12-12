@@ -1225,6 +1225,41 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#search_forecasting_daily_active_users" class="md-nav__link">
+    search_forecasting_daily_active_users
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search_forecasting_daily_active_users_w_google_default" class="md-nav__link">
+    search_forecasting_daily_active_users_w_google_default
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search_forecasting_daily_active_searchers_w_google_default" class="md-nav__link">
+    search_forecasting_daily_active_searchers_w_google_default
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search_forecasting_search_count" class="md-nav__link">
+    search_forecasting_search_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search_forecasting_ad_clicks" class="md-nav__link">
+    search_forecasting_ad_clicks
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2017,6 +2052,41 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#search_forecasting_daily_active_users" class="md-nav__link">
+    search_forecasting_daily_active_users
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search_forecasting_daily_active_users_w_google_default" class="md-nav__link">
+    search_forecasting_daily_active_users_w_google_default
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search_forecasting_daily_active_searchers_w_google_default" class="md-nav__link">
+    search_forecasting_daily_active_searchers_w_google_default
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search_forecasting_search_count" class="md-nav__link">
+    search_forecasting_search_count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search_forecasting_ad_clicks" class="md-nav__link">
+    search_forecasting_ad_clicks
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2079,6 +2149,80 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 
 
 <pre><code class="language-sql">SUM(IF(FORMAT_DATE('%m-%d', submission_date) BETWEEN '11-18' AND '12-15', dau, 0)) / 28
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="search_forecasting_daily_active_users">search_forecasting_daily_active_users</h3>
+<p><strong>Daily Active Users</strong></p>
+<p>Counts the number of daily active users (DAU) for search revenue forecasting purposes.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/multi_product/#search_revenue_levers_daily"><code>search_revenue_levers_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_sum(&quot;dau&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="search_forecasting_daily_active_users_w_google_default">search_forecasting_daily_active_users_w_google_default</h3>
+<p><strong>Daily Active Users with Google as Default</strong></p>
+<p>Counts the number of daily active users (DAU) with Google as default search engine for search revenue forecasting purposes.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/multi_product/#search_revenue_levers_daily"><code>search_revenue_levers_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_sum(&quot;dau_w_engine_as_default&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="search_forecasting_daily_active_searchers_w_google_default">search_forecasting_daily_active_searchers_w_google_default</h3>
+<p><strong>Daily Active Users who Search with Google as Default</strong></p>
+<p>Counts the number of daily active users (DAU) with Google as default search engine who also conduct a search for search revenue forecasting purposes.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/multi_product/#search_revenue_levers_daily"><code>search_revenue_levers_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_sum(&quot;dau_engaged_w_sap&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="search_forecasting_search_count">search_forecasting_search_count</h3>
+<p><strong>SAP search volume</strong></p>
+<p>Counts the number of searches a user performed through Firefox's
+    Search Access Points.
+    Learn more in the
+    <a href="https://docs.telemetry.mozilla.org/datasets/search.html">search data documentation</a>.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/multi_product/#search_revenue_levers_daily"><code>search_revenue_levers_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_sum(&quot;sap&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="search_forecasting_ad_clicks">search_forecasting_ad_clicks</h3>
+<p><strong>Ad click volume</strong></p>
+<p>Counts clicks on ads on search engine result pages with a Mozilla
+    partner tag.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/multi_product/#search_revenue_levers_daily"><code>search_revenue_levers_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_sum(&quot;ad_click&quot;)}}
 </code></pre>
 
 </details>
