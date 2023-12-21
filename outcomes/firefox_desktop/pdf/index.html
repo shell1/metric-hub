@@ -795,6 +795,74 @@
     Metrics
   </a>
   
+    <nav class="md-nav" aria-label="Metrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pdf_opening" class="md-nav__link">
+    pdf_opening
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pdf_save" class="md-nav__link">
+    pdf_save
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pdf_print" class="md-nav__link">
+    pdf_print
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pdf_ink" class="md-nav__link">
+    pdf_ink
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pdf_freetext" class="md-nav__link">
+    pdf_freetext
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pdf_engagement" class="md-nav__link">
+    pdf_engagement
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-sources" class="md-nav__link">
+    Data Sources
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Sources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metrics-glean-metrics" class="md-nav__link">
+    metrics- Glean Metrics
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1982,6 +2050,74 @@
     Metrics
   </a>
   
+    <nav class="md-nav" aria-label="Metrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pdf_opening" class="md-nav__link">
+    pdf_opening
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pdf_save" class="md-nav__link">
+    pdf_save
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pdf_print" class="md-nav__link">
+    pdf_print
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pdf_ink" class="md-nav__link">
+    pdf_ink
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pdf_freetext" class="md-nav__link">
+    pdf_freetext
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pdf_engagement" class="md-nav__link">
+    pdf_engagement
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-sources" class="md-nav__link">
+    Data Sources
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Sources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metrics-glean-metrics" class="md-nav__link">
+    metrics- Glean Metrics
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2003,6 +2139,124 @@
 <p>Usage and engagement metrics for PDFs</p>
 <p><a href="https://github.com/mozilla/jetstream-config/blob/main/outcomes/firefox_desktop/pdf.toml">Source</a>  |  <a href="https://github.com/mozilla/jetstream-config/edit/main/outcomes/firefox_desktop/pdf.toml">Edit</a></p>
 <h2 id="metrics">Metrics</h2>
+<h3 id="pdf_opening"><code>pdf_opening</code></h3>
+<hr />
+<p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
+<p>Data Source: <a href="#metrics"><code>metrics</code></a></p>
+<p>Statistics: <code>binomial</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">(
+    COALESCE(SUM(metrics.counter.pdfjs_used) &gt; 0, FALSE)
+)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="pdf_save"><code>pdf_save</code></h3>
+<hr />
+<p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
+<p>Data Source: <a href="#metrics"><code>metrics</code></a></p>
+<p>Statistics: <code>binomial</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">(
+    COALESCE(SUM(mozfun.map.get_key(metrics.labeled_counter.pdfjs_editing, &quot;save&quot;)) &gt; 0, FALSE)
+)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="pdf_print"><code>pdf_print</code></h3>
+<hr />
+<p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
+<p>Data Source: <a href="#metrics"><code>metrics</code></a></p>
+<p>Statistics: <code>binomial</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">(
+    COALESCE(SUM(mozfun.map.get_key(metrics.labeled_counter.pdfjs_editing, &quot;print&quot;)) &gt; 0, FALSE)
+)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="pdf_ink"><code>pdf_ink</code></h3>
+<hr />
+<p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
+<p>Data Source: <a href="#metrics"><code>metrics</code></a></p>
+<p>Statistics: <code>binomial</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">(
+    COALESCE(SUM(mozfun.map.get_key(metrics.labeled_counter.pdfjs_editing, &quot;ink&quot;)) &gt; 0, FALSE)
+)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="pdf_freetext"><code>pdf_freetext</code></h3>
+<hr />
+<p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
+<p>Data Source: <a href="#metrics"><code>metrics</code></a></p>
+<p>Statistics: <code>binomial</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">(
+    COALESCE(SUM(mozfun.map.get_key(metrics.labeled_counter.pdfjs_editing, &quot;freetext&quot;)) &gt; 0, FALSE)
+)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="pdf_engagement"><code>pdf_engagement</code></h3>
+<hr />
+<p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
+<p>Data Source: <a href="#metrics"><code>metrics</code></a></p>
+<p>Statistics: <code>binomial</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">(
+    (COALESCE(SUM(mozfun.map.get_key(metrics.labeled_counter.pdfjs_editing, &quot;freetext&quot;)) &gt; 0, FALSE) OR
+    COALESCE(SUM(mozfun.map.get_key(metrics.labeled_counter.pdfjs_editing, &quot;ink&quot;)) &gt; 0, FALSE)) AND 
+    (COALESCE(SUM(mozfun.map.get_key(metrics.labeled_counter.pdfjs_editing, &quot;print&quot;)) &gt; 0, FALSE) OR 
+    COALESCE(SUM(mozfun.map.get_key(metrics.labeled_counter.pdfjs_editing, &quot;save&quot;)) &gt; 0, FALSE))
+)
+</code></pre>
+
+</details>
+
+<hr />
+<h2 id="data-sources">Data Sources</h2>
+<h3 id="metrics-glean-metrics"><a href="#metrics"><code>metrics</code>- Glean Metrics</a></h3>
+<p>The Glean metrics ping</p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">
+</code></pre>
+
+</details>
+
+<hr />
 
               
             </article>

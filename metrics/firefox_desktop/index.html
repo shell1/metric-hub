@@ -2058,6 +2058,48 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#pdf_engagement" class="md-nav__link">
+    pdf_engagement
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pdf_freetext" class="md-nav__link">
+    pdf_freetext
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pdf_ink" class="md-nav__link">
+    pdf_ink
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pdf_print" class="md-nav__link">
+    pdf_print
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pdf_save" class="md-nav__link">
+    pdf_save
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pdf_opening" class="md-nav__link">
+    pdf_opening
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3903,6 +3945,48 @@
           <li class="md-nav__item">
   <a href="#new_profiles_v1" class="md-nav__link">
     new_profiles_v1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pdf_engagement" class="md-nav__link">
+    pdf_engagement
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pdf_freetext" class="md-nav__link">
+    pdf_freetext
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pdf_ink" class="md-nav__link">
+    pdf_ink
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pdf_print" class="md-nav__link">
+    pdf_print
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pdf_save" class="md-nav__link">
+    pdf_save
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pdf_opening" class="md-nav__link">
+    pdf_opening
   </a>
   
 </li>
@@ -5968,6 +6052,93 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 
 
 <pre><code class="language-sql">COUNT(*)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="pdf_engagement">pdf_engagement</h3>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#metrics"><code>metrics</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">(
+    (COALESCE(SUM(mozfun.map.get_key(metrics.labeled_counter.pdfjs_editing, &quot;freetext&quot;)) &gt; 0, FALSE) OR
+    COALESCE(SUM(mozfun.map.get_key(metrics.labeled_counter.pdfjs_editing, &quot;ink&quot;)) &gt; 0, FALSE)) AND 
+    (COALESCE(SUM(mozfun.map.get_key(metrics.labeled_counter.pdfjs_editing, &quot;print&quot;)) &gt; 0, FALSE) OR 
+    COALESCE(SUM(mozfun.map.get_key(metrics.labeled_counter.pdfjs_editing, &quot;save&quot;)) &gt; 0, FALSE))
+)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="pdf_freetext">pdf_freetext</h3>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#metrics"><code>metrics</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">(
+    COALESCE(SUM(mozfun.map.get_key(metrics.labeled_counter.pdfjs_editing, &quot;freetext&quot;)) &gt; 0, FALSE)
+)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="pdf_ink">pdf_ink</h3>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#metrics"><code>metrics</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">(
+    COALESCE(SUM(mozfun.map.get_key(metrics.labeled_counter.pdfjs_editing, &quot;ink&quot;)) &gt; 0, FALSE)
+)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="pdf_print">pdf_print</h3>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#metrics"><code>metrics</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">(
+    COALESCE(SUM(mozfun.map.get_key(metrics.labeled_counter.pdfjs_editing, &quot;print&quot;)) &gt; 0, FALSE)
+)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="pdf_save">pdf_save</h3>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#metrics"><code>metrics</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">(
+    COALESCE(SUM(mozfun.map.get_key(metrics.labeled_counter.pdfjs_editing, &quot;save&quot;)) &gt; 0, FALSE)
+)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="pdf_opening">pdf_opening</h3>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#metrics"><code>metrics</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">(
+    COALESCE(SUM(metrics.counter.pdfjs_used) &gt; 0, FALSE)
+)
 </code></pre>
 
 </details>

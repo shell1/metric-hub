@@ -1432,6 +1432,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#metrics" class="md-nav__link">
+    metrics
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2241,6 +2248,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#metrics" class="md-nav__link">
+    metrics
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2547,6 +2561,24 @@
     CROSS JOIN
         UNNEST(e.results) AS result
 )
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="metrics"><a href="#metrics">metrics</a></h3>
+<p>Client ID column: <code>metrics.uuid.legacy_telemetry_client_id</code></p>
+<p>Submission Date column: <code>None</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">(
+    SELECT 
+      p.*,
+      DATE(p.submission_timestamp) AS submission_date
+    FROM `mozdata.firefox_desktop.metrics` p
+    )
 </code></pre>
 
 </details>
