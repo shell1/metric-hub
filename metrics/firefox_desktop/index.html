@@ -4537,7 +4537,7 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(IF(payload.metadata.moz_crash_reason LIKE 'MOZ_CRASH%', 1, 0))
+<pre><code class="language-sql">SUM(IF(payload.metadata.moz_crash_reason LIKE r'MOZ\_CRASH%', 1, 0))
 </code></pre>
 
 </details>
