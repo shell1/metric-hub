@@ -2235,8 +2235,8 @@
 
 <pre><code class="language-sql">(
     (COALESCE(SUM(mozfun.map.get_key(metrics.labeled_counter.pdfjs_editing, &quot;freetext&quot;)) &gt; 0, FALSE) OR
-    COALESCE(SUM(mozfun.map.get_key(metrics.labeled_counter.pdfjs_editing, &quot;ink&quot;)) &gt; 0, FALSE)) AND 
-    (COALESCE(SUM(mozfun.map.get_key(metrics.labeled_counter.pdfjs_editing, &quot;print&quot;)) &gt; 0, FALSE) OR 
+    COALESCE(SUM(mozfun.map.get_key(metrics.labeled_counter.pdfjs_editing, &quot;ink&quot;)) &gt; 0, FALSE)) AND
+    (COALESCE(SUM(mozfun.map.get_key(metrics.labeled_counter.pdfjs_editing, &quot;print&quot;)) &gt; 0, FALSE) OR
     COALESCE(SUM(mozfun.map.get_key(metrics.labeled_counter.pdfjs_editing, &quot;save&quot;)) &gt; 0, FALSE))
 )
 </code></pre>

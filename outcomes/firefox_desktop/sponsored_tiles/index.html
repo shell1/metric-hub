@@ -917,8 +917,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#activity_stream_events-activity-stream-events" class="md-nav__link">
-    activity_stream_events- Activity Stream Events
+  <a href="#newtab_visits_topsite_tile_interactions-topsite-tiles-visit-activity-daily" class="md-nav__link">
+    newtab_visits_topsite_tile_interactions- Topsite Tiles Visit Activity Daily
   </a>
   
 </li>
@@ -2130,8 +2130,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#activity_stream_events-activity-stream-events" class="md-nav__link">
-    activity_stream_events- Activity Stream Events
+  <a href="#newtab_visits_topsite_tile_interactions-topsite-tiles-visit-activity-daily" class="md-nav__link">
+    newtab_visits_topsite_tile_interactions- Topsite Tiles Visit Activity Daily
   </a>
   
 </li>
@@ -2203,17 +2203,15 @@
 <p>**Sponsored Tiles Dismissals Count (Positions 1 and 2) **</p>
 <p>Count of sponsored tiles dismissals in the first two positions</p>
 <p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
-<p>Data Source: <a href="#activity_stream_events"><code>activity_stream_events</code></a></p>
+<p>Data Source: <a href="#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
 <p>Statistics: <code>deciles</code>, <code>bootstrap_mean</code></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COUNTIF(
-        event = 'BLOCK'
-        AND value LIKE '%spoc%'
-        AND SOURCE = 'TOP_SITES'
-        AND action_position &lt;= 1
+<pre><code class="language-sql">COALESCE(
+        SUM(CASE WHEN topsite_tile_interactions.sponsored_topsite_tile_dismissals &gt; 0 AND topsite_tile_interactions.topsite_tile_position &lt; 2 THEN topsite_tile_interactions.sponsored_topsite_tile_dismissals ELSE 0 END),
+        0
       )
 </code></pre>
 
@@ -2224,17 +2222,13 @@
 <p>**Sponsored Tiles Dismissals Count **</p>
 <p>Count of sponsored tiles dismissals in all positions</p>
 <p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
-<p>Data Source: <a href="#activity_stream_events"><code>activity_stream_events</code></a></p>
+<p>Data Source: <a href="#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
 <p>Statistics: <code>deciles</code>, <code>bootstrap_mean</code></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COUNTIF(
-        event = 'BLOCK'
-        AND value LIKE '%spoc%'
-        AND SOURCE = 'TOP_SITES'
-      )
+<pre><code class="language-sql">COALESCE(SUM(topsite_tile_interactions.sponsored_topsite_tile_dismissals), 0)
 </code></pre>
 
 </details>
@@ -2244,16 +2238,14 @@
 <p>**Any Sponsored Tiles Dismissed **</p>
 <p>Clients that dismissed any sponsored tiles</p>
 <p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
-<p>Data Source: <a href="#activity_stream_events"><code>activity_stream_events</code></a></p>
+<p>Data Source: <a href="#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
 <p>Statistics: <code>binomial</code></p>
 <details>
 <summary>Definition:</summary>
 
 
 <pre><code class="language-sql">COALESCE(LOGICAL_OR(
-        event = 'BLOCK'
-        AND value LIKE '%spoc%'
-        AND SOURCE = 'TOP_SITES'
+        topsite_tile_interactions.sponsored_topsite_tile_dismissals &gt; 0
       ), FALSE)
 </code></pre>
 
@@ -2289,8 +2281,8 @@
 </details>
 
 <hr />
-<h3 id="activity_stream_events-activity-stream-events"><a href="#activity_stream_events"><code>activity_stream_events</code>- Activity Stream Events</a></h3>
-<p>Activity Stream Event pings</p>
+<h3 id="newtab_visits_topsite_tile_interactions-topsite-tiles-visit-activity-daily"><a href="#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code>- Topsite Tiles Visit Activity Daily</a></h3>
+<p>Topsite Tiles Visit Activity Daily</p>
 <details>
 <summary>Definition:</summary>
 
