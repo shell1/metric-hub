@@ -804,6 +804,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#newtab_visits_topsite_tile_interactions-topsite-tiles-visit-activity-daily" class="md-nav__link">
+    newtab_visits_topsite_tile_interactions- Topsite Tiles Visit Activity Daily
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2115,6 +2122,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#newtab_visits_topsite_tile_interactions-topsite-tiles-visit-activity-daily" class="md-nav__link">
+    newtab_visits_topsite_tile_interactions- Topsite Tiles Visit Activity Daily
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2141,15 +2155,15 @@
 <h2 id="metrics">Metrics</h2>
 <h3 id="newtab_organic_topsite_impressions"><code>newtab_organic_topsite_impressions</code></h3>
 <p>**Newtab Organic Tile Impressions **</p>
-<p>Count of New Tab organic tile impressions.</p>
+<p>Count of New Tab organic tile impressions across all positions.</p>
 <p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
-<p>Data Source: <a href="#newtab_interactions"><code>newtab_interactions</code></a></p>
+<p>Data Source: <a href="#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
 <p>Statistics: <code>deciles</code>, <code>bootstrap_mean</code></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(COALESCE(organic_topsite_impressions, 0))
+<pre><code class="language-sql">SUM(COALESCE(topsite_tile_interactions.organic_topsite_tile_impressions, 0))
 </code></pre>
 
 </details>
@@ -2157,15 +2171,15 @@
 <hr />
 <h3 id="newtab_organic_topsite_clicks"><code>newtab_organic_topsite_clicks</code></h3>
 <p>**Newtab Organic Tile Clicks **</p>
-<p>Count of New Tab organic tile clicks.</p>
+<p>Count of New Tab organic tile clicks across all positions.</p>
 <p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
-<p>Data Source: <a href="#newtab_interactions"><code>newtab_interactions</code></a></p>
+<p>Data Source: <a href="#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
 <p>Statistics: <code>deciles</code>, <code>bootstrap_mean</code></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(COALESCE(organic_topsite_clicks, 0))
+<pre><code class="language-sql">SUM(COALESCE(topsite_tile_interactions.organic_topsite_tile_clicks, 0))
 </code></pre>
 
 </details>
@@ -2191,7 +2205,7 @@
 <p>**Newtab Homepage Enabled **</p>
 <p>Whether or not the homepage is set to display the default New Tab page.</p>
 <p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
-<p>Data Source: <a href="#newtab_interactions"><code>newtab_interactions</code></a></p>
+<p>Data Source: <a href="#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
 <p>Statistics: <code>binomial</code></p>
 <details>
 <summary>Definition:</summary>
@@ -2238,6 +2252,18 @@
 <h2 id="data-sources">Data Sources</h2>
 <h3 id="newtab_interactions-new-tab-interactions"><a href="#newtab_interactions"><code>newtab_interactions</code>- New Tab Interactions</a></h3>
 <p>New Tab Interactions</p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="newtab_visits_topsite_tile_interactions-topsite-tiles-visit-activity-daily"><a href="#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code>- Topsite Tiles Visit Activity Daily</a></h3>
+<p>Topsite Tiles Visit Activity Daily</p>
 <details>
 <summary>Definition:</summary>
 

@@ -1446,6 +1446,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#newtab_visits_search_interactions" class="md-nav__link">
+    newtab_visits_search_interactions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newtab_visits_pocket_interactions" class="md-nav__link">
+    newtab_visits_pocket_interactions
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2269,6 +2283,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#newtab_visits_search_interactions" class="md-nav__link">
+    newtab_visits_search_interactions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newtab_visits_pocket_interactions" class="md-nav__link">
+    newtab_visits_pocket_interactions
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2613,6 +2641,48 @@
         `moz-fx-data-shared-prod.telemetry.newtab_visits` e
     CROSS JOIN
         UNNEST(e.topsite_tile_interactions) AS topsite_tile_interactions
+)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="newtab_visits_search_interactions"><a href="#newtab_visits_search_interactions">newtab_visits_search_interactions</a></h3>
+<p>Client ID column: <code>legacy_telemetry_client_id</code></p>
+<p>Submission Date column: <code>submission_date</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">(
+    SELECT
+        e.* EXCEPT (search_interactions),
+        search_interactions
+    FROM
+        `moz-fx-data-shared-prod.telemetry.newtab_visits` e
+    CROSS JOIN
+        UNNEST(e.search_interactions) AS search_interactions
+)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="newtab_visits_pocket_interactions"><a href="#newtab_visits_pocket_interactions">newtab_visits_pocket_interactions</a></h3>
+<p>Client ID column: <code>legacy_telemetry_client_id</code></p>
+<p>Submission Date column: <code>submission_date</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">(
+    SELECT
+        e.* EXCEPT (pocket_interactions),
+        pocket_interactions
+    FROM
+        `moz-fx-data-shared-prod.telemetry.newtab_visits` e
+    CROSS JOIN
+        UNNEST(e.pocket_interactions) AS pocket_interactions
 )
 </code></pre>
 

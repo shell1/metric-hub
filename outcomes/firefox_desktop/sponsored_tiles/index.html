@@ -917,13 +917,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#newtab_interactions-new-tab-interactions" class="md-nav__link">
-    newtab_interactions- New Tab Interactions
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#sponsored_tiles_clients_daily-sponsored-tiles-clients-daily" class="md-nav__link">
     sponsored_tiles_clients_daily- Sponsored Tiles Clients Daily
   </a>
@@ -2130,13 +2123,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#newtab_interactions-new-tab-interactions" class="md-nav__link">
-    newtab_interactions- New Tab Interactions
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#sponsored_tiles_clients_daily-sponsored-tiles-clients-daily" class="md-nav__link">
     sponsored_tiles_clients_daily- Sponsored Tiles Clients Daily
   </a>
@@ -2169,15 +2155,15 @@
 <h2 id="metrics">Metrics</h2>
 <h3 id="sponsored_tile_impressions"><code>sponsored_tile_impressions</code></h3>
 <p>**Sponsored Tile Impressions **</p>
-<p>Count of impressions of Sponsored Tiles (aka Sponsored Topsites on New Tab).</p>
+<p>Count of impressions of Sponsored Tiles (aka Sponsored Topsites on New Tab) across all positions.</p>
 <p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
-<p>Data Source: <a href="#newtab_interactions"><code>newtab_interactions</code></a></p>
+<p>Data Source: <a href="#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
 <p>Statistics: <code>deciles</code>, <code>bootstrap_mean</code></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(COALESCE(sponsored_topsite_impressions, 0))
+<pre><code class="language-sql">SUM(COALESCE(topsite_tile_interactions.sponsored_topsite_tile_impressions, 0))
 </code></pre>
 
 </details>
@@ -2185,15 +2171,15 @@
 <hr />
 <h3 id="sponsored_tile_clicks"><code>sponsored_tile_clicks</code></h3>
 <p>**Sponsored Tile Clicks **</p>
-<p>Count of clicks of Sponsored Tiles (aka Sponsored Topsites on New Tab).</p>
+<p>Count of clicks of Sponsored Tiles (aka Sponsored Topsites on New Tab) across all positions.</p>
 <p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
-<p>Data Source: <a href="#newtab_interactions"><code>newtab_interactions</code></a></p>
+<p>Data Source: <a href="#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
 <p>Statistics: <code>deciles</code>, <code>bootstrap_mean</code></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(COALESCE(sponsored_topsite_clicks, 0))
+<pre><code class="language-sql">SUM(COALESCE(topsite_tile_interactions.sponsored_topsite_tile_clicks, 0))
 </code></pre>
 
 </details>
@@ -2271,18 +2257,6 @@
 <h2 id="data-sources">Data Sources</h2>
 <h3 id="newtab_visits_topsite_tile_interactions-topsite-tiles-visit-activity-daily"><a href="#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code>- Topsite Tiles Visit Activity Daily</a></h3>
 <p>Topsite Tiles Visit Activity Daily</p>
-<details>
-<summary>Definition:</summary>
-
-
-<pre><code class="language-sql">
-</code></pre>
-
-</details>
-
-<hr />
-<h3 id="newtab_interactions-new-tab-interactions"><a href="#newtab_interactions"><code>newtab_interactions</code>- New Tab Interactions</a></h3>
-<p>New Tab Interactions</p>
 <details>
 <summary>Definition:</summary>
 

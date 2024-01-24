@@ -1863,6 +1863,34 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#all_tile_impressions_pos1_2" class="md-nav__link">
+    all_tile_impressions_pos1_2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#all_tile_impressions_pos3_more" class="md-nav__link">
+    all_tile_impressions_pos3_more
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#all_tile_clicks_pos1_2" class="md-nav__link">
+    all_tile_clicks_pos1_2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#all_tile_clicks_pos3_more" class="md-nav__link">
+    all_tile_clicks_pos3_more
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#sponsored_tile_impressions" class="md-nav__link">
     sponsored_tile_impressions
   </a>
@@ -1870,8 +1898,36 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#sponsored_tile_impressions_pos1_2" class="md-nav__link">
+    sponsored_tile_impressions_pos1_2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sponsored_tile_impressions_pos3_more" class="md-nav__link">
+    sponsored_tile_impressions_pos3_more
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#sponsored_tile_clicks" class="md-nav__link">
     sponsored_tile_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sponsored_tile_clicks_pos1_2" class="md-nav__link">
+    sponsored_tile_clicks_pos1_2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sponsored_tile_clicks_pos3_more" class="md-nav__link">
+    sponsored_tile_clicks_pos3_more
   </a>
   
 </li>
@@ -3775,6 +3831,34 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#all_tile_impressions_pos1_2" class="md-nav__link">
+    all_tile_impressions_pos1_2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#all_tile_impressions_pos3_more" class="md-nav__link">
+    all_tile_impressions_pos3_more
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#all_tile_clicks_pos1_2" class="md-nav__link">
+    all_tile_clicks_pos1_2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#all_tile_clicks_pos3_more" class="md-nav__link">
+    all_tile_clicks_pos3_more
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#sponsored_tile_impressions" class="md-nav__link">
     sponsored_tile_impressions
   </a>
@@ -3782,8 +3866,36 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#sponsored_tile_impressions_pos1_2" class="md-nav__link">
+    sponsored_tile_impressions_pos1_2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sponsored_tile_impressions_pos3_more" class="md-nav__link">
+    sponsored_tile_impressions_pos3_more
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#sponsored_tile_clicks" class="md-nav__link">
     sponsored_tile_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sponsored_tile_clicks_pos1_2" class="md-nav__link">
+    sponsored_tile_clicks_pos1_2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sponsored_tile_clicks_pos3_more" class="md-nav__link">
+    sponsored_tile_clicks_pos3_more
   </a>
   
 </li>
@@ -5690,15 +5802,141 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 </details>
 
 <hr />
-<h3 id="sponsored_tile_impressions">sponsored_tile_impressions</h3>
-<p><strong>Sponsored Tile Impressions</strong></p>
-<p>Count of impressions of Sponsored Tiles (aka Sponsored Topsites on New Tab).</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_interactions"><code>newtab_interactions</code></a></p>
+<h3 id="all_tile_impressions_pos1_2">all_tile_impressions_pos1_2</h3>
+<p><strong>All Tiles Impressions Count (Position 1 and 2)</strong></p>
+<p>Count of Impressions of All Tiles (sponsored and organic) in the first and second positions.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(COALESCE(sponsored_topsite_impressions, 0))
+<pre><code class="language-sql">COALESCE(
+        SUM(CASE
+          WHEN topsite_tile_interactions.topsite_tile_position &lt; 2 THEN COALESCE(topsite_tile_interactions.sponsored_topsite_tile_impressions, 0) +  COALESCE(topsite_tile_interactions.organic_topsite_tile_impressions, 0)
+          ELSE 0 END
+        ),
+        0
+      )
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="all_tile_impressions_pos3_more">all_tile_impressions_pos3_more</h3>
+<p><strong>All Tiles Impressions Count (Position 3 or greater)</strong></p>
+<p>Count of Impressions of All Tiles (sponsored and organic) in the third and greater positions.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(
+        SUM(CASE
+          WHEN topsite_tile_interactions.topsite_tile_position &gt;= 2 THEN COALESCE(topsite_tile_interactions.sponsored_topsite_tile_impressions, 0) +  COALESCE(topsite_tile_interactions.organic_topsite_tile_impressions, 0)
+          ELSE 0 END
+        ),
+        0
+      )
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="all_tile_clicks_pos1_2">all_tile_clicks_pos1_2</h3>
+<p><strong>All Tiles Clicks Count (Position 1 and 2)</strong></p>
+<p>Count of Clicks of All Tiles (sponsored and organic) in the first and second positions.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(
+        SUM(CASE
+          WHEN (topsite_tile_interactions.topsite_tile_position &lt; 2 AND (topsite_tile_interactions.sponsored_topsite_tile_clicks &gt; 0 OR  topsite_tile_interactions.organic_topsite_tile_clicks &gt; 0))
+          THEN COALESCE(topsite_tile_interactions.sponsored_topsite_tile_clicks, 0) +  COALESCE(topsite_tile_interactions.organic_topsite_tile_clicks, 0)
+          ELSE 0 END
+        ),
+        0
+      )
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="all_tile_clicks_pos3_more">all_tile_clicks_pos3_more</h3>
+<p><strong>All Tiles Clicks Count (Position 3 or greater)</strong></p>
+<p>Count of Clicks of All Tiles (sponsored and organic) in the third and greater positions.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(
+        SUM(CASE
+          WHEN (topsite_tile_interactions.topsite_tile_position &gt;= 2 AND (topsite_tile_interactions.sponsored_topsite_tile_clicks &gt; 0 OR  topsite_tile_interactions.organic_topsite_tile_clicks &gt; 0))
+          THEN COALESCE(topsite_tile_interactions.sponsored_topsite_tile_clicks, 0) +  COALESCE(topsite_tile_interactions.organic_topsite_tile_clicks, 0)
+          ELSE 0 END
+        ),
+        0
+      )
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="sponsored_tile_impressions">sponsored_tile_impressions</h3>
+<p><strong>Sponsored Tile Impressions</strong></p>
+<p>Count of impressions of Sponsored Tiles (aka Sponsored Topsites on New Tab) across all positions.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(COALESCE(topsite_tile_interactions.sponsored_topsite_tile_impressions, 0))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="sponsored_tile_impressions_pos1_2">sponsored_tile_impressions_pos1_2</h3>
+<p><strong>All Tiles Impressions Count (Position 1 and 2)</strong></p>
+<p>Count of Impressions of All Tiles (sponsored and organic) in the first and second positions.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(
+        SUM(CASE
+          WHEN
+            topsite_tile_interactions.sponsored_topsite_tile_impressions &gt; 0 AND topsite_tile_interactions.topsite_tile_position &lt; 2
+            THEN topsite_tile_interactions.sponsored_topsite_tile_impressions
+          ELSE 0
+          END),
+        0
+      )
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="sponsored_tile_impressions_pos3_more">sponsored_tile_impressions_pos3_more</h3>
+<p><strong>All Tiles Impressions Count (Position 3 or greater)</strong></p>
+<p>Count of Impressions of All Tiles (sponsored and organic) in the third and greater positions.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(
+        SUM(CASE
+          WHEN
+            topsite_tile_interactions.sponsored_topsite_tile_impressions &gt; 0 AND topsite_tile_interactions.topsite_tile_position &gt;= 2
+            THEN topsite_tile_interactions.sponsored_topsite_tile_impressions
+          ELSE 0
+          END),
+        0
+      )
 </code></pre>
 
 </details>
@@ -5706,13 +5944,57 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <hr />
 <h3 id="sponsored_tile_clicks">sponsored_tile_clicks</h3>
 <p><strong>Sponsored Tile Clicks</strong></p>
-<p>Count of clicks of Sponsored Tiles (aka Sponsored Topsites on New Tab).</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_interactions"><code>newtab_interactions</code></a></p>
+<p>Count of clicks of Sponsored Tiles (aka Sponsored Topsites on New Tab) across all positions.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(COALESCE(sponsored_topsite_clicks, 0))
+<pre><code class="language-sql">SUM(COALESCE(topsite_tile_interactions.sponsored_topsite_tile_clicks, 0))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="sponsored_tile_clicks_pos1_2">sponsored_tile_clicks_pos1_2</h3>
+<p><strong>Sponsored Tiles Clicks Count (Position 1 and 2)</strong></p>
+<p>Count of Clicks of Sponsored Tiles in the first and second positions.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(
+        SUM(CASE
+          WHEN
+            topsite_tile_interactions.sponsored_topsite_tile_clicks &gt; 0 AND topsite_tile_interactions.topsite_tile_position &lt; 2
+            THEN topsite_tile_interactions.sponsored_topsite_tile_clicks
+          ELSE 0
+          END),
+        0
+      )
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="sponsored_tile_clicks_pos3_more">sponsored_tile_clicks_pos3_more</h3>
+<p><strong>Sponsored Tiles Clicks Count (Position 3 or greater)</strong></p>
+<p>Count of Clicks of Sponsored Tiles in the third and greater positions.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(
+        SUM(CASE
+          WHEN
+            topsite_tile_interactions.sponsored_topsite_tile_clicks &gt; 0 AND topsite_tile_interactions.topsite_tile_position &gt;= 2
+            THEN topsite_tile_interactions.sponsored_topsite_tile_clicks
+          ELSE 0
+          END),
+        0
+      )
 </code></pre>
 
 </details>
@@ -5721,7 +6003,7 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <h3 id="newtab_newtab_enabled">newtab_newtab_enabled</h3>
 <p><strong>Newtab Newtab Enabled</strong></p>
 <p>Whether or not new tabs are set to display the default New Tab page.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_interactions"><code>newtab_interactions</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
 <details>
 <summary>Definition:</summary>
 
@@ -5735,7 +6017,7 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <h3 id="newtab_homepage_enabled">newtab_homepage_enabled</h3>
 <p><strong>Newtab Homepage Enabled</strong></p>
 <p>Whether or not the homepage is set to display the default New Tab page.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_interactions"><code>newtab_interactions</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
 <details>
 <summary>Definition:</summary>
 
@@ -5749,7 +6031,7 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <h3 id="newtab_search_enabled">newtab_search_enabled</h3>
 <p><strong>Newtab Search Enabled</strong></p>
 <p>Whether or not the SAP (i.e., search handoff) is enabled on the New Tab.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_interactions"><code>newtab_interactions</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
 <details>
 <summary>Definition:</summary>
 
@@ -5763,7 +6045,7 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <h3 id="newtab_tiles_enabled">newtab_tiles_enabled</h3>
 <p><strong>Newtab Tiles Enabled</strong></p>
 <p>Whether or not tiles are enabled on the New Tab. Includes both sponsored and nonsponsored tiles.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_interactions"><code>newtab_interactions</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
 <details>
 <summary>Definition:</summary>
 
@@ -5777,7 +6059,7 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <h3 id="newtab_pocket_enabled">newtab_pocket_enabled</h3>
 <p><strong>Newtab Pocket Enabled</strong></p>
 <p>Whether or not Pocket is enabled on the New Tab.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_interactions"><code>newtab_interactions</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
 <details>
 <summary>Definition:</summary>
 
@@ -5791,7 +6073,7 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <h3 id="newtab_sponsored_pocket_stories_enabled">newtab_sponsored_pocket_stories_enabled</h3>
 <p><strong>Newtab Sponsored Pocket Stories Enabled</strong></p>
 <p>Whether or not Pocket Sponsored Stories is enabled on the New Tab.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_interactions"><code>newtab_interactions</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
 <details>
 <summary>Definition:</summary>
 
@@ -5818,13 +6100,13 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <hr />
 <h3 id="newtab_organic_topsite_clicks">newtab_organic_topsite_clicks</h3>
 <p><strong>Newtab Organic Tile Clicks</strong></p>
-<p>Count of New Tab organic tile clicks.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_interactions"><code>newtab_interactions</code></a></p>
+<p>Count of New Tab organic tile clicks across all positions.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(COALESCE(organic_topsite_clicks, 0))
+<pre><code class="language-sql">SUM(COALESCE(topsite_tile_interactions.organic_topsite_tile_clicks, 0))
 </code></pre>
 
 </details>
@@ -5832,13 +6114,13 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <hr />
 <h3 id="newtab_organic_topsite_impressions">newtab_organic_topsite_impressions</h3>
 <p><strong>Newtab Organic Tile Impressions</strong></p>
-<p>Count of New Tab organic tile impressions.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_interactions"><code>newtab_interactions</code></a></p>
+<p>Count of New Tab organic tile impressions across all positions.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(COALESCE(organic_topsite_impressions, 0))
+<pre><code class="language-sql">SUM(COALESCE(topsite_tile_interactions.organic_topsite_tile_impressions, 0))
 </code></pre>
 
 </details>
