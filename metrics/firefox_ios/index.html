@@ -1170,6 +1170,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#client_level_daily_active_users_v2" class="md-nav__link">
+    client_level_daily_active_users_v2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#organic_search_count" class="md-nav__link">
     organic_search_count
   </a>
@@ -2242,6 +2249,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#client_level_daily_active_users_v2" class="md-nav__link">
+    client_level_daily_active_users_v2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#organic_search_count" class="md-nav__link">
     organic_search_count
   </a>
@@ -2502,7 +2516,7 @@
     Whenever possible, this is the preferred DAU reporting definition to use for Firefox iOS.
     This metric needs to be aggregated by <code>submission_date</code>. If it is not aggregated by <code>submission_date</code>,
     it is similar to a "days of use" metric, and not DAU.</p>
-<pre><code>For more information, refer to [the DAU description in the Mozilla Data Documentation](https://docs.telemetry.mozilla.org/concepts/terminology.html#dau).
+<pre><code>For more information, refer to [the DAU description in Confluence](https://mozilla-hub.atlassian.net/wiki/spaces/DATA/pages/314704478/Daily+Active+Users+DAU+Metric).
 For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 </code></pre>
 <p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_ios/#active_users_aggregates_v1"><code>active_users_aggregates_v1</code></a></p>
@@ -2533,6 +2547,30 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 
 
 <pre><code class="language-sql">COUNT(DISTINCT CASE WHEN LOWER(metadata.isp.name) != 'browserstack' THEN client_info.client_id ELSE NULL END)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="client_level_daily_active_users_v2">client_level_daily_active_users_v2</h3>
+<p><strong>Firefox iOS Client-Level DAU</strong></p>
+<p>This metric reports DAU values similar (but not necessarily identical)
+    to the <a href="https://mozilla.github.io/metric-hub/metrics/firefox_ios/#daily_active_users_v2">official DAU reporting definition</a>.
+    It's generally preferable to use the official DAU reporting definition when possible; this metric
+    exists only for cases where reporting <code>client_id</code> is required (e.g. for experiments). This metric
+    needs to be aggregated by <code>submission_date</code>. If it is not aggregated by <code>submission_date</code>, it is
+    similar to a "days of use" metric, and not DAU.</p>
+<p>For more information, refer to <a href="https://mozilla-hub.atlassian.net/wiki/spaces/DATA/pages/314704478/Daily+Active+Users+DAU+Metric">the DAU description in Confluence</a>.
+    For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_ios/#baseline_v2"><code>baseline_v2</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COUNT(DISTINCT CASE WHEN metrics.timespan.glean_baseline_duration.value &gt; 0
+                         AND LOWER(metadata.isp.name) != 'browserstack'
+                        THEN client_info.client_id
+                        ELSE NULL END)
 </code></pre>
 
 </details>
