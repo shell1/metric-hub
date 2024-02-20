@@ -1814,6 +1814,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#newtab_any_searches" class="md-nav__link">
+    newtab_any_searches
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newtab_gt4_searches" class="md-nav__link">
+    newtab_gt4_searches
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#newtab_searches_with_ads" class="md-nav__link">
     newtab_searches_with_ads
   </a>
@@ -1977,6 +1991,20 @@
           <li class="md-nav__item">
   <a href="#newtab_engagement" class="md-nav__link">
     newtab_engagement
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newtab_visits" class="md-nav__link">
+    newtab_visits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newtab_engaged_visits" class="md-nav__link">
+    newtab_engaged_visits
   </a>
   
 </li>
@@ -3782,6 +3810,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#newtab_any_searches" class="md-nav__link">
+    newtab_any_searches
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newtab_gt4_searches" class="md-nav__link">
+    newtab_gt4_searches
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#newtab_searches_with_ads" class="md-nav__link">
     newtab_searches_with_ads
   </a>
@@ -3945,6 +3987,20 @@
           <li class="md-nav__item">
   <a href="#newtab_engagement" class="md-nav__link">
     newtab_engagement
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newtab_visits" class="md-nav__link">
+    newtab_visits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newtab_engaged_visits" class="md-nav__link">
+    newtab_engaged_visits
   </a>
   
 </li>
@@ -5704,6 +5760,34 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 </details>
 
 <hr />
+<h3 id="newtab_any_searches">newtab_any_searches</h3>
+<p><strong>Any Newtab Searches</strong></p>
+<p>Client performed any Newtab Handoff searches during the experiment</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_interactions"><code>newtab_interactions</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">{{agg_any(&quot;searches &gt; 0&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="newtab_gt4_searches">newtab_gt4_searches</h3>
+<p><strong>Any Newtab Searches</strong></p>
+<p>Client performed any Newtab Handoff searches during the experiment</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_interactions"><code>newtab_interactions</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(CASE WHEN SUM(searches) &gt; 4 THEN 1 ELSE 0 END, 0)
+</code></pre>
+
+</details>
+
+<hr />
 <h3 id="newtab_searches_with_ads">newtab_searches_with_ads</h3>
 <p><strong>Newtab Searches with Ads</strong></p>
 <p>Count of searches performed on the New Tab that resulted in an ad impression on the SERP</p>
@@ -6093,6 +6177,34 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 
 
 <pre><code class="language-sql">COALESCE(MAX(case when searches &gt; 0 OR pocket_clicks &gt; 0 OR topsite_clicks &gt; 0 OR organic_topsite_clicks &gt; 0 then 1 else 0 end), 0)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="newtab_visits">newtab_visits</h3>
+<p><strong>Newtab Visit Count</strong></p>
+<p>Count of New Tab visits</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_visits"><code>newtab_visits</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(COUNT(DISTINCT newtab_visit_id), 0)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="newtab_engaged_visits">newtab_engaged_visits</h3>
+<p><strong>Newtab Engaged Visit Count</strong></p>
+<p>Count of New Tab visits with any engagement</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_visits"><code>newtab_visits</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(COUNTIF(had_non_impression_engagement), 0)
 </code></pre>
 
 </details>
