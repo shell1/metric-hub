@@ -1689,6 +1689,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#cohort_retention_day" class="md-nav__link">
+    cohort_retention_day
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cohort_retention_week" class="md-nav__link">
+    cohort_retention_week
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cohort_retention_month" class="md-nav__link">
+    cohort_retention_month
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2045,6 +2066,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#cohort_retention_day" class="md-nav__link">
+    cohort_retention_day
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cohort_retention_week" class="md-nav__link">
+    cohort_retention_week
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cohort_retention_month" class="md-nav__link">
+    cohort_retention_month
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2119,6 +2161,48 @@
 
 
 <pre><code class="language-sql">normalized_country_code
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="cohort_retention_day">cohort_retention_day</h3>
+<p><strong>Retention Day</strong></p>
+<p>Days Since Client Was New - Used for N-Day Retention</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#desktop_cohort_daily_retention"><code>desktop_cohort_daily_retention</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">DATE_DIFF(submission_date, first_seen_date, DAY)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="cohort_retention_week">cohort_retention_week</h3>
+<p><strong>Retention Week</strong></p>
+<p>Weeks Since Client was New (Even 7 Day Periods Only)</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#desktop_cohort_daily_retention"><code>desktop_cohort_daily_retention</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">IF(MOD(DATE_DIFF(submission_date, first_seen_date, DAY) + 1, 7) = 0, SAFE_DIVIDE(DATE_DIFF(submission_date, first_seen_date, DAY) + 1, 7), NULL)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="cohort_retention_month">cohort_retention_month</h3>
+<p><strong>Retention Month</strong></p>
+<p>Months Since Client was New (Even 28 Day Periods Only)</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#desktop_cohort_daily_retention"><code>desktop_cohort_daily_retention</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">IF(MOD(DATE_DIFF(submission_date, first_seen_date, DAY) + 1, 28) = 0, SAFE_DIVIDE(DATE_DIFF(submission_date, first_seen_date, DAY) + 1, 28), NULL)
 </code></pre>
 
 </details>
