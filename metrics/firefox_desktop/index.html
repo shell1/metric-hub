@@ -2247,6 +2247,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#socket_crash_count_v1" class="md-nav__link">
+    socket_crash_count_v1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#socket_crash_active_hours_v1" class="md-nav__link">
+    socket_crash_active_hours_v1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#socket_crash_dau_v1" class="md-nav__link">
+    socket_crash_dau_v1
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4281,6 +4302,27 @@
           <li class="md-nav__item">
   <a href="#cohort_clients_active_in_month" class="md-nav__link">
     cohort_clients_active_in_month
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#socket_crash_count_v1" class="md-nav__link">
+    socket_crash_count_v1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#socket_crash_active_hours_v1" class="md-nav__link">
+    socket_crash_active_hours_v1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#socket_crash_dau_v1" class="md-nav__link">
+    socket_crash_dau_v1
   </a>
   
 </li>
@@ -6782,6 +6824,48 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 
 
 <pre><code class="language-sql">SUM(COALESCE(num_clients_dau_active_atleastonce_in_last_28_days, 0))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="socket_crash_count_v1">socket_crash_count_v1</h3>
+<p><strong>Client Crash Count</strong></p>
+<p>Number of Socket crashes by a single client. Filter on this field to remove clients with large numbers of crashes.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#clients_daily"><code>clients_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(socket_crash_count)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="socket_crash_active_hours_v1">socket_crash_active_hours_v1</h3>
+<p><strong>Client Crash Active Hours</strong></p>
+<p>Total active hours of a client with socket crashes</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#clients_daily"><code>clients_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(IF(socket_crash_count &gt; 0, active_hours_sum, 0))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="socket_crash_dau_v1">socket_crash_dau_v1</h3>
+<p><strong>Daily Active Users with socket crashes</strong></p>
+<p>Daily active user count with socket crashes</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#clients_daily"><code>clients_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COUNTIF(socket_crash_count &gt; 0)
 </code></pre>
 
 </details>

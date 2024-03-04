@@ -1348,6 +1348,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#feature_usage_metrics_v1" class="md-nav__link">
+    feature_usage_metrics_v1
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2101,6 +2108,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#feature_usage_metrics_v1" class="md-nav__link">
+    feature_usage_metrics_v1
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2302,6 +2316,32 @@ LEFT JOIN (
 ) conv
 ON expo.client_id = conv.client_id
 GROUP BY 1, 2, 3, 4, 5, 6
+)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="feature_usage_metrics_v1"><a href="#feature_usage_metrics_v1">feature_usage_metrics_v1</a></h3>
+<p>Client ID column: <code>NULL</code></p>
+<p>Submission Date column: <code>None</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">(
+    SELECT
+        *
+    FROM `mozdata.fenix.feature_usage_metrics` p
+    LEFT JOIN (
+        SELECT
+        submission_date,
+        SUM(dau) AS dau
+        FROM `mozdata.telemetry.active_users_aggregates`
+        WHERE app_name = 'Fenix'
+        GROUP BY submission_date
+    )
+    USING(submission_date)
 )
 </code></pre>
 

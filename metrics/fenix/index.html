@@ -1386,6 +1386,34 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#bookmarks_add_v1" class="md-nav__link">
+    bookmarks_add_v1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bookmarks_delete_v1" class="md-nav__link">
+    bookmarks_delete_v1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bookmarks_add_users_v1" class="md-nav__link">
+    bookmarks_add_users_v1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bookmarks_delete_users_v1" class="md-nav__link">
+    bookmarks_delete_users_v1
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2591,6 +2619,34 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#bookmarks_add_v1" class="md-nav__link">
+    bookmarks_add_v1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bookmarks_delete_v1" class="md-nav__link">
+    bookmarks_delete_v1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bookmarks_add_users_v1" class="md-nav__link">
+    bookmarks_add_users_v1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bookmarks_delete_users_v1" class="md-nav__link">
+    bookmarks_delete_users_v1
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3282,6 +3338,62 @@ to be larger than download size.</p>
 
 
 <pre><code class="language-sql">COALESCE(SUM(at_least_1_cta))
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="bookmarks_add_v1">bookmarks_add_v1</h3>
+<p><strong>Added Bookmarks</strong></p>
+<p>Number of Added Bookmarks</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#feature_usage_metrics_v1"><code>feature_usage_metrics_v1</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(bookmarks_add)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="bookmarks_delete_v1">bookmarks_delete_v1</h3>
+<p><strong>Deleted Bookmarks</strong></p>
+<p>Number of Deleted Bookmarks</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#feature_usage_metrics_v1"><code>feature_usage_metrics_v1</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(bookmarks_delete)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="bookmarks_add_users_v1">bookmarks_add_users_v1</h3>
+<p><strong>Added Bookmarks Users</strong></p>
+<p>Number of Users that Added Bookmarks</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#feature_usage_metrics_v1"><code>feature_usage_metrics_v1</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(bookmarks_add_users)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="bookmarks_delete_users_v1">bookmarks_delete_users_v1</h3>
+<p><strong>Deleted Bookmarks Users</strong></p>
+<p>Number of Users that Deleted Bookmarks</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/fenix/#feature_usage_metrics_v1"><code>feature_usage_metrics_v1</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(bookmarks_delete_users)
 </code></pre>
 
 </details>
