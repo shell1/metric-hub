@@ -2010,6 +2010,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#newtab_non_search_engagement" class="md-nav__link">
+    newtab_non_search_engagement
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#newtab_organic_topsite_clicks" class="md-nav__link">
     newtab_organic_topsite_clicks
   </a>
@@ -4069,6 +4076,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#newtab_non_search_engagement" class="md-nav__link">
+    newtab_non_search_engagement
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#newtab_organic_topsite_clicks" class="md-nav__link">
     newtab_organic_topsite_clicks
   </a>
@@ -5875,12 +5889,12 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <h3 id="newtab_searches">newtab_searches</h3>
 <p><strong>Newtab Handoff Searches</strong></p>
 <p>Count of searches performed on the New Tab and handed off to the urlbar</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_interactions"><code>newtab_interactions</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_clients_daily"><code>newtab_clients_daily</code></a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(COALESCE(searches, 0))
+<pre><code class="language-sql">COALESCE(SUM(searches, 0))
 </code></pre>
 
 </details>
@@ -5889,7 +5903,7 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <h3 id="newtab_any_searches">newtab_any_searches</h3>
 <p><strong>Any Newtab Searches</strong></p>
 <p>Client performed any Newtab Handoff searches during the experiment</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_interactions"><code>newtab_interactions</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_clients_daily"><code>newtab_clients_daily</code></a></p>
 <details>
 <summary>Definition:</summary>
 
@@ -5903,7 +5917,7 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <h3 id="newtab_gt4_searches">newtab_gt4_searches</h3>
 <p><strong>Any Newtab Searches</strong></p>
 <p>Client performed any Newtab Handoff searches during the experiment</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_interactions"><code>newtab_interactions</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_clients_daily"><code>newtab_clients_daily</code></a></p>
 <details>
 <summary>Definition:</summary>
 
@@ -5917,12 +5931,12 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <h3 id="newtab_searches_with_ads">newtab_searches_with_ads</h3>
 <p><strong>Newtab Searches with Ads</strong></p>
 <p>Count of searches performed on the New Tab that resulted in an ad impression on the SERP</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_interactions"><code>newtab_interactions</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_clients_daily"><code>newtab_clients_daily</code></a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(COALESCE(tagged_search_ad_impressions, 0))
+<pre><code class="language-sql">COALESCE(SUM(tagged_search_ad_impressions, 0))
 </code></pre>
 
 </details>
@@ -5931,12 +5945,12 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <h3 id="newtab_ad_clicks">newtab_ad_clicks</h3>
 <p><strong>Newtab Ad Clicks</strong></p>
 <p>Count of searches performed on the New Tab that resulted in an ad click</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_interactions"><code>newtab_interactions</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_clients_daily"><code>newtab_clients_daily</code></a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(COALESCE(tagged_search_ad_clicks, 0))
+<pre><code class="language-sql">COALESCE(SUM(tagged_search_ad_clicks, 0))
 </code></pre>
 
 </details>
@@ -5945,12 +5959,12 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <h3 id="newtab_ad_click_rate">newtab_ad_click_rate</h3>
 <p><strong>Newtab Ad Click Rate</strong></p>
 <p>New Tab ad clicks divided by New Tab searches with ads</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_interactions"><code>newtab_interactions</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_clients_daily"><code>newtab_clients_daily</code></a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SAFE_DIVIDE(SUM(COALESCE(tagged_search_ad_clicks, 0)),  SUM(COALESCE(tagged_search_ad_impressions, 0)))
+<pre><code class="language-sql">SAFE_DIVIDE(COALESCE(SUM(tagged_search_ad_clicks, 0)),  COALESCE(SUM(tagged_search_ad_impressions, 0)))
 </code></pre>
 
 </details>
@@ -5959,12 +5973,12 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <h3 id="organic_pocket_clicks">organic_pocket_clicks</h3>
 <p><strong>Organic Pocket Clicks</strong></p>
 <p>Count of clicks on Organic Pocket content.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_interactions"><code>newtab_interactions</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_clients_daily"><code>newtab_clients_daily</code></a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(COALESCE(organic_pocket_clicks, 0))
+<pre><code class="language-sql">COALESCE(SUM(organic_pocket_clicks, 0))
 </code></pre>
 
 </details>
@@ -5973,12 +5987,12 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <h3 id="sponsored_pocket_clicks">sponsored_pocket_clicks</h3>
 <p><strong>Sponsored Pocket Clicks</strong></p>
 <p>Count of clicks on Sponsored Pocket content.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_interactions"><code>newtab_interactions</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_clients_daily"><code>newtab_clients_daily</code></a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(COALESCE(sponsored_pocket_clicks, 0))
+<pre><code class="language-sql">COALESCE(SUM(sponsored_pocket_clicks, 0))
 </code></pre>
 
 </details>
@@ -5987,12 +6001,12 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <h3 id="organic_pocket_impressions">organic_pocket_impressions</h3>
 <p><strong>Organic Pocket Impressions</strong></p>
 <p>Count of impressions on Organic Pocket content.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_interactions"><code>newtab_interactions</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_clients_daily"><code>newtab_clients_daily</code></a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(COALESCE(organic_pocket_impressions, 0))
+<pre><code class="language-sql">COALESCE(SUM(organic_pocket_impressions, 0))
 </code></pre>
 
 </details>
@@ -6001,12 +6015,12 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <h3 id="sponsored_pocket_impressions">sponsored_pocket_impressions</h3>
 <p><strong>Sponsored Pocket Impressions</strong></p>
 <p>Count of impressions of Sponsored Pocket content.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_interactions"><code>newtab_interactions</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_clients_daily"><code>newtab_clients_daily</code></a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(COALESCE(sponsored_pocket_impressions, 0))
+<pre><code class="language-sql">COALESCE(SUM(sponsored_pocket_impressions, 0))
 </code></pre>
 
 </details>
@@ -6097,12 +6111,12 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <h3 id="sponsored_tile_impressions">sponsored_tile_impressions</h3>
 <p><strong>Sponsored Tile Impressions</strong></p>
 <p>Count of impressions of Sponsored Tiles (aka Sponsored Topsites on New Tab) across all positions.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_clients_daily"><code>newtab_clients_daily</code></a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(COALESCE(topsite_tile_interactions.sponsored_topsite_tile_impressions, 0))
+<pre><code class="language-sql">COALESCE(SUM(sponsored_topsite_tile_impressions, 0))
 </code></pre>
 
 </details>
@@ -6155,12 +6169,12 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <h3 id="sponsored_tile_clicks">sponsored_tile_clicks</h3>
 <p><strong>Sponsored Tile Clicks</strong></p>
 <p>Count of clicks of Sponsored Tiles (aka Sponsored Topsites on New Tab) across all positions.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_clients_daily"><code>newtab_clients_daily</code></a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(COALESCE(topsite_tile_interactions.sponsored_topsite_tile_clicks, 0))
+<pre><code class="language-sql">COALESCE(SUM(sponsored_topsite_tile_clicks, 0))
 </code></pre>
 
 </details>
@@ -6213,7 +6227,7 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <h3 id="newtab_newtab_enabled">newtab_newtab_enabled</h3>
 <p><strong>Newtab Newtab Enabled</strong></p>
 <p>Whether or not new tabs are set to display the default New Tab page.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_clients_daily"><code>newtab_clients_daily</code></a></p>
 <details>
 <summary>Definition:</summary>
 
@@ -6227,7 +6241,7 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <h3 id="newtab_homepage_enabled">newtab_homepage_enabled</h3>
 <p><strong>Newtab Homepage Enabled</strong></p>
 <p>Whether or not the homepage is set to display the default New Tab page.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_clients_daily"><code>newtab_clients_daily</code></a></p>
 <details>
 <summary>Definition:</summary>
 
@@ -6255,7 +6269,7 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <h3 id="newtab_tiles_enabled">newtab_tiles_enabled</h3>
 <p><strong>Newtab Tiles Enabled</strong></p>
 <p>Whether or not tiles are enabled on the New Tab. Includes both sponsored and nonsponsored tiles.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_clients_daily"><code>newtab_clients_daily</code></a></p>
 <details>
 <summary>Definition:</summary>
 
@@ -6269,7 +6283,7 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <h3 id="newtab_pocket_enabled">newtab_pocket_enabled</h3>
 <p><strong>Newtab Pocket Enabled</strong></p>
 <p>Whether or not Pocket is enabled on the New Tab.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_clients_daily"><code>newtab_clients_daily</code></a></p>
 <details>
 <summary>Definition:</summary>
 
@@ -6283,7 +6297,7 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <h3 id="newtab_sponsored_pocket_stories_enabled">newtab_sponsored_pocket_stories_enabled</h3>
 <p><strong>Newtab Sponsored Pocket Stories Enabled</strong></p>
 <p>Whether or not Pocket Sponsored Stories is enabled on the New Tab.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_clients_daily"><code>newtab_clients_daily</code></a></p>
 <details>
 <summary>Definition:</summary>
 
@@ -6297,12 +6311,12 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <h3 id="newtab_engagement">newtab_engagement</h3>
 <p><strong>Newtab Engagement</strong></p>
 <p>Whether or not the client had a newtab search OR a pocket click OR a tile click.</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_interactions"><code>newtab_interactions</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_clients_daily"><code>newtab_clients_daily</code></a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COALESCE(MAX(case when searches &gt; 0 OR pocket_clicks &gt; 0 OR topsite_clicks &gt; 0 OR organic_topsite_clicks &gt; 0 then 1 else 0 end), 0)
+<pre><code class="language-sql">COALESCE(MAX(CASE WHEN visits_with_non_impression_engagement &gt; 0 THEN 1 ELSE 0 END), 0)
 </code></pre>
 
 </details>
@@ -6311,12 +6325,12 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <h3 id="newtab_visits">newtab_visits</h3>
 <p><strong>Newtab Visit Count</strong></p>
 <p>Count of New Tab visits</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_visits"><code>newtab_visits</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_clients_daily"><code>newtab_clients_daily</code></a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COALESCE(COUNT(DISTINCT newtab_visit_id), 0)
+<pre><code class="language-sql">COALESCE(SUM(newtab_visit_count), 0)
 </code></pre>
 
 </details>
@@ -6325,12 +6339,26 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <h3 id="newtab_engaged_visits">newtab_engaged_visits</h3>
 <p><strong>Newtab Engaged Visit Count</strong></p>
 <p>Count of New Tab visits with any engagement</p>
-<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_visits"><code>newtab_visits</code></a></p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_clients_daily"><code>newtab_clients_daily</code></a></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COALESCE(COUNTIF(had_non_impression_engagement), 0)
+<pre><code class="language-sql">COALESCE(SUM(visits_with_non_impression_engagement), 0)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="newtab_non_search_engagement">newtab_non_search_engagement</h3>
+<p><strong>Newtab Non-Search Engaged Visit Count</strong></p>
+<p>Count of New Tab visits with non-search engagement</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_clients_daily"><code>newtab_clients_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(SUM(visits_with_non_search_engagement), 0)
 </code></pre>
 
 </details>
@@ -6344,7 +6372,7 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(COALESCE(topsite_tile_interactions.organic_topsite_tile_clicks, 0))
+<pre><code class="language-sql">COALESCE(SUM(topsite_tile_interactions.organic_topsite_tile_clicks, 0))
 </code></pre>
 
 </details>
@@ -6358,7 +6386,7 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(COALESCE(topsite_tile_interactions.organic_topsite_tile_impressions, 0))
+<pre><code class="language-sql">COALESCE(SUM(topsite_tile_interactions.organic_topsite_tile_impressions, 0))
 </code></pre>
 
 </details>

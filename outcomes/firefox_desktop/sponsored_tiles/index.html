@@ -910,6 +910,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#newtab_clients_daily-new-tab-clients-daily" class="md-nav__link">
+    newtab_clients_daily- New Tab Clients Daily
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#sponsored_tiles_clients_daily-sponsored-tiles-clients-daily" class="md-nav__link">
     sponsored_tiles_clients_daily- Sponsored Tiles Clients Daily
   </a>
@@ -2116,6 +2123,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#newtab_clients_daily-new-tab-clients-daily" class="md-nav__link">
+    newtab_clients_daily- New Tab Clients Daily
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#sponsored_tiles_clients_daily-sponsored-tiles-clients-daily" class="md-nav__link">
     sponsored_tiles_clients_daily- Sponsored Tiles Clients Daily
   </a>
@@ -2157,13 +2171,13 @@
 <p>**Sponsored Tile Impressions **</p>
 <p>Count of impressions of Sponsored Tiles (aka Sponsored Topsites on New Tab) across all positions.</p>
 <p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
-<p>Data Source: <a href="#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
+<p>Data Source: <a href="#newtab_clients_daily"><code>newtab_clients_daily</code></a></p>
 <p>Statistics: <code>deciles</code>, <code>bootstrap_mean</code></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(COALESCE(topsite_tile_interactions.sponsored_topsite_tile_impressions, 0))
+<pre><code class="language-sql">COALESCE(SUM(sponsored_topsite_tile_impressions, 0))
 </code></pre>
 
 </details>
@@ -2173,13 +2187,13 @@
 <p>**Sponsored Tile Clicks **</p>
 <p>Count of clicks of Sponsored Tiles (aka Sponsored Topsites on New Tab) across all positions.</p>
 <p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
-<p>Data Source: <a href="#newtab_visits_topsite_tile_interactions"><code>newtab_visits_topsite_tile_interactions</code></a></p>
+<p>Data Source: <a href="#newtab_clients_daily"><code>newtab_clients_daily</code></a></p>
 <p>Statistics: <code>deciles</code>, <code>bootstrap_mean</code></p>
 <details>
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SUM(COALESCE(topsite_tile_interactions.sponsored_topsite_tile_clicks, 0))
+<pre><code class="language-sql">COALESCE(SUM(sponsored_topsite_tile_clicks, 0))
 </code></pre>
 
 </details>
@@ -2255,6 +2269,18 @@
 
 <hr />
 <h2 id="data-sources">Data Sources</h2>
+<h3 id="newtab_clients_daily-new-tab-clients-daily"><a href="#newtab_clients_daily"><code>newtab_clients_daily</code>- New Tab Clients Daily</a></h3>
+<p>New Tab visit aggregated to client-day level</p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">
+</code></pre>
+
+</details>
+
+<hr />
 <h3 id="sponsored_tiles_clients_daily-sponsored-tiles-clients-daily"><a href="#sponsored_tiles_clients_daily"><code>sponsored_tiles_clients_daily</code>- Sponsored Tiles Clients Daily</a></h3>
 <p>Sponsored Tiles Clients Daily</p>
 <details>
