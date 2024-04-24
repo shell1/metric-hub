@@ -841,20 +841,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#picture_in_picture_total_duration" class="md-nav__link">
-    picture_in_picture_total_duration
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#picture_in_picture_median_duration" class="md-nav__link">
-    picture_in_picture_median_duration
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#picture_in_picture_sessions" class="md-nav__link">
     picture_in_picture_sessions
   </a>
@@ -880,13 +866,6 @@
   
     <nav class="md-nav" aria-label="Data Sources">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#main-main" class="md-nav__link">
-    main- Main
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#events_pip-picture-in-picture-events" class="md-nav__link">
@@ -2103,20 +2082,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#picture_in_picture_total_duration" class="md-nav__link">
-    picture_in_picture_total_duration
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#picture_in_picture_median_duration" class="md-nav__link">
-    picture_in_picture_median_duration
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#picture_in_picture_sessions" class="md-nav__link">
     picture_in_picture_sessions
   </a>
@@ -2142,13 +2107,6 @@
   
     <nav class="md-nav" aria-label="Data Sources">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#main-main" class="md-nav__link">
-    main- Main
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#events_pip-picture-in-picture-events" class="md-nav__link">
@@ -2260,51 +2218,6 @@
 </details>
 
 <hr />
-<h3 id="picture_in_picture_total_duration"><code>picture_in_picture_total_duration</code></h3>
-<p>**Per-user total length of Picture in Picture sessions **</p>
-<p>The distribution of total user PiP session duration</p>
-<p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
-<p>Data Source: <a href="#main"><code>main</code></a></p>
-<p>Statistics: <code>kernel_density_estimate</code>, <code>empirical_cdf</code>, <code>bootstrap_mean</code>, <code>deciles</code></p>
-<details>
-<summary>Definition:</summary>
-
-
-<pre><code class="language-sql">SUM(
-        mozfun.hist.extract(
-            payload.histograms.fx_picture_in_picture_window_open_duration
-        ).sum
-    )
-</code></pre>
-
-</details>
-
-<hr />
-<h3 id="picture_in_picture_median_duration"><code>picture_in_picture_median_duration</code></h3>
-<p>**User-median length of Picture in Picture sessions **</p>
-<p>The distribution of user-median PiP session lengths</p>
-<p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
-<p>Data Source: <a href="#main"><code>main</code></a></p>
-<p>Statistics: <code>kernel_density_estimate</code>, <code>empirical_cdf</code>, <code>bootstrap_mean</code>, <code>deciles</code></p>
-<details>
-<summary>Definition:</summary>
-
-
-<pre><code class="language-sql">mozfun.hist.percentiles(
-        mozfun.hist.merge(
-            ARRAY_AGG(
-                mozfun.hist.extract(
-                    payload.histograms.fx_picture_in_picture_window_open_duration
-                )
-            )
-        ),
-        [0.5]
-    )[SAFE_OFFSET(0)].value
-</code></pre>
-
-</details>
-
-<hr />
 <h3 id="picture_in_picture_sessions"><code>picture_in_picture_sessions</code></h3>
 <p>**Number of Picture in Picture sessions **</p>
 <p>Number of PiP sessions that users opened over the measurement window</p>
@@ -2344,18 +2257,6 @@
 
 <hr />
 <h2 id="data-sources">Data Sources</h2>
-<h3 id="main-main"><a href="#main"><code>main</code>- Main</a></h3>
-<p>Main ping table</p>
-<details>
-<summary>Definition:</summary>
-
-
-<pre><code class="language-sql">
-</code></pre>
-
-</details>
-
-<hr />
 <h3 id="events_pip-picture-in-picture-events"><a href="#events_pip"><code>events_pip</code>- Picture in Picture events</a></h3>
 <p>Picture in Picture related events</p>
 <details>
