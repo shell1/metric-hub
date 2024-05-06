@@ -5894,7 +5894,7 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COALESCE(SUM(searches, 0))
+<pre><code class="language-sql">COALESCE(SUM(searches), 0)
 </code></pre>
 
 </details>
@@ -5936,7 +5936,7 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COALESCE(SUM(tagged_search_ad_impressions, 0))
+<pre><code class="language-sql">COALESCE(SUM(tagged_search_ad_impressions), 0)
 </code></pre>
 
 </details>
@@ -5950,7 +5950,7 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COALESCE(SUM(tagged_search_ad_clicks, 0))
+<pre><code class="language-sql">COALESCE(SUM(tagged_search_ad_clicks), 0)
 </code></pre>
 
 </details>
@@ -5964,7 +5964,7 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SAFE_DIVIDE(COALESCE(SUM(tagged_search_ad_clicks, 0)),  COALESCE(SUM(tagged_search_ad_impressions, 0)))
+<pre><code class="language-sql">SAFE_DIVIDE(COALESCE(SUM(tagged_search_ad_clicks), 0),  COALESCE(SUM(tagged_search_ad_impressions), 0))
 </code></pre>
 
 </details>
@@ -5978,7 +5978,7 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COALESCE(SUM(organic_pocket_clicks, 0))
+<pre><code class="language-sql">COALESCE(SUM(organic_pocket_clicks), 0)
 </code></pre>
 
 </details>
@@ -5992,7 +5992,7 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COALESCE(SUM(sponsored_pocket_clicks, 0))
+<pre><code class="language-sql">COALESCE(SUM(sponsored_pocket_clicks), 0)
 </code></pre>
 
 </details>
@@ -6006,7 +6006,7 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COALESCE(SUM(organic_pocket_impressions, 0))
+<pre><code class="language-sql">COALESCE(SUM(organic_pocket_impressions), 0)
 </code></pre>
 
 </details>
@@ -6020,7 +6020,7 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COALESCE(SUM(sponsored_pocket_impressions, 0))
+<pre><code class="language-sql">COALESCE(SUM(sponsored_pocket_impressions), 0)
 </code></pre>
 
 </details>
@@ -6116,7 +6116,7 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COALESCE(SUM(sponsored_topsite_tile_impressions, 0))
+<pre><code class="language-sql">COALESCE(SUM(sponsored_topsite_tile_impressions), 0)
 </code></pre>
 
 </details>
@@ -6174,7 +6174,7 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COALESCE(SUM(sponsored_topsite_tile_clicks, 0))
+<pre><code class="language-sql">COALESCE(SUM(sponsored_topsite_tile_clicks), 0)
 </code></pre>
 
 </details>
@@ -6372,7 +6372,7 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COALESCE(SUM(topsite_tile_interactions.organic_topsite_tile_clicks, 0))
+<pre><code class="language-sql">COALESCE(SUM(topsite_tile_interactions.organic_topsite_tile_clicks), 0)
 </code></pre>
 
 </details>
@@ -6386,7 +6386,7 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COALESCE(SUM(topsite_tile_interactions.organic_topsite_tile_impressions, 0))
+<pre><code class="language-sql">COALESCE(SUM(topsite_tile_interactions.organic_topsite_tile_impressions), 0)
 </code></pre>
 
 </details>

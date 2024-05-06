@@ -2227,7 +2227,7 @@
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">SAFE_DIVIDE(COALESCE(SUM(tagged_search_ad_clicks, 0)),  COALESCE(SUM(tagged_search_ad_impressions, 0)))
+<pre><code class="language-sql">SAFE_DIVIDE(COALESCE(SUM(tagged_search_ad_clicks), 0),  COALESCE(SUM(tagged_search_ad_impressions), 0))
 </code></pre>
 
 </details>
