@@ -2,9 +2,35 @@ friendly_name = "PDF Metrics"
 description = "Usage and engagement metrics for PDFs"
 
 [metrics]
+
 [metrics.pdf_engagement.statistics.binomial]
+[metrics.pdf_engagement.statistics.linear_model_mean]
+drop_highest = 0.0
+[metrics.pdf_engagement.statistics.linear_model_mean.covariate_adjustment]
+period = "preenrollment_week"
+
 [metrics.pdf_freetext.statistics.binomial]
+[metrics.pdf_freetext.statistics.linear_model_mean]
+drop_highest = 0.0
+[metrics.pdf_freetext.statistics.linear_model_mean.covariate_adjustment]
+period = "preenrollment_week"
+
 [metrics.pdf_ink.statistics.binomial]
+[metrics.pdf_ink.statistics.linear_model_mean]
+drop_highest = 0.0
+[metrics.pdf_ink.statistics.linear_model_mean.covariate_adjustment]
+period = "preenrollment_week"
+
 [metrics.pdf_print.statistics.binomial]
+[metrics.pdf_print.statistics.linear_model_mean]
+drop_highest = 0.0
+[metrics.pdf_print.statistics.linear_model_mean.covariate_adjustment]
+period = "preenrollment_week"
+
 [metrics.pdf_save.statistics.binomial]
+[metrics.pdf_save.statistics.linear_model_mean]
+drop_highest = 0.0
+[metrics.pdf_save.statistics.linear_model_mean.covariate_adjustment]
+period = "preenrollment_week"
+
 [metrics.pdf_opening.statistics.binomial]

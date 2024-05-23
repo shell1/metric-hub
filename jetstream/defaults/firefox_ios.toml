@@ -72,3 +72,31 @@ bootstrap_mean = {}
 
 [metrics.client_level_daily_active_users_v2.statistics.per_client_dau_impact]
 pre_treatments = ['normalize_over_analysis_period']
+
+# covariate adjustment
+#    "active_hours",
+#    "days_of_use",
+#    "search_count",
+#    "serp_ad_clicks",
+
+[metrics.active_hours.statistics.linear_model_mean]
+[metrics.active_hours.statistics.linear_model_mean.covariate_adjustment]
+period = "preenrollment_week"
+
+[metrics.days_of_use.statistics.linear_model_mean]
+[metrics.days_of_use.statistics.linear_model_mean.covariate_adjustment]
+period = "preenrollment_week"
+
+[metrics.search_count.statistics.linear_model_mean]
+[metrics.search_count.statistics.linear_model_mean.covariate_adjustment]
+period = "preenrollment_week"
+
+[metrics.serp_ad_clicks.statistics.linear_model_mean]
+[metrics.serp_ad_clicks.statistics.linear_model_mean.covariate_adjustment]
+period = "preenrollment_week"
+
+[metrics.retained.statistics.linear_model_mean]
+drop_highest = 0.0
+[metrics.retained.statistics.linear_model_mean.covariate_adjustment]
+metric = "days_of_use"
+period = "preenrollment_week"
