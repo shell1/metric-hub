@@ -1,0 +1,9 @@
+[metrics]
+preenrollment_week = [
+    "pdf_engagement",
+    "pdf_freetext",
+    "pdf_ink",
+    "pdf_print",
+    "pdf_save"
+]
+
