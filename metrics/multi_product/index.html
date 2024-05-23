@@ -1260,6 +1260,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#search_forecasting_revenue_per_ad_click" class="md-nav__link">
+    search_forecasting_revenue_per_ad_click
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2087,6 +2094,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#search_forecasting_revenue_per_ad_click" class="md-nav__link">
+    search_forecasting_revenue_per_ad_click
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2223,6 +2237,20 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 
 
 <pre><code class="language-sql">{{agg_sum(&quot;ad_click&quot;)}}
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="search_forecasting_revenue_per_ad_click">search_forecasting_revenue_per_ad_click</h3>
+<p><strong>Revenue per Ad Click</strong></p>
+<p>Revenue paid to Mozilla per Ad Click.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/multi_product/#search_revenue_levers_monthly"><code>search_revenue_levers_monthly</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">SUM(revenue)/ SUM(ad_click)
 </code></pre>
 
 </details>
