@@ -763,15 +763,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#urlbar_events-urlbar-events" class="md-nav__link">
-    urlbar_events- Urlbar Events
+  <a href="#search_clients_engines_sources_daily-search-clients-engines-sources-daily" class="md-nav__link">
+    search_clients_engines_sources_daily- Search Clients Engines Sources Daily
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#search_clients_engines_sources_daily-search-clients-engines-sources-daily" class="md-nav__link">
-    search_clients_engines_sources_daily- Search Clients Engines Sources Daily
+  <a href="#urlbar_events-urlbar-events" class="md-nav__link">
+    urlbar_events- Urlbar Events
   </a>
   
 </li>
@@ -2158,15 +2158,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#urlbar_events-urlbar-events" class="md-nav__link">
-    urlbar_events- Urlbar Events
+  <a href="#search_clients_engines_sources_daily-search-clients-engines-sources-daily" class="md-nav__link">
+    search_clients_engines_sources_daily- Search Clients Engines Sources Daily
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#search_clients_engines_sources_daily-search-clients-engines-sources-daily" class="md-nav__link">
-    search_clients_engines_sources_daily- Search Clients Engines Sources Daily
+  <a href="#urlbar_events-urlbar-events" class="md-nav__link">
+    urlbar_events- Urlbar Events
   </a>
   
 </li>
@@ -2197,7 +2197,7 @@
 <h2 id="metrics">Metrics</h2>
 <h3 id="search_engine_rate"><code>search_engine_rate</code></h3>
 <p>**SERP engagement rate **</p>
-<p>Proportion of urlbar impressions ending with a click leading to a SERP</p>
+<p>Proportion of urlbar sessions ending with an engagement leading to a SERP</p>
 <p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
 <p>Data Source: <a href="#">``</a></p>
 <p>Statistics: <code>population_ratio</code></p>
@@ -2212,7 +2212,7 @@
 
 <hr />
 <h3 id="search_engine_clicks"><code>search_engine_clicks</code></h3>
-<p>**Urlbar impressions ending on a SERP **</p>
+<p>**Urlbar sessions ending on a SERP **</p>
 <p>Count of clicks on a result shown in the urlbar dropdown menu leading to a SERP</p>
 <p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
 <p>Data Source: <a href="#urlbar_events"><code>urlbar_events</code></a></p>
@@ -2235,7 +2235,7 @@
 
 <hr />
 <h3 id="urlbar_annoyances"><code>urlbar_annoyances</code></h3>
-<p>**urlbar annoyances **</p>
+<p>**Urlbar annoyances **</p>
 <p>Count of clicks on annoyance signals across all results shown in the urlbar dropdown menu</p>
 <p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
 <p>Data Source: <a href="#urlbar_events"><code>urlbar_events</code></a></p>
@@ -2244,15 +2244,15 @@
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COUNT(DISTINCT(CASE WHEN event_action = 'annoyance' THEN event_id ELSE NULL END))
+<pre><code class="language-sql">COUNTIF(event_action = 'annoyance')
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="urlbar_ctr"><code>urlbar_ctr</code></h3>
-<p>**urlbar click-through rate (ctr) **</p>
-<p>Count of urlbar clicks divided by count of urlbar impressions. This is a <code>population-ratio</code> metric, not a client-level metric.</p>
+<p>**Urlbar engagement rate **</p>
+<p>Count of urlbar engagements divided by count of urlbar sessions. This is a <code>population-ratio</code> metric, not a client-level metric.</p>
 <p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
 <p>Data Source: <a href="#">``</a></p>
 <p>Statistics: <code>population_ratio</code></p>
@@ -2267,7 +2267,7 @@
 
 <hr />
 <h3 id="urlbar_impressions"><code>urlbar_impressions</code></h3>
-<p>**urlbar impressions **</p>
+<p>**Urlbar search sessions **</p>
 <p>The number of times a user exits the urlbar dropdown menu, either by abandoning the urlbar, engaging with a urlbar result, or selecting an annoyance signal that closes the urlbar dropdown menu</p>
 <p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
 <p>Data Source: <a href="#urlbar_events"><code>urlbar_events</code></a></p>
@@ -2276,14 +2276,14 @@
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COUNT(DISTINCT(CASE WHEN is_terminal THEN event_id ELSE NULL END))
+<pre><code class="language-sql">COUNTIF(is_terminal)
 </code></pre>
 
 </details>
 
 <hr />
 <h3 id="urlbar_clicks"><code>urlbar_clicks</code></h3>
-<p>**urlbar clicks **</p>
+<p>**Urlbar engagements **</p>
 <p>Count of clicks on any result shown in the urlbar dropdown menu</p>
 <p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
 <p>Data Source: <a href="#urlbar_events"><code>urlbar_events</code></a></p>
@@ -2292,7 +2292,7 @@
 <summary>Definition:</summary>
 
 
-<pre><code class="language-sql">COUNT(DISTINCT(CASE WHEN is_terminal and event_action = 'engaged' THEN event_id ELSE NULL END))
+<pre><code class="language-sql">COUNTIF(is_terminal and event_action = 'engaged')
 </code></pre>
 
 </details>
@@ -2318,8 +2318,8 @@ population.</p>
 
 <hr />
 <h3 id="urlbar_search_count"><code>urlbar_search_count</code></h3>
-<p>**urlbar searches **</p>
-<p>Number of searches performed in the urlbar, including search mode and handoff</p>
+<p>**Urlbar search count (Legacy) **</p>
+<p>Number of searches performed in the urlbar, including search mode and handoff, from Legacy telemetry</p>
 <p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
 <p>Data Source: <a href="#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code></a></p>
 <p>Statistics: <code>bootstrap_mean</code>, <code>deciles</code></p>
@@ -2345,8 +2345,8 @@ population.</p>
 </details>
 
 <hr />
-<h3 id="urlbar_events-urlbar-events"><a href="#urlbar_events"><code>urlbar_events</code>- Urlbar Events</a></h3>
-<p>Urlbar Events</p>
+<h3 id="search_clients_engines_sources_daily-search-clients-engines-sources-daily"><a href="#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code>- Search Clients Engines Sources Daily</a></h3>
+<p>Search Clients Engines Sources Daily</p>
 <details>
 <summary>Definition:</summary>
 
@@ -2357,8 +2357,8 @@ population.</p>
 </details>
 
 <hr />
-<h3 id="search_clients_engines_sources_daily-search-clients-engines-sources-daily"><a href="#search_clients_engines_sources_daily"><code>search_clients_engines_sources_daily</code>- Search Clients Engines Sources Daily</a></h3>
-<p>Search Clients Engines Sources Daily</p>
+<h3 id="urlbar_events-urlbar-events"><a href="#urlbar_events"><code>urlbar_events</code>- Urlbar Events</a></h3>
+<p>Urlbar Events</p>
 <details>
 <summary>Definition:</summary>
 
