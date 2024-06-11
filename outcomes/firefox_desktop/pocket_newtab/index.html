@@ -827,6 +827,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#any_organic_pocket_clicks" class="md-nav__link">
+    any_organic_pocket_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#newtab_sponsored_pocket_stories_enabled" class="md-nav__link">
     newtab_sponsored_pocket_stories_enabled
   </a>
@@ -2047,6 +2054,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#any_organic_pocket_clicks" class="md-nav__link">
+    any_organic_pocket_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#newtab_sponsored_pocket_stories_enabled" class="md-nav__link">
     newtab_sponsored_pocket_stories_enabled
   </a>
@@ -2125,6 +2139,22 @@
 <p>Usage and engagement metrics for Pocket content in New Tab.</p>
 <p><a href="https://github.com/mozilla/metric-hub/blob/main/jetstream/outcomes/firefox_desktop/pocket_newtab.toml">Source</a>  |  <a href="https://github.com/mozilla/metric-hub/edit/main/jetstream/outcomes/firefox_desktop/pocket_newtab.toml">Edit</a></p>
 <h2 id="metrics">Metrics</h2>
+<h3 id="any_organic_pocket_clicks"><code>any_organic_pocket_clicks</code></h3>
+<p>**Any organic Pocket Clicks **</p>
+<p>Client had any Pocket clicks during the experiment.</p>
+<p>Analysis Period: <code>weekly</code>, <code>overall</code></p>
+<p>Data Source: <a href="#newtab_clients_daily"><code>newtab_clients_daily</code></a></p>
+<p>Statistics: <code>binomial</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(LOGICAL_OR(organic_pocket_clicks &gt; 0), FALSE)
+</code></pre>
+
+</details>
+
+<hr />
 <h3 id="newtab_sponsored_pocket_stories_enabled"><code>newtab_sponsored_pocket_stories_enabled</code></h3>
 <p>**Newtab Sponsored Pocket Stories Enabled **</p>
 <p>Whether or not Pocket Sponsored Stories is enabled on the New Tab.</p>

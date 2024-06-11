@@ -1856,6 +1856,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#any_organic_pocket_clicks" class="md-nav__link">
+    any_organic_pocket_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#sponsored_pocket_clicks" class="md-nav__link">
     sponsored_pocket_clicks
   </a>
@@ -3922,6 +3929,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#any_organic_pocket_clicks" class="md-nav__link">
+    any_organic_pocket_clicks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#sponsored_pocket_clicks" class="md-nav__link">
     sponsored_pocket_clicks
   </a>
@@ -5979,6 +5993,20 @@ For questions please contact bochocki@mozilla.com or firefox-kpi@mozilla.com.
 
 
 <pre><code class="language-sql">COALESCE(SUM(organic_pocket_clicks), 0)
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="any_organic_pocket_clicks">any_organic_pocket_clicks</h3>
+<p><strong>Any organic Pocket Clicks</strong></p>
+<p>Client had any Pocket clicks during the experiment.</p>
+<p>Data Source: <a href="https://mozilla.github.io/metric-hub/data_sources/firefox_desktop/#newtab_clients_daily"><code>newtab_clients_daily</code></a></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">COALESCE(LOGICAL_OR(organic_pocket_clicks &gt; 0), FALSE)
 </code></pre>
 
 </details>
