@@ -811,6 +811,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../outcomes/firefox_desktop/serp/" class="md-nav__link">
+        Serp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../outcomes/firefox_desktop/sponsored_tiles/" class="md-nav__link">
         Sponsored tiles
       </a>
@@ -1435,6 +1449,13 @@
           <li class="md-nav__item">
   <a href="#urlbar_events_unnested_results" class="md-nav__link">
     urlbar_events_unnested_results
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serp_events" class="md-nav__link">
+    serp_events
   </a>
   
 </li>
@@ -2305,6 +2326,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#serp_events" class="md-nav__link">
+    serp_events
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#metrics" class="md-nav__link">
     metrics
   </a>
@@ -2672,6 +2700,19 @@
     CROSS JOIN
         UNNEST(e.results) AS result
 )
+</code></pre>
+
+</details>
+
+<hr />
+<h3 id="serp_events"><a href="#serp_events">serp_events</a></h3>
+<p>Client ID column: <code>legacy_telemetry_client_id</code></p>
+<p>Submission Date column: <code>submission_date</code></p>
+<details>
+<summary>Definition:</summary>
+
+
+<pre><code class="language-sql">mozdata.firefox_desktop.serp_events
 </code></pre>
 
 </details>
